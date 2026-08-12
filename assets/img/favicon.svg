@@ -1,12 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#17e0c0"/>
-      <stop offset="1" stop-color="#4f8dff"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="#0b111b"/>
-  <path d="M44 20a17 17 0 1 0 0 24" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M14 32h7l4-8 6 16 4-8h9" fill="none" stroke="#17e0c0" stroke-width="3.4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0d0e10"/>
+  <g transform="translate(26 26) scale(0.9)">
+    <polygon points="450.4568 71.3696 249.1049 71.3696 313.9001 1 511.0717 1 450.4568 71.3696" fill="#ffffff"/>
+    <polygon points="511.0717 202.3516 511.0717 1 440.7043 71.3696 440.7043 262.9666 511.0717 202.3516" fill="#ed2224"/>
+    <path d="M256.0717,447.5993c-105.8167,0-191.5969-85.7828-191.5969-191.5991,0-88.0852,59.4614-162.2368,140.4206-184.6307h-.7288L268.6678,1.3184c-4.1741-.204-8.3711-.3184-12.5961-.3184C115.2387,1,1.0717,115.167,1.0717,256.0002s114.167,254.9998,255,254.9998,255-114.167,255-254.9998c0-4.403-.1103-8.7794-.331-13.125l-68.6733,59.1533c-20.6178,83.578-96.0515,145.5708-185.9957,145.5708Z" fill="#ffffff"/>
+  </g>
 </svg>

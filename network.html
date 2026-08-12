@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-MY" data-bs-theme="dark">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- ============ SEO ============ -->
+	<title>Networking &amp; Wi-Fi 6/7 Installation | CureComp</title>
+	<meta name="description" content="Networking gear from home to ISP-grade, hardwired Wi-Fi 6 and Wi-Fi 7 roaming, fq_codel QoS, 10G fibre to the desk and free NOC monitoring.">
+	<link rel="canonical" href="https://curecomp.com.my/network.html">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="author" content="CureComp Technology">
+	<meta name="publisher" content="CureComp Technology">
+	<meta name="geo.region" content="MY-05">
+	<meta name="geo.placename" content="Seremban, Negeri Sembilan">
+	<meta name="geo.position" content="2.7186364;101.9547445">
+	<meta name="ICBM" content="2.7186364, 101.9547445">
+
+	<!-- ============ Open Graph (Facebook, LinkedIn, WhatsApp, Discord) ============ -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="CureComp Technology">
+	<meta property="og:locale" content="en_MY">
+	<meta property="og:url" content="https://curecomp.com.my/network.html">
+	<meta property="og:title" content="Networking &amp; Wi-Fi — Wi-Fi 6, Wi-Fi 7 and ISP-Grade Gear">
+	<meta property="og:description" content="Networking gear from home to ISP-grade, hardwired Wi-Fi 6 and Wi-Fi 7 roaming, fq_codel QoS, 10G fibre to the desk and free NOC monitoring.">
+	<meta property="og:image" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta property="og:image:secure_url" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="CureComp Technology — computers, managed IT, networking, cloud and PON Stick, Seremban">
+
+	<!-- ============ Twitter / X ============ -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Networking &amp; Wi-Fi — Wi-Fi 6, Wi-Fi 7 and ISP-Grade Gear">
+	<meta name="twitter:description" content="Networking gear from home to ISP-grade, hardwired Wi-Fi 6 and Wi-Fi 7 roaming, fq_codel QoS, 10G fibre to the desk and free NOC monitoring.">
+	<meta name="twitter:image" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta name="twitter:image:alt" content="CureComp Technology — computers, managed IT, networking, cloud and PON Stick, Seremban">
+
+	<!-- Discord reads the Open Graph tags above and tints the embed with theme-color. -->
+	<meta name="theme-color" content="#ed2224">
+
+	<!-- ============ Icons ============ -->
+	<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+	<!-- ============ Styles ============ -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/theme.css">
+	<script>document.documentElement.className += " js";</script>
+
+	<!-- ============ Structured data (Google) ============ -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": ["LocalBusiness", "Organization"],
+				"@id": "https://curecomp.com.my/#organization",
+				"name": "CureComp Technology",
+				"legalName": "CureComp Technology",
+				"description": "Computer supply and repair, managed IT services, networking and Wi-Fi, cloud and colocation hosting, and Malaysia's first third-party GPON ONT.",
+				"url": "https://curecomp.com.my/",
+				"logo": "https://curecomp.com.my/assets/img/cc_logo-full-wide.svg",
+				"image": "https://curecomp.com.my/assets/img/og-cover.png",
+				"email": "curecomp@outlook.com",
+				"telephone": "+60178774376",
+				"currenciesAccepted": "MYR",
+				"identifier": "201603089199 (NS0161352-H)",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "No 2-02, Bangunan Seremban Plaza, Jalan Dato Muda Linggi",
+					"addressLocality": "Seremban",
+					"addressRegion": "Negeri Sembilan",
+					"postalCode": "70100",
+					"addressCountry": "MY"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 2.7186364,
+					"longitude": 101.9547445
+				},
+				"hasMap": "https://www.google.com/maps/search/CureComp/@2.7186364,101.9547445,17z",
+				"areaServed": {
+					"@type": "Country",
+					"name": "Malaysia"
+				},
+				"sameAs": [
+					"https://www.facebook.com/CureComp",
+					"https://wa.me/60178774376"
+				],
+				"makesOffer": [
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer supply, parts and repair" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed IT services (MSP)" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Networking, switching and Wi-Fi installation" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud hosting, colocation and dedicated servers" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Anime4000 GPON Stick (PON Stick)" } }
+				]
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://curecomp.com.my/#website",
+				"url": "https://curecomp.com.my/",
+				"name": "CureComp Technology",
+				"inLanguage": "en-MY",
+				"publisher": { "@id": "https://curecomp.com.my/#organization" }
+			},
+			{
+				"@type": "WebPage",
+				"@id": "https://curecomp.com.my/network.html",
+				"url": "https://curecomp.com.my/network.html",
+				"name": "Networking & Wi-Fi — Wi-Fi 6, Wi-Fi 7 and ISP-Grade Gear",
+				"description": "Networking gear from home to ISP-grade, hardwired Wi-Fi 6 and Wi-Fi 7 roaming, fq_codel QoS, 10G fibre to the desk and free NOC monitoring.",
+				"inLanguage": "en-MY",
+				"isPartOf": { "@id": "https://curecomp.com.my/#website" },
+				"about": { "@id": "https://curecomp.com.my/#organization" },
+				"primaryImageOfPage": "https://curecomp.com.my/assets/img/og-cover.png"
+			},
+			{
+				"@type": "BreadcrumbList",
+				"@id": "https://curecomp.com.my/network.html#breadcrumb",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://curecomp.com.my/" },
+					{ "@type": "ListItem", "position": 2, "name": "Networking", "item": "https://curecomp.com.my/network.html" }
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<!-- ============ TOP BAR ============ -->
+	<div class="topbar">
+		<div class="container topbar-in">
+			<p class="mb-0 d-none d-md-block">Networking and Wi-Fi — home, enterprise and ISP-grade.</p>
+			<div class="d-flex gap-3 mx-auto mx-md-0">
+				<a href="tel:+60178774376">+6017-877 4376</a>
+				<a href="mailto:curecomp@outlook.com">curecomp@outlook.com</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- ============ NAVBAR ============ -->
+	<nav class="navbar navbar-expand-xl sticky-top" aria-label="Primary">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="assets/img/cc_logo-full-wide-dark.svg" alt="CureComp Technology" width="180" height="34">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNav"
+							aria-controls="ccNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="ccNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-xl-center">
+					<li class="nav-item"><a class="nav-link" data-nav="home" href="index.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="shop" href="shop.html">Shop</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="msp" href="managed-it.html">Managed IT</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" data-nav="network" href="network.html">Networking</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="cloud" href="cloud.html">Cloud</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="pon" href="pon-stick.html">PON Stick</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="about" href="about.html">About</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="contact" href="contact.html">Contact</a></li>
+					<li class="nav-item ms-xl-3 mt-2 mt-xl-0">
+						<a class="btn btn-primary btn-sm w-100" href="contact.html">Get a quote</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main id="main">
+<!-- HERO -->
+<section class="hero">
+	<div class="hero-bg"></div>
+	<div class="hero-grid"></div>
+	<div class="container">
+		<div class="row g-5 align-items-center">
+			<div class="col-lg-7">
+				<span class="pill"><span class="pill-dot"></span> Home &middot; Enterprise &middot; <b>ISP-grade</b></span>
+				<h1 class="mb-3">Networking that behaves like <span class="grad">infrastructure</span>, not a gadget.</h1>
+				<p class="lead text-justify mb-4">We supply and install the whole range &mdash; a router for a terrace house, a stack of managed switches for a factory, or carrier-class gear for an ISP. And we design Wi-Fi that stays up when the room fills, because every access point we deploy is hardwired.</p>
+				<div class="d-flex flex-wrap gap-2">
+					<a class="btn btn-primary btn-lg" href="contact.html?topic=networking#enquiry">Plan my network</a>
+					<a class="btn btn-outline-light btn-lg" href="#wifi">Why Wi-Fi 6 &amp; 7</a>
+				</div>
+			</div>
+
+			<div class="col-lg-5">
+				<div class="card card-feature p-4">
+					<span class="tag-badge">Our rule</span>
+					<h3 class="card-title mb-3">Hardwired, always</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">Wired backhaul</dt>
+						<dd class="col-sm-7">Every roaming AP gets copper or fibre back to the switch. No wireless mesh hops carrying your traffic.</dd>
+						<dt class="col-sm-5">Fibre between blocks</dt>
+						<dd class="col-sm-7">Runs beyond copper distance, or across buildings, go on fibre &mdash; no distance guesswork, no earth loops.</dd>
+						<dt class="col-sm-5">Standards first</dt>
+						<dd class="col-sm-7">IEEE 802.11ax and 802.11be, 802.11k/v/r roaming, WPA3. No vendor-proprietary lock-in.</dd>
+						<dt class="col-sm-5">ISP relationships</dt>
+						<dd class="col-sm-7">We work alongside major operators including Telekom Malaysia when the service side needs coordinating.</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GEAR TIERS -->
+<section class="section section-alt">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">What we supply</span>
+			<h2>From one router to a whole exchange</h2>
+			<p class="lead">The same team specifies all of it, so the kit in your rack matches the kit at the edge and the service you buy from your ISP.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+					<h3 class="card-title">Home &amp; small office</h3>
+					<p class="card-text">Routers, mesh-free multi-AP Wi-Fi, PoE switches and structured cabling that turns a house or shoplot into a proper network.</p>
+					<div class="d-flex flex-wrap gap-2 mt-3"><span class="chip">Routers</span><span class="chip">PoE</span><span class="chip">Cabling</span></div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+					<h3 class="card-title">Business &amp; enterprise</h3>
+					<p class="card-text">Managed L2/L3 switching, VLAN segmentation, link aggregation, firewalls, redundant uplinks and controller-managed Wi-Fi.</p>
+					<div class="d-flex flex-wrap gap-2 mt-3"><span class="chip">L2 / L3</span><span class="chip">VLAN</span><span class="chip">Firewall</span></div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></div>
+					<h3 class="card-title">ISP-grade</h3>
+					<p class="card-text">Carrier switching and routing, OLT and PON equipment, SFP/SFP+ optics, DAC and patching for operators and integrators.</p>
+					<div class="d-flex flex-wrap gap-2 mt-3"><span class="chip">OLT / PON</span><span class="chip">Optics</span><span class="chip">Carrier</span></div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="210">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5.5 5.5 0 0 1 7 0M12 19.5h.01M2 9a15 15 0 0 1 20 0"/></svg></div>
+					<h3 class="card-title">Wi-Fi access points</h3>
+					<p class="card-text">Survey, placement, channel planning, installation and tuning &mdash; indoor, outdoor and high-density deployments.</p>
+					<div class="d-flex flex-wrap gap-2 mt-3"><span class="chip">Wi-Fi 6</span><span class="chip">Wi-Fi 6E</span><span class="chip">Wi-Fi 7</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- WHAT YOU ACTUALLY GET -->
+<section class="section" id="capabilities">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">What you actually get</span>
+			<h2>Fast when it's busy &mdash; which is the only time it matters</h2>
+			<p class="lead">Anyone can hit a good speed-test number on an idle line. The difference shows up when someone starts a 60&nbsp;GB download in the middle of your call.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="2"/><path d="M6 14V9a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5M6 17h.01M10 17h.01"/></svg></div>
+					<h3 class="card-title">Router, switch, PoE, firewall &mdash; and a controller you own</h3>
+					<p class="card-text">The full set, specified together so it behaves as one system. The wireless controller runs <strong>on-premise</strong>, on your hardware, in your building.</p>
+					<p class="card-text mt-2"><strong>No monthly cloud subscription</strong> to keep your own access points working. If your internet drops, your controller doesn't go with it &mdash; and nobody can raise the rent on equipment you already bought.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+					<h3 class="card-title">Low latency even under a full download</h3>
+					<p class="card-text">A saturated link normally fills every buffer between you and the internet, and your ping goes from 10&nbsp;ms to 300&nbsp;ms. That's bufferbloat, and it is why calls break up the moment someone hits download.</p>
+					<p class="card-text mt-2">We deploy <strong>fq_codel</strong> queuing, which keeps each flow in its own queue and drops the standing backlog before it builds. Downloads still run at full speed &mdash; and realtime traffic stays realtime.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/><circle cx="4" cy="12" r="1.6"/></svg></div>
+					<h3 class="card-title">No bottleneck anywhere in the chain</h3>
+					<p class="card-text">You are only as fast as the slowest hop: <strong>ISP &rarr; ONT &rarr; router &rarr; switch &rarr; your device</strong>. One under-spec box, one bad patch lead or one port that quietly negotiated down, and the speed you pay for never reaches the desk.</p>
+					<p class="card-text mt-2">We size and verify every hop, so you get the full speed you subscribed for &mdash; measured at the device, not at the router.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="5" rx="1.5"/><rect x="3" y="15" width="18" height="5" rx="1.5"/><path d="M7 9v6M17 9v6"/></svg></div>
+					<h3 class="card-title">Per-device QoS &mdash; nobody gets to lag your game</h3>
+					<p class="card-text">Fair queuing is applied per host, not just per connection. So one machine running a cloud backup, a system update or a torrent cannot swallow the whole line and leave everyone else stuttering.</p>
+					<p class="card-text mt-2">Your gaming session, your video call and your CCTV upload each keep their share. On business networks we take it further and give VoIP, POS terminals and payment traffic explicit priority over everything else.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="7" height="8" rx="1.5"/><rect x="15" y="8" width="7" height="8" rx="1.5"/><path d="M9 12h6"/><path d="M12 9.5v5"/></svg></div>
+					<h3 class="card-title">Site-to-site Layer 2 bridge</h3>
+					<p class="card-text">Extend your LAN across the internet. Your branch sits on the <strong>same subnet</strong> as head office, so file shares, printers, network discovery and legacy software that assumes one flat network all just work &mdash; no re-addressing, no per-site exceptions.</p>
+					<p class="card-text mt-2">We build these on encrypted tunnels and design the broadcast domain deliberately, so extending Layer 2 doesn't turn one site's problem into everybody's.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- WIFI 6 / 7 -->
+<section class="section section-alt" id="wifi">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Wi-Fi 6 &amp; Wi-Fi 7</span>
+			<h2>Wi-Fi 6 wasn't a speed bump. It was a repair.</h2>
+			<p class="lead">Earlier generations kept raising the headline number while the underlying problem went untouched: devices took turns shouting over each other, and everything fell apart once the room got busy. 802.11ax rebuilt that layer &mdash; and it borrowed the fix from mobile networks.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-6">
+				<div class="card p-4 p-md-5 rv">
+					<h3 class="card-title mb-3">What 802.11ax actually changed</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">OFDMA</dt>
+						<dd class="col-sm-7">The channel is divided into resource units so the AP serves many clients inside one transmission, instead of each device waiting its turn. This is the scheduling model LTE and 5G have always used.</dd>
+						<dt class="col-sm-5">MU-MIMO</dt>
+						<dd class="col-sm-7">Multiple spatial streams to multiple clients at once, upstream as well as down &mdash; so one slow device stops holding up the rest.</dd>
+						<dt class="col-sm-5">BSS Coloring</dt>
+						<dd class="col-sm-7">Each network tags its transmissions with a colour. Radios can tell a neighbour's traffic from their own and stop deferring needlessly &mdash; the single biggest gain in flats, shoplots and dense offices.</dd>
+						<dt class="col-sm-5">Target Wake Time</dt>
+						<dd class="col-sm-7">Devices agree when to wake and transmit. Less airtime wasted, and noticeably better battery life on phones and IoT.</dd>
+						<dt class="col-sm-5">WPA3</dt>
+						<dd class="col-sm-7">Modern authentication and encryption as a baseline rather than an optional extra.</dd>
+					</dl>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="card p-4 p-md-5 rv" data-delay="80">
+					<h3 class="card-title mb-3">What Wi-Fi 7 adds on top</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">MLO</dt>
+						<dd class="col-sm-7">Multi-Link Operation: a client uses 2.4, 5 and 6&nbsp;GHz at the same time rather than picking one. If a band gets congested or interfered with, traffic keeps moving on the others &mdash; the same redundancy thinking as carrier aggregation on 5G.</dd>
+						<dt class="col-sm-5">Lower jitter</dt>
+						<dd class="col-sm-7">Because links fail over instead of stalling, latency stays flat. That is what calls, video and remote desktops actually care about.</dd>
+						<dt class="col-sm-5">320&nbsp;MHz channels</dt>
+						<dd class="col-sm-7">Double the width of Wi-Fi 6E in the 6&nbsp;GHz band, where there is clean spectrum to use it.</dd>
+						<dt class="col-sm-5">4096-QAM</dt>
+						<dd class="col-sm-7">Denser modulation for higher throughput at close range and good signal quality.</dd>
+						<dt class="col-sm-5">Multi-RU</dt>
+						<dd class="col-sm-7">More flexible allocation of those resource units, so scheduling stays efficient with mixed client types.</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+
+		<div class="opf-panel mt-4 rv">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-7">
+					<h3 class="card-title">Consumer Wi-Fi finally inherited cellular's reliability engineering</h3>
+					<p class="mb-0">Scheduled airtime, coordinated interference handling and multi-link redundancy are ideas LTE and 5G proved at national scale. Wi-Fi 6 brought the scheduling; Wi-Fi 7 brought the redundancy. That is why we specify them &mdash; not for the number on the box, but because they behave predictably with fifty devices in the room.</p>
+				</div>
+				<div class="col-lg-5">
+					<div class="d-flex flex-wrap gap-2">
+						<span class="chip">IEEE 802.11ax</span><span class="chip">IEEE 802.11be</span>
+						<span class="chip">802.11k / v / r</span><span class="chip">WPA3</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FIBRE TO THE DESKTOP -->
+<section class="section" id="fibre-desktop">
+	<div class="container">
+		<div class="row g-5 align-items-center">
+			<div class="col-lg-6 rv">
+				<span class="eyebrow">Fibre to the desktop</span>
+				<h2>Link keeps dropping? Falling back from 2.5G to 100&nbsp;Mbps?</h2>
+				<p class="lead">Copper is doing its best. A long run past a fluorescent ballast, a lift motor or a welding bay, a marginal patch lead, a warm NIC &mdash; and the link negotiates down to whatever it can hold. Often 100&nbsp;Mbps. Sometimes it just flaps all day and nobody can say why.</p>
+				<p>Fibre doesn't have that failure mode. It carries light, so electrical noise simply cannot touch it: no interference, no earth loops, no downshifting, no distance anxiety. Plug it straight into the PC and the link is either up at full rate or it isn't &mdash; there is no mystery middle state.</p>
+				<p class="mb-0"><strong>10&nbsp;Gbps on the LAN is the new normal.</strong> Editing off a NAS, moving VM images, running backups over the wire &mdash; all of it stops being an overnight job.</p>
+				<div class="mt-4"><a class="btn btn-primary" href="contact.html?topic=fibre-desktop#enquiry">Get fibre to my desk</a></div>
+			</div>
+
+			<div class="col-lg-6 rv" data-delay="80">
+				<div class="card card-feature p-4 p-md-5">
+					<span class="tag-badge">10G LAN</span>
+					<h3 class="card-title mb-3">What it takes</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">SFP+ card in the PC</dt>
+						<dd class="col-sm-7">A network card with an optical cage instead of an RJ45 socket. Drops into a spare PCIe slot.</dd>
+						<dt class="col-sm-5">Fibre run to the rack</dt>
+						<dd class="col-sm-7">Thin, flexible and routed alongside your existing cabling. No re-wiring the whole building.</dd>
+						<dt class="col-sm-5">Switch with SFP+ ports</dt>
+						<dd class="col-sm-7">Supplied and configured with the rest of the network, sized for how many desks go optical.</dd>
+						<dt class="col-sm-5">Immune to interference</dt>
+						<dd class="col-sm-7">Runs happily past machinery, lift shafts and power runs that make copper unreliable.</dd>
+						<dt class="col-sm-5">No downshifting</dt>
+						<dd class="col-sm-7">The link runs at its rated speed or it doesn't come up. No silent drop to 100&nbsp;Mbps.</dd>
+						<dt class="col-sm-5">Distance</dt>
+						<dd class="col-sm-7">Hundreds of metres on multi-mode, kilometres on single-mode &mdash; past copper's 100&nbsp;m ceiling.</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ROAMING -->
+<section class="section section-alt">
+	<div class="container">
+		<div class="row g-5 align-items-center">
+			<div class="col-lg-6 rv">
+				<span class="eyebrow">Roaming design</span>
+				<h2>Every access point hardwired. No exceptions.</h2>
+				<p class="lead">Wireless mesh is convenient to sell and painful to live with: each hop halves throughput, latency stacks up, and one weak link degrades everything behind it. Our default multi-AP roaming deployments run copper or fibre to every AP.</p>
+				<div class="mt-4"><a class="btn btn-primary" href="contact.html?topic=wifi#enquiry">Get a site survey</a></div>
+			</div>
+			<div class="col-lg-6">
+				<div class="card p-4 p-md-5 rv" data-delay="80">
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">Seamless handover</dt>
+						<dd class="col-sm-7">802.11k, v and r so devices move between APs without dropping calls or sessions.</dd>
+						<dt class="col-sm-5">One SSID</dt>
+						<dd class="col-sm-7">Staff, guest and IoT separated by VLAN and policy, not by making users pick a network name per floor.</dd>
+						<dt class="col-sm-5">PoE from the rack</dt>
+						<dd class="col-sm-7">Power and data on one cable, centrally switched, so an AP can be power-cycled remotely.</dd>
+						<dt class="col-sm-5">Fibre for distance</dt>
+						<dd class="col-sm-7">Between floors, blocks and outbuildings &mdash; past copper's 100&nbsp;m limit and immune to the electrical noise of a plant floor.</dd>
+						<dt class="col-sm-5">Tuned, not guessed</dt>
+						<dd class="col-sm-7">Channel plan, power levels and band steering set from a survey and re-checked after occupancy.</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- NAS -->
+<section class="section" id="nas">
+	<div class="container">
+		<div class="row g-5 align-items-center">
+			<div class="col-lg-6 rv" data-delay="80">
+				<div class="card card-feature p-4 p-md-5">
+					<span class="tag-badge">Privacy first</span>
+					<h3 class="card-title mb-3">Storage that lives in your building</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">Share locally</dt>
+						<dd class="col-sm-7">One place for the family photos, the team's project files or the shop's paperwork &mdash; at full LAN speed, not upload speed.</dd>
+						<dt class="col-sm-5">Reach it remotely</dt>
+						<dd class="col-sm-7">Access from outside over an encrypted connection, so working away doesn't mean copying everything to somebody else's cloud first.</dd>
+						<dt class="col-sm-5">Your data, your control</dt>
+						<dd class="col-sm-7">No scanning, no analytics, no terms of service that change next quarter. Nobody reads it but you.</dd>
+						<dt class="col-sm-5">No per-seat billing</dt>
+						<dd class="col-sm-7">Add users and terabytes without the subscription climbing every time the team grows.</dd>
+						<dt class="col-sm-5">Redundant by design</dt>
+						<dd class="col-sm-7">RAID or ZFS, scheduled snapshots, and an off-site copy so a failed disk is an inconvenience, not a disaster.</dd>
+						<dt class="col-sm-5">Fast when it counts</dt>
+						<dd class="col-sm-7">Pair it with <a href="#fibre-desktop">10G fibre to the desk</a> and editing straight off the NAS stops being painful.</dd>
+					</dl>
+				</div>
+			</div>
+
+			<div class="col-lg-6 rv">
+				<span class="eyebrow">NAS &amp; private storage</span>
+				<h2>Your own storage. No prying eyes.</h2>
+				<p class="lead">A NAS is simply a shared drive that belongs to you &mdash; sitting in your office or your home, on your network, under your lock. Friends, family or the whole team get to the same files, and so do you when you're away.</p>
+				<p>The difference from a public cloud drive isn't the feature list. It's that the disk is in your building. Nothing is indexed for advertising, nothing is mined for training data, and no provider policy change can lock you out of your own archive or quietly reprice it.</p>
+				<p class="mb-0">We size it to what you actually store, set up the sharing and permissions, wire in backups, and hand you the documentation. Privacy first, by construction rather than by promise.</p>
+				<div class="mt-4"><a class="btn btn-primary" href="contact.html?topic=nas#enquiry">Talk about a NAS</a></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- NOC -->
+<section class="section section-alt" id="noc">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">NOC monitoring &mdash; included</span>
+			<h2>We watch it. You just tell us when it feels off.</h2>
+			<p class="lead">Every SME, MikroTik and Enterprise plan is onboarded to our Network Operations Centre at no extra cost. Not a trial, not an upsell &mdash; it's part of the deployment.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+					<h3 class="card-title">Continuously monitored</h3>
+					<p class="card-text">Links, switches, access points and gateways watched around the clock, with history kept so we can tell a one-off blip from a pattern.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg></div>
+					<h3 class="card-title">"The internet feels janky"</h3>
+					<p class="card-text">That's a perfectly good bug report. Tell us, and we'll go and look &mdash; at the graphs, the error counters, the retry rates and the upstream. You don't need to diagnose it first.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5.5v6c0 4.6 3.4 8.6 8 9.5 4.6-.9 8-4.9 8-9.5v-6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+					<h3 class="card-title">Nothing changes without your say-so</h3>
+					<p class="card-text">We investigate remotely and come back with what we found and what we propose. Configuration changes are made <strong>only with your permission</strong> &mdash; never silently.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="opf-panel mt-4 rv">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-7">
+					<h3 class="card-title">Why it's free</h3>
+					<p class="mb-0">Because it costs us less than a truck roll. A network we can see is a network that stays stable, and a stable network doesn't generate emergency call-outs at 2&nbsp;a.m. Monitoring is cheaper for us than firefighting &mdash; so we'd rather give it away than sell it to you.</p>
+				</div>
+				<div class="col-lg-5">
+					<p class="small-note"><strong>Scope:</strong> NOC monitoring covers SME, MikroTik and Enterprise plans and above. Consumer-grade equipment isn't onboarded &mdash; it doesn't expose the telemetry the NOC needs, and we won't charge for a service we can't actually deliver on it.</p>
+					<a class="btn btn-primary mt-2" href="contact.html?topic=noc#enquiry">Ask about NOC monitoring</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ISP -->
+<section class="section">
+	<div class="container">
+		<div class="row g-4 align-items-center">
+			<div class="col-lg-6 rv">
+				<span class="eyebrow">Carrier side</span>
+				<h2>We work with the operators, not around them</h2>
+				<p class="lead">Most network problems live at the boundary between your equipment and the service you buy. Being on speaking terms with the operator shortens that argument considerably.</p>
+				<ul class="checks mt-4">
+					<li>Working relationships with major ISPs including <strong>Telekom Malaysia</strong></li>
+					<li>Service provisioning, handover and escalation handled on your behalf</li>
+					<li>PON and fibre expertise in-house &mdash; see the <a href="pon-stick.html">PON Stick</a></li>
+					<li>Multi-site links, failover and site-to-site VPN under <a href="managed-it.html">managed IT</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-6 rv" data-delay="80">
+				<div class="table-wrap">
+					<table class="table table-hover table-spec">
+						<thead><tr><th scope="col">Capability</th><th scope="col">Detail</th></tr></thead>
+						<tbody>
+							<tr><th scope="row">Wi-Fi standards</th><td>Wi-Fi 6 (802.11ax), Wi-Fi 6E, Wi-Fi 7 (802.11be)</td></tr>
+							<tr><th scope="row">Roaming</th><td>802.11k / v / r, single SSID, VLAN-separated</td></tr>
+							<tr><th scope="row">AP backhaul</th><td>Hardwired copper or fibre &mdash; never wireless mesh</td></tr>
+							<tr><th scope="row">Controller</th><td>On-premise, no monthly cloud subscription</td></tr>
+							<tr><th scope="row">Switching</th><td>Managed L2 and L3, VLAN, LACP, PoE / PoE+</td></tr>
+							<tr><th scope="row">Queue management</th><td>fq_codel, per-device fair queuing, application priority</td></tr>
+							<tr><th scope="row">Desktop links</th><td>1G, 2.5G and 10G, copper or fibre to the desk</td></tr>
+							<tr><th scope="row">Site-to-site</th><td>Encrypted Layer 2 bridge and Layer 3 VPN</td></tr>
+							<tr><th scope="row">Optics</th><td>SFP, SFP+, DAC, single-mode and multi-mode fibre</td></tr>
+							<tr><th scope="row">Storage</th><td>NAS with RAID or ZFS, snapshots and off-site backup</td></tr>
+							<tr><th scope="row">Security</th><td>WPA3, firewall policy, guest isolation, IoT segmentation</td></tr>
+							<tr><th scope="row">ISP-grade</th><td>OLT and PON equipment, carrier routing and switching</td></tr>
+							<tr><th scope="row">NOC monitoring</th><td>Included on SME, MikroTik and Enterprise plans</td></tr>
+							<tr><th scope="row">Operators</th><td>Including Telekom Malaysia</td></tr>
+							<tr><th scope="row">Pricing</th><td>Quoted per site survey &mdash; <a href="contact.html?topic=networking#enquiry">contact us</a></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-alt">
+	<div class="container">
+		<div class="sect-head mx-auto text-center">
+			<span class="eyebrow">How a deployment runs</span>
+			<h2>Surveyed, cabled, tuned, documented</h2>
+		</div>
+		<ol class="steps row g-4">
+			<li class="col-lg-3 col-md-6 rv"><div class="step"><h3>Site survey</h3><p>We walk the building, measure signal and noise, and find where the walls and the interference actually are.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="70"><div class="step"><h3>Design</h3><p>AP placement, channel plan, cable routes, switch and PoE budget, VLAN and SSID structure &mdash; on paper before anything is drilled.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="140"><div class="step"><h3>Install</h3><p>Cabling, termination, mounting and configuration, scheduled around your operating hours.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="210"><div class="step"><h3>Verify &amp; hand over</h3><p>Coverage re-tested under load, roaming confirmed, monitoring onboarded, and the whole thing documented and handed to you.</p></div></li>
+		</ol>
+	</div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+	<div class="container" style="max-width:880px;">
+		<div class="sect-head mx-auto text-center"><span class="eyebrow">Questions</span><h2>Networking, answered</h2></div>
+		<div class="accordion" id="faqNet">
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n1">Is Wi-Fi 6 worth it if my internet is only 100&nbsp;Mbps?</button></h3>
+				<div id="n1" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Usually yes, because the bottleneck is rarely your internet line &mdash; it is the air between your devices and the AP. Wi-Fi 6 improves how many devices can be served at once, so a busy house or office feels faster even on the same plan.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n2">Should I wait for Wi-Fi 7?</button></h3>
+				<div id="n2" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Only if your client devices support it. MLO needs both ends. We will tell you honestly whether Wi-Fi 6, 6E or 7 fits your device mix and budget rather than selling you the newest number.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n3">Why won't you install a wireless mesh?</button></h3>
+				<div id="n3" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">We will if cabling is genuinely impossible, and we will say so up front. But a wireless backhaul spends the same airtime twice, so every hop roughly halves throughput and adds latency. Where a cable can be run, it always wins.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n4">Will I have to pay a monthly fee for the Wi-Fi controller?</button></h3>
+				<div id="n4" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">No. We run the controller on-premise, on hardware you own. There is no cloud subscription keeping your own access points alive, and no vendor that can reprice access to equipment you already paid for.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n5">My 2.5G link keeps dropping to 100&nbsp;Mbps. Can you fix it?</button></h3>
+				<div id="n5" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Usually. It is normally cabling, a marginal port or interference on a long copper run, and we start by testing rather than guessing. Where the environment is genuinely hostile &mdash; machinery, lift shafts, heavy power runs &mdash; <a href="#fibre-desktop">fibre to the desk</a> removes the problem entirely instead of working around it.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n6">Is NOC monitoring really included?</button></h3>
+				<div id="n6" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Yes, on SME, MikroTik and Enterprise plans and above, at no extra charge. We monitor, you tell us when something feels wrong, and we investigate remotely &mdash; making changes only with your permission. Consumer-grade equipment isn't onboarded because it doesn't expose the telemetry the NOC needs.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n7">Can two offices really share one subnet?</button></h3>
+				<div id="n7" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Yes &mdash; an encrypted Layer 2 bridge extends the LAN across the internet so both sites sit on the same subnet. It suits legacy software and network discovery that assume one flat network. We design the broadcast domain carefully, and where a Layer 3 VPN is the healthier choice we will recommend that instead.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8">Do you supply ISP-grade equipment to operators?</button></h3>
+				<div id="n8" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Yes &mdash; carrier switching and routing, OLT and PON equipment, and optics. We also supply integrators building networks for their own clients.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n9">Can you take over an existing network?</button></h3>
+				<div id="n9" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Yes. We audit what is there, document it, and give you a costed list of what is urgent and what can wait. See <a href="managed-it.html">managed IT</a> for how ongoing cover works.</div></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight pb-5">
+	<div class="container">
+		<div class="cta rv">
+			<h2>Let's survey your site</h2>
+			<p class="lead mx-auto mb-4" style="max-width:62ch;">Tell us the building, the headcount and what keeps dropping. We'll design coverage that holds up under real load.</p>
+			<div class="d-flex flex-wrap gap-2 justify-content-center">
+				<a class="btn btn-primary btn-lg" href="contact.html?topic=networking#enquiry">Request a survey</a>
+				<a class="btn btn-wa btn-lg" href="https://wa.me/60178774376" target="_blank" rel="noopener">WhatsApp us</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+	</main>
+
+	<!-- ============ FOOTER ============ -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6">
+					<a href="index.html"><img class="footer-logo" src="assets/img/cc_logo-full-wide-dark.svg" alt="CureComp Technology" width="200" height="38"></a>
+					<p>Computers, managed IT services, networking and Wi-Fi, cloud infrastructure and Malaysia's first third-party GPON ONT &mdash; from Seremban, Negeri Sembilan.</p>
+					<div class="socials">
+						<a href="https://www.facebook.com/CureComp" target="_blank" rel="noopener" aria-label="CureComp on Facebook">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+						</a>
+						<a href="https://wa.me/60178774376" target="_blank" rel="noopener" aria-label="CureComp on WhatsApp">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2m0 2a8 8 0 1 1-4.1 14.9l-.4-.2-2.5.7.7-2.4-.2-.4A8 8 0 0 1 12 4m-3 4c-.3 0-.7.1-1 .5s-1 1-1 2.4 1 2.8 1.2 3 2 3.2 5 4.4c2.5 1 3 .8 3.5.7s1.7-.7 1.9-1.4.2-1.2.2-1.4-.3-.2-.6-.4l-2.2-1c-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.3-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.5-.6.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5z"/></svg>
+						</a>
+						<a href="mailto:curecomp@outlook.com" aria-label="Email CureComp">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-6">
+					<h4>Services</h4>
+					<ul>
+						<li><a href="shop.html">Shop &amp; Repair</a></li>
+						<li><a href="managed-it.html">Managed IT (MSP)</a></li>
+						<li><a href="network.html">Networking &amp; Wi-Fi</a></li>
+						<li><a href="cloud.html">Cloud &amp; Colocation</a></li>
+						<li><a href="pon-stick.html">PON Stick</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-6">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="about.html#clients">Our Clients</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="https://www.facebook.com/CureComp" target="_blank" rel="noopener">Facebook</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<h4>Get in touch</h4>
+					<ul>
+						<li><a href="tel:+60178774376">+6017-877 4376</a></li>
+						<li><a href="mailto:curecomp@outlook.com">curecomp@outlook.com</a></li>
+						<li class="pt-2"><a href="https://www.google.com/maps/search/CureComp/@2.7186364,101.9547445,17z" target="_blank" rel="noopener">No 2-02, Bangunan Seremban Plaza,<br>Jalan Dato Muda Linggi,<br>70100 Seremban, Negeri Sembilan<br><span class="link-arrow mt-1">Open in Google Maps</span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<span>&copy; <span data-year>2026</span> CureComp Technology. All rights reserved.</span>
+				<span>Reg. 201603089199 (NS0161352-H)</span>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
