@@ -465,6 +465,8 @@ a.card .link-arrow { margin-top: auto; padding-top: 1rem; }
 
 /* ---------- 15. Flow diagram ---------- */
 .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; align-items: stretch; }
+/* Four stages instead of three: node, arrow, node, arrow, node, arrow, node. */
+.flow-wide { grid-template-columns: repeat(7, 1fr); }
 .flow-node {
 	text-align: center; padding: 1.05rem .7rem; border-radius: var(--cc-radius);
 	border: 1px solid var(--cc-line); background: var(--cc-surface);
