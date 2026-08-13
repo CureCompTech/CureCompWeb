@@ -670,13 +670,21 @@ textarea.form-control { min-height: 130px; }
 .phy-link-surge { animation: phyFlow .9s linear infinite, phySurge 7s ease-in-out infinite; }
 .phy-failmark { animation: phyFail 7s ease-in-out infinite; }
 
-/* Channel width growing */
-@keyframes phyGrow { 0% { transform: scaleX(.06); } 60%, 100% { transform: scaleX(1); } }
-.phy-width { transform-origin: left center; animation: phyGrow 2.6s cubic-bezier(.2,.7,.3,1) infinite alternate; }
+/* Constellation: symbols landing on points */
+@keyframes phyBlink { 0% { opacity: 0; } 10%, 26% { opacity: 1; } 42%, 100% { opacity: 0; } }
+.phy-blink   { animation: phyBlink 2.4s ease-in-out infinite; }
+.phy-blink-2 { animation-delay: .45s; }
+.phy-blink-3 { animation-delay: .9s; }
+.phy-blink-4 { animation-delay: 1.35s; }
+.phy-blink-5 { animation-delay: 1.8s; }
 
-/* Constellation density */
-@keyframes phyDot { 0%, 40% { opacity: 0; } 60%, 100% { opacity: 1; } }
-.phy-dot-extra { animation: phyDot 2.8s ease-in-out infinite alternate; }
+/* Preamble puncturing: a slice goes bad, the rest stays usable.
+	 Authored attributes hold the "after" state, so the still frame shows the
+	 outcome; the animation replays the healthy channel before it. */
+@keyframes phyOff  { 0%, 28% { fill: var(--cc-red); } 38%, 88% { fill: #262c34; } 96%, 100% { fill: var(--cc-red); } }
+@keyframes phyIntf { 0%, 26% { opacity: 0; } 36%, 88% { opacity: 1; } 96%, 100% { opacity: 0; } }
+.phy-off  { animation: phyOff 6s ease-in-out infinite; }
+.phy-intf { animation: phyIntf 6s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
 	.phy-fig * { animation: none !important; }
