@@ -12,7 +12,8 @@ The published site is plain static HTML — no framework, no bundler, nothing to
 | `index.html` | Home | Overview of all five practices, client highlights |
 | `shop.html` | Shop | Computers, parts, supplies, service & repair |
 | `managed-it.html` | Managed IT | MSP services, service tiers, onboarding |
-| `network.html` | Networking | Gear from home to ISP-grade, fq_codel QoS, Wi-Fi 6/7, fibre to the desk, NAS, NOC |
+| `network.html` | Networking | Gear from home to ISP-grade, fq_codel QoS, Wi-Fi 6/7, FTTR, fibre to the desk, NAS, NOC |
+| `wifi-6-7.html` | *(footer only)* | Deep-dive lesson on the Wi-Fi 6/7 PHY, with animated SVG diagrams |
 | `cloud.html` | Cloud | Dedicated servers, colocation, VM/LXC, IPv6 allocation |
 | `pon-stick.html` | PON Stick | Anime4000 GPON Stick, NIJIKA SDK, Open PON Foundation, Prometheus/Grafana, MikroTik |
 | `about.html` | About Us | Company profile, registration details, full client list (`#clients`) |
@@ -154,6 +155,26 @@ reads it.
 - **Logos**: the supplied SVGs use near-black ink that disappears on the dark background,
   so white variants (`*-dark.svg`) are generated and used throughout. If the source logos
   change, regenerate them by replacing `#010101` with `#ffffff`.
+
+## The Wi-Fi lesson page
+
+`wifi-6-7.html` is a deep-dive guide, deliberately **kept out of the top navigation** so
+the main menu stays a list of services. It is reached from the "click to learn more" link
+in `network.html#wifi` and from the **Learn** group in the footer. Its `nav` key is
+`network`, so the Networking menu item stays highlighted while a visitor reads it, and its
+breadcrumb is three levels: Home › Networking › Wi-Fi 6 & 7 explained. Any page can get a
+third breadcrumb level by setting `parentCrumb` and `parentOut` in `tools/build.ps1`.
+
+The six diagrams are inline SVG animated with CSS keyframes in `theme.css` (section 24) —
+no JavaScript and no external library. Two rules matter when editing them:
+
+- **Every figure must read correctly with the animation stopped.** The reduced-motion
+  media query sets `animation: none`, so the authored attribute values *are* the still
+  frame. Where a stopped frame would lose the point, add a reduced-motion-only nudge —
+  `.phy-rest-ahead` does this for the BSS Coloring diagram, which would otherwise show
+  both lanes identical.
+- Labels sitting on top of a coloured block use `.t-on` (white), because the block may be
+  red or grey depending on where the animation is.
 
 ## CTA deep-linking
 

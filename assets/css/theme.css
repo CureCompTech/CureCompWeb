@@ -604,7 +604,89 @@ textarea.form-control { min-height: 130px; }
 	.js .rv { opacity: 1; transform: none; }
 }
 
-/* ---------- 24. Print ---------- */
+/* ---------- 24. Wi-Fi PHY lesson figures ----------
+	 Animated diagrams on wifi-6-7.html. Every figure is authored so its resting
+	 state (no animation) still reads correctly, because the reduced-motion rule
+	 at the end of this block stops the animations outright. */
+.phy-fig {
+	display: block; width: 100%; height: auto;
+	background: var(--cc-bg);
+	border: 1px solid var(--cc-line);
+	border-radius: var(--cc-radius);
+	margin-bottom: .9rem;
+}
+.phy-fig text { font-family: var(--cc-ff-mono); font-size: 11px; fill: var(--cc-muted); }
+.phy-fig .t-hi { fill: #fff; font-family: var(--cc-ff-display); font-size: 12.5px; font-weight: 600; }
+.phy-fig .t-sm { font-size: 9.5px; }
+/* Labels printed on top of a coloured block, which may be red or grey depending
+	 on where the animation is — white reads on both. */
+.phy-fig .t-on { font-size: 9.5px; fill: #fff; }
+.phy-lane   { fill: var(--cc-surface-2); }
+.phy-edge   { stroke: var(--cc-line-2); fill: none; }
+.phy-idle   { fill: #2b323c; }
+.phy-mine   { fill: var(--cc-red); }
+.phy-other  { fill: #59636f; }
+.phy-cap    { fill: var(--cc-muted); }
+
+.phy-caption { font-size: .84rem; color: var(--cc-muted); margin: 0; }
+
+/* Sequential vs simultaneous airtime */
+@keyframes phySlot { 0%, 28% { fill: var(--cc-red); } 30%, 100% { fill: #2b323c; } }
+.phy-seq-1 { animation: phySlot 3s linear infinite; }
+.phy-seq-2 { animation: phySlot 3s linear infinite 1s; }
+.phy-seq-3 { animation: phySlot 3s linear infinite 2s; }
+.phy-par   { animation: phySlot 3s linear infinite; }
+
+@keyframes phySweep { from { transform: translateX(0); } to { transform: translateX(330px); } }
+.phy-playhead { animation: phySweep 3s linear infinite; }
+
+/* Frames crossing the air */
+@keyframes phySend { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { transform: translateX(250px); opacity: 0; } }
+.phy-tx        { animation: phySend 3s ease-in-out infinite; }
+.phy-tx-late   { animation: phySend 3s ease-in-out infinite 1.5s; }
+@keyframes phyHold { 0%, 45% { opacity: 1; } 55%, 100% { opacity: 0; } }
+.phy-wait { animation: phyHold 3s ease-in-out infinite; }
+
+/* Spatial streams / link flow */
+@keyframes phyFlow { to { stroke-dashoffset: -36; } }
+.phy-stream {
+	fill: none; stroke: var(--cc-red); stroke-width: 2.4; stroke-linecap: round;
+	stroke-dasharray: 7 11; animation: phyFlow .9s linear infinite;
+}
+.phy-stream-2 { animation-delay: -.3s; }
+.phy-stream-3 { animation-delay: -.6s; }
+
+/* Scheduled wake windows */
+@keyframes phyWake { 0%, 12% { opacity: 1; } 26%, 100% { opacity: .18; } }
+.phy-wake-1 { animation: phyWake 3.6s ease-in-out infinite; }
+.phy-wake-2 { animation: phyWake 3.6s ease-in-out infinite 1.2s; }
+.phy-wake-3 { animation: phyWake 3.6s ease-in-out infinite 2.4s; }
+
+/* MLO: one link drops, the others carry on */
+@keyframes phyDrop { 0%, 38% { opacity: 1; } 45%, 62% { opacity: .12; } 70%, 100% { opacity: 1; } }
+@keyframes phyFail { 0%, 40% { opacity: 0; } 47%, 60% { opacity: 1; } 68%, 100% { opacity: 0; } }
+@keyframes phySurge { 0%, 38% { stroke-width: 2.4; } 48%, 60% { stroke-width: 4.2; } 70%, 100% { stroke-width: 2.4; } }
+.phy-link-drop { animation: phyFlow .9s linear infinite, phyDrop 7s ease-in-out infinite; }
+.phy-link-surge { animation: phyFlow .9s linear infinite, phySurge 7s ease-in-out infinite; }
+.phy-failmark { animation: phyFail 7s ease-in-out infinite; }
+
+/* Channel width growing */
+@keyframes phyGrow { 0% { transform: scaleX(.06); } 60%, 100% { transform: scaleX(1); } }
+.phy-width { transform-origin: left center; animation: phyGrow 2.6s cubic-bezier(.2,.7,.3,1) infinite alternate; }
+
+/* Constellation density */
+@keyframes phyDot { 0%, 40% { opacity: 0; } 60%, 100% { opacity: 1; } }
+.phy-dot-extra { animation: phyDot 2.8s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+	.phy-fig * { animation: none !important; }
+	/* With the motion stopped, both BSS lanes would sit at the start line and
+		 look identical. Nudging the neighbour's frame forward in the legacy lane
+		 restores the point: theirs is mid-flight, yours is still waiting. */
+	.phy-fig .phy-rest-ahead { transform: translateX(150px); }
+}
+
+/* ---------- 25. Print ---------- */
 @media print {
 	.navbar, .topbar, .footer, .cta, .skip { display: none !important; }
 	body { background: #fff; color: #000; }

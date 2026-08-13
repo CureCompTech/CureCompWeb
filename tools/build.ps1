@@ -122,6 +122,16 @@ $pages = @(
 		 desc='Networking gear from home to ISP-grade, hardwired Wi-Fi 6 and Wi-Fi 7 roaming, fq_codel QoS, 10G fibre to the desk and free NOC monitoring.'
 		 topbar='Networking and Wi-Fi — home, enterprise and ISP-grade.' }
 
+	# Deep-dive guide. Deliberately NOT in the top navigation — it is reached from
+	# network.html#wifi and from the footer. nav='network' so the parent menu item
+	# still highlights while a visitor is reading it.
+	@{ out='wifi-6-7.html';   nav='network'; body='body-wifi-6-7.html'; crumb='Wi-Fi 6 & 7 explained'
+		 parentCrumb='Networking'; parentOut='network.html'
+		 title='Wi-Fi 6 & Wi-Fi 7 Explained | CureComp Technology'
+		 ogtitle='Wi-Fi 6 & Wi-Fi 7 Explained — Why to Stop Using Wi-Fi 5'
+		 desc='How OFDMA, BSS Coloring, MU-MIMO, TWT and Wi-Fi 7 MLO actually work, with animated diagrams — and why Wi-Fi 5 and older hold a busy network back.'
+		 topbar='A short lesson on 802.11ax and 802.11be — and why Wi-Fi 5 holds you back.' }
+
 	@{ out='cloud.html';      nav='cloud';   body='body-cloud.html'; crumb='Cloud'
 		 title='Dedicated Servers, Colocation & Cloud | CureComp'
 		 ogtitle='Cloud, Colocation & Dedicated Servers on AS154516'
@@ -151,19 +161,18 @@ foreach ($p in $pages) {
 	$canonical = if ($p.out -eq 'index.html') { $siteUrl } else { $siteUrl + $p.out }
 
 	# Home is the root of the trail, so it gets no breadcrumb of its own.
+	# A page may declare a parent (parentCrumb/parentOut) to get a third level.
 	$breadcrumb = ''
 	if ($p.out -ne 'index.html') {
-		$breadcrumb = @"
-,
-			{
-				"@type": "BreadcrumbList",
-				"@id": "$canonical#breadcrumb",
-				"itemListElement": [
-					{ "@type": "ListItem", "position": 1, "name": "Home", "item": "$siteUrl" },
-					{ "@type": "ListItem", "position": 2, "name": "$(Encode-Json $p.crumb)", "item": "$canonical" }
-				]
-			}
-"@
+		$items = @("`t`t`t`t`t{ ""@type"": ""ListItem"", ""position"": 1, ""name"": ""Home"", ""item"": ""$siteUrl"" }")
+		$pos = 2
+		if ($p.parentCrumb) {
+			$items += "`t`t`t`t`t{ ""@type"": ""ListItem"", ""position"": $pos, ""name"": ""$(Encode-Json $p.parentCrumb)"", ""item"": ""$siteUrl$($p.parentOut)"" }"
+			$pos++
+		}
+		$items += "`t`t`t`t`t{ ""@type"": ""ListItem"", ""position"": $pos, ""name"": ""$(Encode-Json $p.crumb)"", ""item"": ""$canonical"" }"
+		$breadcrumb = ",`r`n`t`t`t{`r`n`t`t`t`t""@type"": ""BreadcrumbList"",`r`n`t`t`t`t""@id"": ""$canonical#breadcrumb"",`r`n`t`t`t`t""itemListElement"": [`r`n" +
+									($items -join ",`r`n") + "`r`n`t`t`t`t]`r`n`t`t`t}"
 	}
 
 	$html = $layout

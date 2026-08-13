@@ -1,0 +1,444 @@
+<!-- HERO -->
+<section class="hero">
+	<div class="hero-bg"></div>
+	<div class="hero-grid"></div>
+	<div class="container">
+		<div class="col-lg-8">
+			<span class="pill"><span class="pill-dot"></span> A short lesson on <b>802.11ax and 802.11be</b></span>
+			<h1 class="mb-3">Wi-Fi 5 isn't slow. It's <span class="grad">badly behaved</span> in a crowd.</h1>
+			<p class="lead text-justify mb-4">Every Wi-Fi generation up to Wi-Fi 5 solved the same problem harder: make one device go faster. None of them fixed what happens when forty devices want the air at once &mdash; which is every real home, office and shop floor. Wi-Fi 6 and Wi-Fi 7 finally did, by borrowing the scheduling and redundancy ideas that LTE and 5G proved at national scale.</p>
+			<div class="d-flex flex-wrap gap-2">
+				<a class="btn btn-primary btn-lg" href="#wifi6">Start the lesson</a>
+				<a class="btn btn-outline-light btn-lg" href="contact.html?topic=wifi#enquiry">Plan an upgrade</a>
+			</div>
+			<p class="small-note mt-4 mb-0">The diagrams below animate. If your system is set to reduce motion, they hold a still frame instead.</p>
+		</div>
+	</div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="section section-alt" id="problem">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Why the old generations struggle</span>
+			<h2>Wi-Fi 5 makes devices queue. Politely, and very slowly.</h2>
+			<p class="lead">Under 802.11ac and everything before it, the air is a single microphone in a room full of people. One device talks, everyone else waits. It works beautifully with three devices and falls apart with thirty &mdash; and the headline speed on the box tells you nothing about which situation you are in.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+					<h3 class="card-title">One talker at a time</h3>
+					<p class="card-text">Every device takes the whole channel for its turn, however small its packet. A smart plug sending 200 bytes occupies the same slot a 4K stream would.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 3v3M14 9v3M10 15v3"/></svg></div>
+					<h3 class="card-title">Your neighbours make it worse</h3>
+					<p class="card-text">A legacy radio defers to <em>any</em> traffic it can hear, including the five networks in the next unit. In a flat or a shoplot row, much of your airtime is spent politely waiting for someone else's Netflix.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+					<h3 class="card-title">The slowest device sets the pace</h3>
+					<p class="card-text">An old phone at the edge of coverage transmits slowly, and while it does, nobody else gets the air. One weak client can drag a whole room down.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="small-note mt-4">None of this is fixed by buying a faster Wi-Fi 5 router. The bottleneck is how the air is shared, not how fast one radio can go.</p>
+	</div>
+</section>
+
+<!-- WI-FI 6 -->
+<section class="section" id="wifi6">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Wi-Fi 6 &mdash; IEEE 802.11ax</span>
+			<h2>Four changes that rebuilt how the air is shared</h2>
+			<p class="lead">Wi-Fi 6 is not a speed bump with a new number. It replaced "wait your turn" with "the access point schedules everyone", which is exactly how mobile networks have always worked.</p>
+		</div>
+
+		<!-- OFDMA -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 190" role="img" aria-label="Wi-Fi 5 sends to three clients one after another; Wi-Fi 6 OFDMA serves all three inside a single transmission and frees the rest of the airtime.">
+					<text class="t-hi" x="20" y="20">One channel, three clients</text>
+
+					<text x="20" y="44">Wi-Fi 5 &mdash; one client at a time</text>
+					<rect class="phy-lane" x="20" y="52" width="340" height="28" rx="5"/>
+					<rect class="phy-mine phy-seq-1" x="25" y="57" width="106" height="18" rx="3"/>
+					<rect class="phy-idle phy-seq-2" x="137" y="57" width="106" height="18" rx="3"/>
+					<rect class="phy-idle phy-seq-3" x="249" y="57" width="106" height="18" rx="3"/>
+					<text class="t-on" x="74" y="70">A</text><text class="t-on" x="186" y="70">B</text><text class="t-on" x="298" y="70">C</text>
+
+					<text x="20" y="112">Wi-Fi 6 &mdash; OFDMA, all three in one transmission</text>
+					<rect class="phy-lane" x="20" y="120" width="340" height="40" rx="5"/>
+					<rect class="phy-mine phy-par" x="25" y="124" width="106" height="10" rx="2"/>
+					<rect class="phy-mine phy-par" x="25" y="136" width="106" height="10" rx="2"/>
+					<rect class="phy-mine phy-par" x="25" y="148" width="106" height="10" rx="2"/>
+					<text class="t-on" x="74" y="132">A</text><text class="t-on" x="74" y="144">B</text><text class="t-on" x="74" y="156">C</text>
+					<text class="t-sm phy-cap" x="145" y="144">airtime returned to everyone else</text>
+
+					<line class="phy-playhead" x1="22" y1="48" x2="22" y2="164" stroke="#ff5a5c" stroke-width="1.5" opacity=".85"/>
+					<text class="t-sm" x="325" y="182">time &rarr;</text>
+				</svg>
+				<p class="phy-caption">The same three clients, served in a third of the airtime.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M3 14.5h18M9.5 5v14M15.5 5v14"/></svg></div>
+				<h3>OFDMA &mdash; stop giving everyone the whole channel</h3>
+				<p>The access point divides its channel into <strong>resource units</strong> and hands a slice to each client inside a single transmission. Small packets travel together instead of each one claiming the entire channel for a turn of its own.</p>
+				<p class="mb-0">The effect is not a bigger number on a speed test &mdash; it is that a busy room stops feeling busy. Latency under load falls, and the smart plugs stop stealing airtime from the video call.</p>
+			</div>
+		</div>
+
+		<!-- BSS COLORING -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6.2"/><circle cx="15" cy="12" r="6.2"/><circle cx="6.6" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.4" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+				<h3>BSS Coloring &mdash; perfect wireless harmony</h3>
+				<p>Every network stamps its transmissions with a <strong>colour</strong>: a small identifier saying "this frame belongs to me". When your radio hears a frame, it checks the colour first. Same colour, it defers as it always did. Different colour, it recognises a neighbour and <strong>carries on transmitting</strong>.</p>
+				<p>That one change turns a corridor of competing networks into a set of networks that coexist. Nobody is shouting over anybody &mdash; each simply stops treating the others as its own traffic.</p>
+				<p class="mb-0">In flats, shoplot rows and dense offices this is usually the single biggest real-world gain in Wi-Fi 6 &mdash; bigger than any headline speed figure.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 240" role="img" aria-label="Without BSS Coloring your frame waits until the neighbour's frame finishes. With BSS Coloring both networks transmit at the same time.">
+					<text class="t-hi" x="20" y="20">Two networks, one channel</text>
+
+					<text x="20" y="44">Without BSS Coloring</text>
+					<rect class="phy-lane" x="20" y="52" width="340" height="40" rx="5"/>
+					<g class="phy-tx phy-rest-ahead">
+						<rect class="phy-other" x="26" y="57" width="60" height="12" rx="3"/>
+						<circle cx="32" cy="63" r="2.6" fill="#9aa4b0"/>
+					</g>
+					<g class="phy-tx-late">
+						<rect class="phy-mine" x="26" y="74" width="60" height="12" rx="3"/>
+						<circle cx="32" cy="80" r="2.6" fill="#fff"/>
+					</g>
+					<text class="t-sm phy-wait" x="20" y="106" fill="#ff8082">your frame holds at the start &mdash; airtime wasted</text>
+
+					<text x="20" y="134">With BSS Coloring</text>
+					<rect class="phy-lane" x="20" y="142" width="340" height="40" rx="5"/>
+					<g class="phy-tx">
+						<rect class="phy-other" x="26" y="147" width="60" height="12" rx="3"/>
+						<circle cx="32" cy="153" r="2.6" fill="#9aa4b0"/>
+					</g>
+					<g class="phy-tx">
+						<rect class="phy-mine" x="26" y="164" width="60" height="12" rx="3"/>
+						<circle cx="32" cy="170" r="2.6" fill="#fff"/>
+					</g>
+
+					<circle cx="26" cy="204" r="4" fill="#59636f"/>
+					<text class="t-sm" x="36" y="208">neighbour's colour</text>
+					<circle cx="160" cy="204" r="4" fill="#ed2224"/>
+					<text class="t-sm" x="170" y="208">your colour</text>
+					<text class="t-sm" x="325" y="228">time &rarr;</text>
+				</svg>
+				<p class="phy-caption">Same air, same instant. Your radio reads the colour, sees it is not its own, and keeps going.</p>
+			</div>
+		</div>
+
+		<!-- MU-MIMO -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 195" role="img" aria-label="An access point with four antennas sending three separate spatial streams to three clients at the same time.">
+					<text class="t-hi" x="20" y="20">Four antennas, three clients, one transmission</text>
+
+					<path class="phy-edge" d="M40 62v-14M52 62v-14M64 62v-14M76 62v-14" stroke-width="1.6"/>
+					<rect x="32" y="62" width="52" height="62" rx="8" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+					<text class="t-sm" x="47" y="97" fill="#fff">AP</text>
+
+					<path class="phy-stream" d="M84 78C170 62 250 52 330 50"/>
+					<path class="phy-stream phy-stream-2" d="M84 93h246"/>
+					<path class="phy-stream phy-stream-3" d="M84 108C170 124 250 134 330 136"/>
+
+					<rect x="330" y="34" width="62" height="32" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="345" y="54" fill="#fff">Client A</text>
+					<rect x="330" y="77" width="62" height="32" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="345" y="97" fill="#fff">Client B</text>
+					<rect x="330" y="120" width="62" height="32" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="345" y="140" fill="#fff">Client C</text>
+
+					<text class="t-sm" x="20" y="182">Separate spatial streams, sent simultaneously &mdash; not taking turns.</text>
+				</svg>
+				<p class="phy-caption">MU-MIMO shapes independent beams, so three clients are served at once.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="12" r="2.2"/><circle cx="20" cy="5" r="2.2"/><circle cx="20" cy="12" r="2.2"/><circle cx="20" cy="19" r="2.2"/><path d="M6.1 11.1 17.9 5.9M6.2 12h11.6M6.1 12.9l11.8 5.2"/></svg></div>
+				<h3>MU-MIMO &mdash; several conversations, one moment</h3>
+				<p>Multiple antennas shape multiple beams, so the access point holds separate conversations with separate clients simultaneously. Wi-Fi 5 could do this downstream only; Wi-Fi 6 does it <strong>upstream too</strong>.</p>
+				<p class="mb-0">Combined with OFDMA, it means one slow device at the edge of coverage no longer freezes the room while it finishes talking.</p>
+			</div>
+		</div>
+
+		<!-- TWT -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="13.5" r="7"/><path d="M10.5 9.5v4l2.6 1.6"/><path d="M16.5 2.5h5l-5 5h5"/></svg></div>
+				<h3>Target Wake Time &mdash; scheduled naps</h3>
+				<p>The access point and each device <strong>agree in advance</strong> when that device will wake up and transmit. In between, its radio genuinely sleeps rather than listening to everything on the channel.</p>
+				<p class="mb-0">Two wins at once: less airtime wasted on devices that had nothing to say, and dramatically better battery life on phones, tablets, cameras and battery sensors.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 190" role="img" aria-label="Three devices each wake in their own scheduled window and sleep the rest of the time.">
+					<text class="t-hi" x="20" y="20">Each device gets its own slot</text>
+
+					<text class="t-sm" x="20" y="55">Phone</text>
+					<rect class="phy-lane" x="76" y="42" width="284" height="20" rx="4"/>
+					<rect class="phy-mine phy-wake-1" x="82" y="46" width="72" height="12" rx="3"/>
+
+					<text class="t-sm" x="20" y="100">Laptop</text>
+					<rect class="phy-lane" x="76" y="87" width="284" height="20" rx="4"/>
+					<rect class="phy-mine phy-wake-2" x="176" y="91" width="72" height="12" rx="3"/>
+
+					<text class="t-sm" x="20" y="145">Sensor</text>
+					<rect class="phy-lane" x="76" y="132" width="284" height="20" rx="4"/>
+					<rect class="phy-mine phy-wake-3" x="270" y="136" width="72" height="12" rx="3"/>
+
+					<text class="t-sm" x="76" y="176">awake and transmitting</text>
+					<text class="t-sm" x="325" y="176">time &rarr;</text>
+				</svg>
+				<p class="phy-caption">Radios sleep between their windows instead of listening to everything.</p>
+			</div>
+		</div>
+
+		<!-- WPA3 -->
+		<div class="card card-feature p-4 p-md-5 rv">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-2 text-center">
+					<div class="ico mx-auto" style="width:64px;height:64px;border-radius:18px;">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:30px;height:30px;"><path d="M12 2 4 5.5v6c0 4.6 3.4 8.6 8 9.5 4.6-.9 8-4.9 8-9.5v-6z"/><rect x="9.3" y="11" width="5.4" height="4.6" rx="1.2"/><path d="M10.4 11v-1.2a1.6 1.6 0 0 1 3.2 0V11"/></svg>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<h3 class="card-title">WPA3 comes with it</h3>
+					<p class="mb-0">Wi-Fi 6 certification requires WPA3, which closes the offline dictionary attack that made weak WPA2 passwords guessable from a captured handshake. It also encrypts open networks individually, so a guest hotspot stops being a shared broadcast. If you are still on WPA2 with a memorable password, this alone is worth the upgrade.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- WI-FI 7 -->
+<section class="section section-alt" id="wifi7">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Wi-Fi 7 &mdash; IEEE 802.11be</span>
+			<h2>Wi-Fi 6 fixed the scheduling. Wi-Fi 7 adds the redundancy.</h2>
+			<p class="lead">If Wi-Fi 6 is about sharing the air fairly, Wi-Fi 7 is about never depending on one piece of it. The headline feature is the one network engineers recognise immediately.</p>
+		</div>
+
+		<!-- MLO -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 225" role="img" aria-label="A client connected over 6 GHz, 5 GHz and 2.4 GHz at once. When the 5 GHz link is hit by interference, traffic keeps flowing on the other two.">
+					<text class="t-hi" x="20" y="20">One session, three links at once</text>
+
+					<rect x="24" y="88" width="56" height="52" rx="8" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+					<text class="t-sm" x="39" y="118" fill="#fff">AP</text>
+					<rect x="340" y="88" width="56" height="52" rx="8" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<text class="t-sm" x="349" y="118" fill="#fff">Client</text>
+
+					<text class="t-sm" x="92" y="52">6 GHz</text>
+					<path class="phy-stream phy-link-surge" d="M84 62h254"/>
+
+					<text class="t-sm" x="92" y="104">5 GHz</text>
+					<path class="phy-stream phy-link-drop" d="M84 114h254"/>
+					<g class="phy-failmark" opacity="0">
+						<line x1="200" y1="106" x2="216" y2="122" stroke="#ff5a5c" stroke-width="2.6" stroke-linecap="round"/>
+						<line x1="216" y1="106" x2="200" y2="122" stroke="#ff5a5c" stroke-width="2.6" stroke-linecap="round"/>
+						<text class="t-sm" x="226" y="119" fill="#ff8082">interference</text>
+					</g>
+
+					<text class="t-sm" x="92" y="156">2.4 GHz</text>
+					<path class="phy-stream phy-link-surge" style="animation-delay:-.45s,0s" d="M84 166h254"/>
+
+					<text class="t-sm" x="20" y="210">One link drops. The session does not.</text>
+				</svg>
+				<p class="phy-caption">Watch the middle link fail: the other two pick up the traffic without a reconnect.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="12" r="2.2"/><circle cx="20" cy="12" r="2.2"/><path d="M6.2 12h11.6"/><path d="M6.4 9.4c3.2-2.9 8-2.9 11.2 0"/><path d="M6.4 14.6c3.2 2.9 8 2.9 11.2 0"/></svg></div>
+				<h3>MLO &mdash; link aggregation, over the air</h3>
+				<p>If you have ever bonded two switch ports with <strong>802.3ad / LACP</strong>, you already understand Multi-Link Operation. The client associates over 2.4, 5 and 6&nbsp;GHz <em>simultaneously</em> and treats them as one logical connection.</p>
+				<dl class="row deflist g-0 mt-3">
+					<dt class="col-sm-5">Aggregation</dt>
+					<dd class="col-sm-7">Traffic spreads across the bands instead of committing to whichever one looked best at association time.</dd>
+					<dt class="col-sm-5">Failover</dt>
+					<dd class="col-sm-7">A microwave, a neighbour or a radar hit takes out one band &mdash; the others carry the session. No drop, no reconnect, no re-authentication.</dd>
+					<dt class="col-sm-5">Low latency</dt>
+					<dd class="col-sm-7">A frame can go out on whichever link is free right now rather than queueing behind the busy one.</dd>
+					<dt class="col-sm-5">Low jitter</dt>
+					<dd class="col-sm-7">Because stalls get routed around instead of waited out, the spread between best and worst packet narrows. Calls and remote desktops care about this far more than peak throughput.</dd>
+				</dl>
+				<p class="mt-3 mb-0">This is the first time consumer wireless has had genuine link redundancy. It is the same instinct behind bonded uplinks and dual-homed switches, applied to the messiest medium in the building.</p>
+			</div>
+		</div>
+
+		<!-- CHANNEL WIDTH -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5v13M21 5.5v13"/><path d="M6 12h12"/><path d="m8.5 9-3 3 3 3M15.5 9l3 3-3 3"/></svg></div>
+				<h3>320&nbsp;MHz channels &mdash; and the room to use them</h3>
+				<p>Wi-Fi 7 doubles the widest channel to 320&nbsp;MHz. That only helps where there is clean spectrum to spend, which is why it lives in the <strong>6&nbsp;GHz band</strong> &mdash; a band with no legacy devices, no microwave ovens and no twenty-year-old cordless phones.</p>
+				<p class="mb-0">Wider channels are the least interesting improvement in Wi-Fi 7, and the one most marketing leads with. Useful, but MLO is the reason to buy it.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 200" role="img" aria-label="Channel width by generation, from 20 MHz up to 320 MHz in Wi-Fi 7.">
+					<text class="t-hi" x="20" y="20">Widest channel, by generation</text>
+
+					<text class="t-sm" x="20" y="52">20 MHz</text>
+					<rect class="phy-idle" x="92" y="42" width="18" height="14" rx="3"/>
+					<text class="t-sm phy-cap" x="118" y="52">Wi-Fi 4</text>
+
+					<text class="t-sm" x="20" y="80">40 MHz</text>
+					<rect class="phy-idle" x="92" y="70" width="35" height="14" rx="3"/>
+
+					<text class="t-sm" x="20" y="108">80 MHz</text>
+					<rect class="phy-idle" x="92" y="98" width="70" height="14" rx="3"/>
+
+					<text class="t-sm" x="20" y="136">160 MHz</text>
+					<rect class="phy-idle" x="92" y="126" width="140" height="14" rx="3"/>
+					<text class="t-sm phy-cap" x="240" y="136">Wi-Fi 5 / 6 ceiling</text>
+
+					<text class="t-sm" x="20" y="164">320 MHz</text>
+					<rect class="phy-mine phy-width" x="92" y="154" width="280" height="14" rx="3"/>
+					<text class="t-sm" x="20" y="190" fill="#ff8082">Wi-Fi 7, in the clean 6 GHz band</text>
+				</svg>
+				<p class="phy-caption">Twice the width of Wi-Fi 6E &mdash; where the spectrum is quiet enough to matter.</p>
+			</div>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18M3 12h18" opacity=".45"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="17" r="1.3" fill="currentColor" stroke="none"/><circle cx="7" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+					<h3 class="card-title">4096-QAM</h3>
+					<p class="card-text">Each transmission carries more bits by packing the constellation tighter &mdash; 4096 points against Wi-Fi 6's 1024. It needs an excellent signal to work, so you see it near the access point and nowhere else. Real, but not what fixes a busy building.</p>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8.5" height="7.5" rx="1.5"/><rect x="14" y="4" width="7" height="4.5" rx="1.5"/><rect x="14" y="11" width="7" height="9" rx="1.5"/><rect x="3" y="14" width="8.5" height="6" rx="1.5"/></svg></div>
+					<h3 class="card-title">Multi-RU and preamble puncturing</h3>
+					<p class="card-text">Wi-Fi 7 can assign a client several resource units at once, and can carve an interfered slice out of a wide channel and keep using the rest. Wi-Fi 6 would have had to drop to a narrower channel entirely.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GENERATION TABLE -->
+<section class="section" id="generations">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">At a glance</span>
+			<h2>Where each generation actually stands</h2>
+			<p class="lead">Speeds quoted anywhere are theoretical maximums across all streams. Treat them as a ceiling nobody reaches, and read the right-hand column instead.</p>
+		</div>
+
+		<div class="table-wrap rv">
+			<table class="table table-hover table-compare align-top">
+				<thead>
+					<tr><th scope="col">Generation</th><th scope="col">Bands</th><th scope="col">Widest channel</th><th scope="col">What it changed</th></tr>
+				</thead>
+				<tbody>
+					<tr><th scope="row">Wi-Fi 4 &mdash; 802.11n</th><td>2.4 / 5 GHz</td><td>40 MHz</td><td>Brought MIMO. Long obsolete; still the reason some networks crawl.</td></tr>
+					<tr><th scope="row">Wi-Fi 5 &mdash; 802.11ac</th><td>5 GHz</td><td>160 MHz</td><td>Faster for one device at a time. Downlink MU-MIMO only, and no answer to congestion.</td></tr>
+					<tr><th scope="row">Wi-Fi 6 &mdash; 802.11ax</th><td>2.4 / 5 GHz</td><td>160 MHz</td><td>OFDMA, uplink and downlink MU-MIMO, BSS Coloring, TWT, WPA3. The generation that fixed sharing.</td></tr>
+					<tr><th scope="row">Wi-Fi 6E</th><td>+ 6 GHz</td><td>160 MHz</td><td>Wi-Fi 6 with access to the clean 6 GHz band. No legacy devices to slow it down.</td></tr>
+					<tr><th scope="row">Wi-Fi 7 &mdash; 802.11be</th><td>2.4 / 5 / 6 GHz</td><td>320 MHz</td><td>MLO, 4096-QAM, Multi-RU, preamble puncturing. Redundancy and consistency.</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="small-note mt-3">Both Wi-Fi 6 and Wi-Fi 7 are fully backward compatible. Old devices keep working &mdash; they just stop dictating how the rest of the network behaves.</p>
+	</div>
+</section>
+
+<!-- WHAT YOU FEEL -->
+<section class="section section-alt">
+	<div class="container">
+		<div class="sect-head mx-auto text-center">
+			<span class="eyebrow">The honest version</span>
+			<h2>What you will actually notice</h2>
+			<p class="lead">Not "my speed test went up". These are the things people report after a proper Wi-Fi 6 or 7 deployment.</p>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv"><h3 class="card-title">Calls stop breaking up</h3><p class="card-text">When someone else in the building starts a large download, your meeting carries on. Scheduled airtime instead of a free-for-all.</p></div></div>
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv" data-delay="70"><h3 class="card-title">The evening slump disappears</h3><p class="card-text">In flats and terrace rows, the 8&nbsp;p.m. slowdown is mostly your radio deferring to neighbours. BSS Coloring is what removes it.</p></div></div>
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv" data-delay="140"><h3 class="card-title">Full rooms stay usable</h3><p class="card-text">A meeting room, classroom or cafe with forty devices behaves like a quiet one. This is the difference OFDMA makes.</p></div></div>
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv"><h3 class="card-title">Devices last longer per charge</h3><p class="card-text">Target Wake Time lets radios sleep properly. Phones, tablets and battery sensors all benefit without any configuration.</p></div></div>
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv" data-delay="70"><h3 class="card-title">Roaming stops hurting</h3><p class="card-text">With Wi-Fi 7 and MLO, moving between areas no longer means a visible pause while a session re-establishes.</p></div></div>
+			<div class="col-lg-4 col-md-6"><div class="card card-hover p-4 rv" data-delay="140"><h3 class="card-title">Fewer "the Wi-Fi is down" tickets</h3><p class="card-text">Most of those were never outages. They were congestion, and congestion is exactly what these generations address.</p></div></div>
+		</div>
+	</div>
+</section>
+
+<!-- UPGRADE PATH -->
+<section class="section" id="upgrade">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Before you buy</span>
+			<h2>How to upgrade without wasting money</h2>
+			<p class="lead">A new access point on a bad network is still a bad network. In roughly this order:</p>
+		</div>
+		<ol class="steps row g-4">
+			<li class="col-lg-3 col-md-6 rv"><div class="step"><h3>Check your devices</h3><p>Features need both ends. MLO needs a Wi-Fi 7 client; 6 GHz needs a 6E or 7 client. We audit your actual device mix before recommending a generation.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="70"><div class="step"><h3>Fix the backhaul first</h3><p>An access point is only as good as the cable behind it. Wireless mesh throws away most of what Wi-Fi 6 gives you &mdash; hardwire it, or use <a href="network.html#fttr">FTTR</a> where cable cannot go.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="140"><div class="step"><h3>Survey, then place</h3><p>Coverage, channel plan and power levels decided from measurements. Two well-placed APs beat five badly placed ones, at any generation.</p></div></li>
+			<li class="col-lg-3 col-md-6 rv" data-delay="210"><div class="step"><h3>Tune after occupancy</h3><p>Re-check under real load with real people in the room. That is when BSS Coloring and OFDMA either prove themselves or reveal a placement problem.</p></div></li>
+		</ol>
+	</div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+	<div class="container" style="max-width:880px;">
+		<div class="sect-head mx-auto text-center"><span class="eyebrow">Questions</span><h2>Wi-Fi 6 and 7, answered</h2></div>
+		<div class="accordion" id="faqWifi">
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w1">My internet is only 100&nbsp;Mbps. Is there any point?</button></h3>
+				<div id="w1" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">Yes, because the bottleneck is almost never the internet line &mdash; it is the air between your devices and the access point. Everything on this page is about how that air is shared. A busy house on 100&nbsp;Mbps feels dramatically better on Wi-Fi 6 even though the plan never changed.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w2">Do I need to replace all my devices?</button></h3>
+				<div id="w2" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">No. Both generations are backward compatible, so old devices keep connecting. They simply stop setting the pace for everyone else, because the access point can now schedule around them. You gain the new features on the clients that support them, device by device, as they get replaced anyway.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w3">Should I skip Wi-Fi 6 and wait for Wi-Fi 7?</button></h3>
+				<div id="w3" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">Depends entirely on your clients. MLO &mdash; the reason Wi-Fi 7 is worth paying for &mdash; needs Wi-Fi 7 at both ends. If your fleet is mostly phones and laptops from the last few years, Wi-Fi 6 or 6E delivers nearly all of the real-world benefit for noticeably less. We will tell you which honestly rather than selling you the newest number.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w4">Is BSS Coloring something I have to configure?</button></h3>
+				<div id="w4" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">It is negotiated automatically between Wi-Fi 6 access points and clients, but the thresholds that decide when a radio ignores a neighbour are tunable, and the defaults are conservative. Getting real benefit in a dense building is a tuning job, which is part of what a survey buys you.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w5">Will Wi-Fi 6 fix my dead spot?</button></h3>
+				<div id="w5" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">Not on its own. Coverage is a physics and placement problem &mdash; a newer generation does not push signal through a concrete wall. What it fixes is contention. If your complaint is "slow when everyone is home" it helps enormously; if it is "no signal in the back room" you need another access point in the right place.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#w6">Can consumer gear do this properly?</button></h3>
+				<div id="w6" class="accordion-collapse collapse" data-bs-parent="#faqWifi"><div class="accordion-body">Yes, provided you give it wired backhaul. A TP-Link Deco or Asus ZenWiFi running Wi-Fi 6 or 7 over Ethernet performs far better than expensive enterprise kit relaying over the air. See <a href="network.html#fttr">FTTR</a> for how we wire access points in buildings that cannot take Cat6.</div></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight pb-5">
+	<div class="container">
+		<div class="cta rv">
+			<h2>Want this designed properly for your building?</h2>
+			<p class="lead mx-auto mb-4" style="max-width:62ch;">We survey first, tell you which generation your device mix actually justifies, and hardwire every access point. No guesswork, no upselling to the newest number.</p>
+			<div class="d-flex flex-wrap gap-2 justify-content-center">
+				<a class="btn btn-primary btn-lg" href="contact.html?topic=wifi#enquiry">Request a Wi-Fi survey</a>
+				<a class="btn btn-outline-light btn-lg" href="network.html">Back to Networking</a>
+			</div>
+		</div>
+	</div>
+</section>
