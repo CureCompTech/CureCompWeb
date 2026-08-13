@@ -38,6 +38,47 @@ $root  = Split-Path -Parent $PSScriptRoot
 $tools = Join-Path $root 'tools'
 $utf8  = New-Object System.Text.UTF8Encoding $false
 
+# ---------------------------------------------------------------------------
+# Cache busting for theme.css and main.js.
+#
+# Cloudflare (and every browser) keys its cache on the full URL including the
+# query string, so changing the token forces a fresh fetch after an upload.
+#
+#   'hash'   default. A short SHA-256 of that file's own contents, e.g.
+#            ?v=6f2a91c0d4. The URL changes if and only if the file actually
+#            changed, and each asset is versioned independently — editing the
+#            CSS does not throw away the cached JS. Nothing to remember.
+#   'commit' the short git commit of HEAD, e.g. ?commit=36fe14c. Note this is
+#            HEAD at BUILD time, so it names the commit before the one that
+#            carries the rebuilt pages.
+#   'manual' the fixed string in $assetVersionValue, e.g. ?version=1.1. You
+#            must remember to bump it, or visitors keep the stale file.
+# ---------------------------------------------------------------------------
+$assetVersionMode  = 'hash'
+$assetVersionValue = '1.1'
+
+function Get-AssetQuery($absolutePath) {
+	switch ($assetVersionMode) {
+		'manual' { return '?version=' + $assetVersionValue }
+		'commit' {
+			$sha = $null
+			try { $sha = (& git -C $root rev-parse --short HEAD 2>$null | Select-Object -First 1) } catch {}
+			if (-not $sha) { throw "assetVersionMode is 'commit' but git could not resolve HEAD in $root" }
+			return '?commit=' + $sha.Trim()
+		}
+		default {
+			if (-not (Test-Path $absolutePath)) { throw "cannot version a missing asset: $absolutePath" }
+			$sha = [System.Security.Cryptography.SHA256]::Create()
+			try   { $bytes = $sha.ComputeHash([System.IO.File]::ReadAllBytes($absolutePath)) }
+			finally { $sha.Dispose() }
+			return '?v=' + ((($bytes | ForEach-Object { $_.ToString('x2') }) -join '').Substring(0, 10))
+		}
+	}
+}
+
+$cssQuery = Get-AssetQuery (Join-Path $root 'assets\css\theme.css')
+$jsQuery  = Get-AssetQuery (Join-Path $root 'assets\js\main.js')
+
 function Read-Utf8($path) { [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8) }
 
 # For HTML attribute values.
@@ -135,6 +176,8 @@ foreach ($p in $pages) {
 	$html = $html.Replace('{{BASE}}',         $siteUrl)
 	$html = $html.Replace('{{BREADCRUMB}}',   $breadcrumb)
 	$html = $html.Replace('{{TOPBAR}}',       $p.topbar)
+	$html = $html.Replace('{{CSS_Q}}',        $cssQuery)
+	$html = $html.Replace('{{JS_Q}}',         $jsQuery)
 	$html = $html.Replace('{{BODY}}',         (Read-Utf8 (Join-Path $tools $p.body)))
 
 	# Mark the current page in the navbar.
@@ -180,4 +223,6 @@ Sitemap: $($siteUrl)sitemap.xml
 Write-Output 'built robots.txt'
 
 Write-Output "`nDone. $($pages.Count) pages written to $root"
-Write-Output "Base URL: $siteUrl"
+Write-Output "Base URL:  $siteUrl"
+Write-Output "theme.css  $cssQuery"
+Write-Output "main.js    $jsQuery"

@@ -49,7 +49,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/css/theme.css">
+	<link rel="stylesheet" href="assets/css/theme.css?v=2a0d7b2bac">
 	<script>document.documentElement.className += " js";</script>
 
 	<!-- ============ Structured data (Google) ============ -->
@@ -327,16 +327,36 @@
 			<div class="col-lg-6">
 				<div class="card p-4 p-md-5 rv">
 					<h3 class="card-title mb-3">What 802.11ax actually changed</h3>
-					<dl class="row deflist g-0">
-						<dt class="col-sm-5">OFDMA</dt>
+					<dl class="row deflist deflist-icons g-0">
+						<dt class="col-sm-5">
+							<!-- one channel carved into resource units -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M3 14.5h18M9.5 5v14M15.5 5v14"/></svg>
+							OFDMA
+						</dt>
 						<dd class="col-sm-7">The channel is divided into resource units so the AP serves many clients inside one transmission, instead of each device waiting its turn. This is the scheduling model LTE and 5G have always used.</dd>
-						<dt class="col-sm-5">MU-MIMO</dt>
+						<dt class="col-sm-5">
+							<!-- one radio, several simultaneous client streams -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4" cy="12" r="2.2"/><circle cx="20" cy="5" r="2.2"/><circle cx="20" cy="12" r="2.2"/><circle cx="20" cy="19" r="2.2"/><path d="M6.1 11.1 17.9 5.9M6.2 12h11.6M6.1 12.9l11.8 5.2"/></svg>
+							MU-MIMO
+						</dt>
 						<dd class="col-sm-7">Multiple spatial streams to multiple clients at once, upstream as well as down &mdash; so one slow device stops holding up the rest.</dd>
-						<dt class="col-sm-5">BSS Coloring</dt>
+						<dt class="col-sm-5">
+							<!-- overlapping cells, each tagged as its own -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="6.2"/><circle cx="15" cy="12" r="6.2"/><circle cx="6.6" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.4" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+							BSS Coloring
+						</dt>
 						<dd class="col-sm-7">Each network tags its transmissions with a colour. Radios can tell a neighbour's traffic from their own and stop deferring needlessly &mdash; the single biggest gain in flats, shoplots and dense offices.</dd>
-						<dt class="col-sm-5">Target Wake Time</dt>
+						<dt class="col-sm-5">
+							<!-- scheduled wake-up -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="13.5" r="7"/><path d="M10.5 9.5v4l2.6 1.6"/><path d="M16.5 2.5h5l-5 5h5"/></svg>
+							Target Wake Time
+						</dt>
 						<dd class="col-sm-7">Devices agree when to wake and transmit. Less airtime wasted, and noticeably better battery life on phones and IoT.</dd>
-						<dt class="col-sm-5">WPA3</dt>
+						<dt class="col-sm-5">
+							<!-- shield and lock -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5.5v6c0 4.6 3.4 8.6 8 9.5 4.6-.9 8-4.9 8-9.5v-6z"/><rect x="9.3" y="11" width="5.4" height="4.6" rx="1.2"/><path d="M10.4 11v-1.2a1.6 1.6 0 0 1 3.2 0V11"/></svg>
+							WPA3
+						</dt>
 						<dd class="col-sm-7">Modern authentication and encryption as a baseline rather than an optional extra.</dd>
 					</dl>
 				</div>
@@ -345,16 +365,36 @@
 			<div class="col-lg-6">
 				<div class="card p-4 p-md-5 rv" data-delay="80">
 					<h3 class="card-title mb-3">What Wi-Fi 7 adds on top</h3>
-					<dl class="row deflist g-0">
-						<dt class="col-sm-5">MLO</dt>
+					<dl class="row deflist deflist-icons g-0">
+						<dt class="col-sm-5">
+							<!-- three simultaneous links between the same two points -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4" cy="12" r="2.2"/><circle cx="20" cy="12" r="2.2"/><path d="M6.2 12h11.6"/><path d="M6.4 9.4c3.2-2.9 8-2.9 11.2 0"/><path d="M6.4 14.6c3.2 2.9 8 2.9 11.2 0"/></svg>
+							MLO
+						</dt>
 						<dd class="col-sm-7">Multi-Link Operation: a client uses 2.4, 5 and 6&nbsp;GHz at the same time rather than picking one. If a band gets congested or interfered with, traffic keeps moving on the others &mdash; the same redundancy thinking as carrier aggregation on 5G.</dd>
-						<dt class="col-sm-5">Lower jitter</dt>
+						<dt class="col-sm-5">
+							<!-- evenly spaced arrivals: steady timing -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="M6.5 8.5v7M12 8.5v7M17.5 8.5v7"/></svg>
+							Lower jitter
+						</dt>
 						<dd class="col-sm-7">Because links fail over instead of stalling, latency stays flat. That is what calls, video and remote desktops actually care about.</dd>
-						<dt class="col-sm-5">320&nbsp;MHz channels</dt>
+						<dt class="col-sm-5">
+							<!-- width measured between two bounds -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5v13M21 5.5v13"/><path d="M6 12h12"/><path d="m8.5 9-3 3 3 3M15.5 9l3 3-3 3"/></svg>
+							320&nbsp;MHz channels
+						</dt>
 						<dd class="col-sm-7">Double the width of Wi-Fi 6E in the 6&nbsp;GHz band, where there is clean spectrum to use it.</dd>
-						<dt class="col-sm-5">4096-QAM</dt>
+						<dt class="col-sm-5">
+							<!-- constellation diagram -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18" opacity=".45"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="17" r="1.3" fill="currentColor" stroke="none"/><circle cx="7" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>
+							4096-QAM
+						</dt>
 						<dd class="col-sm-7">Denser modulation for higher throughput at close range and good signal quality.</dd>
-						<dt class="col-sm-5">Multi-RU</dt>
+						<dt class="col-sm-5">
+							<!-- resource units of mixed sizes -->
+							<svg class="dt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8.5" height="7.5" rx="1.5"/><rect x="14" y="4" width="7" height="4.5" rx="1.5"/><rect x="14" y="11" width="7" height="9" rx="1.5"/><rect x="3" y="14" width="8.5" height="6" rx="1.5"/></svg>
+							Multi-RU
+						</dt>
 						<dd class="col-sm-7">More flexible allocation of those resource units, so scheduling stays efficient with mixed client types.</dd>
 					</dl>
 				</div>
@@ -445,8 +485,79 @@
 	</div>
 </section>
 
+<!-- FTTR -->
+<section class="section" id="fttr">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">FTTR &mdash; Fibre to the Room</span>
+			<h2>When the building won't take Cat6, run fibre instead</h2>
+			<p class="lead">Copper gives up at 100&nbsp;m and hates electrical noise. Older shoplots, long villas, multi-storey offices and factory blocks often cannot take a new Ethernet run at all &mdash; or the run is so long it downshifts. FTTR solves it the way carriers solved the last mile: one fibre in, a passive splitter, and a mini ONT in each room.</p>
+		</div>
+
+		<div class="flow flow-wide rv">
+			<div class="flow-node"><b>Head end</b><span>Sits beside your router</span></div>
+			<div class="flow-arr" aria-hidden="true">&rarr;</div>
+			<div class="flow-node"><b>Passive splitter</b><span>No power, no cabinet</span></div>
+			<div class="flow-arr" aria-hidden="true">&rarr;</div>
+			<div class="flow-node"><b>Mini ONT</b><span>One per room</span></div>
+			<div class="flow-arr" aria-hidden="true">&rarr;</div>
+			<div class="flow-node flow-node-hi"><b>Your AP</b><span>Ordinary Ethernet port</span></div>
+		</div>
+
+		<div class="row g-3 mt-4">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h5"/><path d="M8 12 16 6M8 12l8 6M8 12h8"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+					<h3 class="card-title">A splitter that behaves like a switch &mdash; with no power</h3>
+					<p class="card-text">The device fanning one fibre out to many rooms is glass and mirrors, not electronics. Nothing to plug in, nothing to cool, no socket needed in the riser, and nothing in the ceiling that can fail at 2&nbsp;a.m.</p>
+					<p class="card-text mt-2">Each mini ONT still takes a small power feed at the room end &mdash; but the middle of the run, the part buried in a wall or a shaft, stays entirely passive.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v12M21 6v12"/><path d="M6 12h12"/><path d="m8.5 9-3 3 3 3M15.5 9l3 3-3 3"/></svg></div>
+					<h3 class="card-title">Up to 8&nbsp;km, not 100&nbsp;m</h3>
+					<p class="card-text">Eighty times copper's reach. A guard house at the far gate, a warehouse across the yard, the top floor of a walk-up, a second building on the same lot &mdash; all of it is comfortably inside range on a single strand.</p>
+					<p class="card-text mt-2">And because it is light rather than current, the run is immune to the motors, ballasts and power cabling that make long copper unreliable.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 6.5c0-2-2.2-3-5-3s-5 .9-5 2.8c0 4.3 10 2.2 10 6.4 0 2-2.2 3.3-5 3.3s-5-1.2-5-3"/></svg></div>
+					<h3 class="card-title">Cheaper than a dedicated link per room</h3>
+					<p class="card-text">A dedicated line to every room means a port, a run and often a powered device for each one. FTTR shares a single feed across the whole building through the splitter, so the cost per room drops sharply as you add rooms.</p>
+					<p class="card-text mt-2">The fibre itself is thin enough to follow existing conduit and trunking, which usually saves more on labour than it does on materials.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="opf-panel mt-4 rv">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-7">
+					<h3 class="card-title">Any access point. Not just the enterprise ones.</h3>
+					<p>The clever part is the conversion. The mini ONT takes PON frames off the fibre and hands out plain <strong>Layer&nbsp;2 Ethernet</strong> &mdash; so everything downstream simply sees a normal wired network. It has no idea there is fibre behind it, and it does not need to.</p>
+					<p class="mb-0">That means FTTR is not locked to controller-managed enterprise kit. A <strong>TP-Link Deco</strong>, an <strong>Asus ZenWiFi</strong> or any other consumer mesh system plugs straight in and runs on wired backhaul &mdash; which is exactly the setup those systems perform best in, and the one most people never manage to give them.</p>
+				</div>
+				<div class="col-lg-5">
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">Ethernet out</dt>
+						<dd class="col-sm-7">A standard RJ45 in each room. Plug in an AP, a desk switch, a TV or a POS terminal.</dd>
+						<dt class="col-sm-5">Mesh, but wired</dt>
+						<dd class="col-sm-7">Consumer mesh nodes stop relaying over the air and start using the fibre as backhaul.</dd>
+						<dt class="col-sm-5">No vendor lock</dt>
+						<dd class="col-sm-7">Layer 2 is Layer 2. You are not committed to one AP brand for the life of the cabling.</dd>
+					</dl>
+					<a class="btn btn-primary mt-3" href="contact.html?topic=fttr#enquiry">Ask about FTTR</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- NAS -->
-<section class="section" id="nas">
+<section class="section section-alt" id="nas">
 	<div class="container">
 		<div class="row g-5 align-items-center">
 			<div class="col-lg-6 rv" data-delay="80">
@@ -483,7 +594,7 @@
 </section>
 
 <!-- NOC -->
-<section class="section section-alt" id="noc">
+<section class="section" id="noc">
 	<div class="container">
 		<div class="sect-head">
 			<span class="eyebrow">NOC monitoring &mdash; included</span>
@@ -531,7 +642,7 @@
 </section>
 
 <!-- ISP -->
-<section class="section">
+<section class="section section-alt">
 	<div class="container">
 		<div class="row g-4 align-items-center">
 			<div class="col-lg-6 rv">
@@ -553,6 +664,7 @@
 							<tr><th scope="row">Wi-Fi standards</th><td>Wi-Fi 6 (802.11ax), Wi-Fi 6E, Wi-Fi 7 (802.11be)</td></tr>
 							<tr><th scope="row">Roaming</th><td>802.11k / v / r, single SSID, VLAN-separated</td></tr>
 							<tr><th scope="row">AP backhaul</th><td>Hardwired copper or fibre &mdash; never wireless mesh</td></tr>
+							<tr><th scope="row">FTTR</th><td>Fibre to the Room &mdash; passive splitter, mini ONT per room, up to 8&nbsp;km</td></tr>
 							<tr><th scope="row">Controller</th><td>On-premise, no monthly cloud subscription</td></tr>
 							<tr><th scope="row">Switching</th><td>Managed L2 and L3, VLAN, LACP, PoE / PoE+</td></tr>
 							<tr><th scope="row">Queue management</th><td>fq_codel, per-device fair queuing, application priority</td></tr>
@@ -574,7 +686,7 @@
 </section>
 
 <!-- PROCESS -->
-<section class="section section-alt">
+<section class="section">
 	<div class="container">
 		<div class="sect-head mx-auto text-center">
 			<span class="eyebrow">How a deployment runs</span>
@@ -590,7 +702,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="section">
+<section class="section section-alt">
 	<div class="container" style="max-width:880px;">
 		<div class="sect-head mx-auto text-center"><span class="eyebrow">Questions</span><h2>Networking, answered</h2></div>
 		<div class="accordion" id="faqNet">
@@ -621,6 +733,14 @@
 			<div class="accordion-item">
 				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n7">Can two offices really share one subnet?</button></h3>
 				<div id="n7" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">Yes &mdash; an encrypted Layer 2 bridge extends the LAN across the internet so both sites sit on the same subnet. It suits legacy software and network discovery that assume one flat network. We design the broadcast domain carefully, and where a Layer 3 VPN is the healthier choice we will recommend that instead.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n10">My building can't take new Ethernet cable. What are my options?</button></h3>
+				<div id="n10" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body"><a href="#fttr">FTTR</a> is usually the answer. One fibre feeds a passive splitter, and a mini ONT in each room hands out an ordinary Ethernet port &mdash; up to 8&nbsp;km from the head end, through conduit far too tight for Cat6, with no powered equipment in the risers. It is how we hardwire access points in buildings where pulling copper is impossible or absurdly expensive.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n11">Does FTTR only work with expensive enterprise access points?</button></h3>
+				<div id="n11" class="accordion-collapse collapse" data-bs-parent="#faqNet"><div class="accordion-body">No. The mini ONT converts PON frames to plain Layer&nbsp;2 Ethernet, so whatever you plug in just sees a normal wired network. A TP-Link Deco or Asus ZenWiFi works fine &mdash; and gains wired backhaul, which is the single biggest improvement you can make to a consumer mesh system.</div></div>
 			</div>
 			<div class="accordion-item">
 				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8">Do you supply ISP-grade equipment to operators?</button></h3>
@@ -709,6 +829,6 @@
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/main.js?v=a0352d5d4d"></script>
 </body>
 </html>

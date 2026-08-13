@@ -354,6 +354,15 @@ a.card .link-arrow { margin-top: auto; padding-top: 1rem; }
 .deflist > dt:first-of-type,
 .deflist > dt:first-of-type ~ dd:first-of-type { border-top: 0; }
 
+/* Per-term icons. Each dt carries its own glyph instead of the shared tick; the
+	 icon occupies the same slot the tick did, so the columns stay aligned. */
+.deflist-icons > dt::before { display: none; }
+.deflist-icons > dt > .dt-ico {
+	position: absolute; left: 0; top: .8rem;
+	width: 20px; height: 20px; flex: none;
+	color: var(--cc-red-ink);
+}
+
 .chip {
 	display: inline-block;
 	font-family: var(--cc-ff-mono); font-size: .74rem; padding: .3rem .7rem; border-radius: 999px;
@@ -456,6 +465,8 @@ a.card .link-arrow { margin-top: auto; padding-top: 1rem; }
 
 /* ---------- 15. Flow diagram ---------- */
 .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; align-items: stretch; }
+/* Four stages instead of three: node, arrow, node, arrow, node, arrow, node. */
+.flow-wide { grid-template-columns: repeat(7, 1fr); }
 .flow-node {
 	text-align: center; padding: 1.05rem .7rem; border-radius: var(--cc-radius);
 	border: 1px solid var(--cc-line); background: var(--cc-surface);
