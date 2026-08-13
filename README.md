@@ -66,6 +66,26 @@ build overwrites your changes — put edits in `tools/` instead.
 > you ever see *"build.ps1 was parsed as ANSI"*, re-save the file as UTF-8 **with** BOM.
 > The same applies to the other `.ps1` files in `tools/`.
 
+## Cache busting
+
+`theme.css` and `main.js` are referenced with a version token so a Cloudflare edge
+cache — or a returning visitor's browser — fetches the new file after an upload instead
+of serving the old one. Cloudflare keys its cache on the full URL including the query
+string, so changing the token is enough; no purge needed.
+
+The token is set by `$assetVersionMode` near the top of `tools/build.ps1`:
+
+| Mode | Output | Notes |
+| --- | --- | --- |
+| `hash` (default) | `?v=2a0d7b2bac` | Short SHA-256 of that file's own contents. Changes if and only if the file changed, and each asset is versioned separately — editing the CSS does not throw away the cached JS. Nothing to remember. |
+| `commit` | `?commit=36fe14c` | Short git SHA of HEAD **at build time**, so it names the commit *before* the one carrying the rebuilt pages. Same token on both files. |
+| `manual` | `?version=1.1` | Fixed string from `$assetVersionValue`. You must remember to bump it, or visitors keep the stale file. |
+
+Every build prints the tokens it used. `hash` is the default because it is the only mode
+that cannot go stale by forgetting something.
+
+The Bootstrap CDN links need no token — their URLs already carry the version.
+
 ## SEO and social embeds
 
 **Set the domain first.** `$siteUrl` at the top of `tools/build.ps1` is the single source
