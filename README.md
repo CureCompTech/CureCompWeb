@@ -144,6 +144,10 @@ reads it.
 - **Label/description lists** use `<dl class="row deflist g-0">` with `dt.col-sm-5` and
   `dd.col-sm-7`, so terms and their descriptions line up as real Bootstrap columns.
   Plain bullet lists still use `<ul class="checks">`.
+- `.checks li` is **not** `display: flex`. An inline `<strong>` inside a flex item
+  becomes its own flex item, so a bold lead-in breaks out into a second column with the
+  rest of the sentence wrapping beside it. The tick is absolutely positioned instead, so
+  inline content flows as ordinary text. Don't reintroduce flex there.
 - **Hero and CTA backgrounds** size their gradients in percentages, not pixels, so the
   glow covers the full band on 1440p, ultrawide and 4K rather than stopping partway.
 - **Tables** use `table-layout: fixed` with `.table-spec` (38% label column) or
