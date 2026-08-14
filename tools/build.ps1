@@ -34,6 +34,22 @@ if ('—' -ne [string][char]0x2014) {
 # ---------------------------------------------------------------------------
 $siteUrl = 'https://curecomp.com.my/'
 
+# ---------------------------------------------------------------------------
+# Other domains that serve this same site. They are NOT given their own
+# canonical URLs on purpose: three domains serving identical pages is duplicate
+# content, and pointing each at itself would split the ranking signal three
+# ways. Every page keeps one canonical (above) whichever domain served it, so
+# links and authority from all three consolidate onto the primary.
+#
+# These are declared in the Organization's sameAs so Google associates the
+# domains with the same business rather than treating them as strangers.
+# See README for the redirect rules that make this airtight.
+# ---------------------------------------------------------------------------
+$altDomains = @(
+	'https://curecomp.my/'
+	'https://curecomp.pro/'
+)
+
 $root  = Split-Path -Parent $PSScriptRoot
 $tools = Join-Path $root 'tools'
 $utf8  = New-Object System.Text.UTF8Encoding $false
@@ -78,6 +94,17 @@ function Get-AssetQuery($absolutePath) {
 
 $cssQuery = Get-AssetQuery (Join-Path $root 'assets\css\theme.css')
 $jsQuery  = Get-AssetQuery (Join-Path $root 'assets\js\main.js')
+
+# Extra sameAs entries for the alternate domains, appended inside the existing
+# array in the layout. Guard against the primary being listed twice.
+foreach ($d in $altDomains) {
+	if ($d -eq $siteUrl) { throw "alt domain '$d' is the same as `$siteUrl - remove it from `$altDomains" }
+	if ($d -notmatch '/$') { throw "alt domain '$d' must end with a trailing slash" }
+}
+$altDomainsJson = ''
+foreach ($d in $altDomains) {
+	$altDomainsJson += ",`r`n`t`t`t`t`t`t""$d"""
+}
 
 function Read-Utf8($path) { [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8) }
 
@@ -187,6 +214,7 @@ foreach ($p in $pages) {
 	$html = $html.Replace('{{TOPBAR}}',       $p.topbar)
 	$html = $html.Replace('{{CSS_Q}}',        $cssQuery)
 	$html = $html.Replace('{{JS_Q}}',         $jsQuery)
+	$html = $html.Replace('{{ALT_DOMAINS}}',  $altDomainsJson)
 	$html = $html.Replace('{{BODY}}',         (Read-Utf8 (Join-Path $tools $p.body)))
 
 	# Mark the current page in the navbar.
@@ -232,6 +260,9 @@ Sitemap: $($siteUrl)sitemap.xml
 Write-Output 'built robots.txt'
 
 Write-Output "`nDone. $($pages.Count) pages written to $root"
-Write-Output "Base URL:  $siteUrl"
-Write-Output "theme.css  $cssQuery"
-Write-Output "main.js    $jsQuery"
+Write-Output "Canonical domain : $siteUrl"
+foreach ($d in $altDomains) {
+	Write-Output "Alternate domain : $d  (canonicalised to the primary)"
+}
+Write-Output "theme.css        : $cssQuery"
+Write-Output "main.js          : $jsQuery"

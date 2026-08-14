@@ -87,13 +87,63 @@ that cannot go stale by forgetting something.
 
 The Bootstrap CDN links need no token — their URLs already carry the version.
 
+## Domains
+
+The site is reachable on three domains:
+
+| Domain | Role |
+| --- | --- |
+| `curecomp.com.my` | **Canonical.** Every canonical link, `og:url`, `og:image`, JSON-LD `@id` and sitemap entry points here. |
+| `curecomp.my` | Alternate — canonicalised to the primary |
+| `curecomp.pro` | Alternate — canonicalised to the primary |
+
+Both are set in `tools/build.ps1`: `$siteUrl` for the primary, `$altDomains` for the rest.
+The build prints the resulting setup, and refuses to run if an alternate duplicates the
+primary or is missing its trailing slash.
+
+**Why the alternates do not get their own canonical URLs.** Three domains serving byte-identical
+pages is textbook duplicate content. If each page canonicalised to whichever domain served
+it, links and authority would split three ways and Google would pick a winner on its own —
+possibly a different one per page. Instead every page carries the *same* canonical
+regardless of which domain served it, so all three consolidate onto one. The alternates are
+declared in the Organization's `sameAs` so Google ties the domains to the same business
+rather than treating them as unrelated sites.
+
+**Add the redirects too.** Canonical tags are a hint; a 301 is a fact, and it also stops
+visitors sitting on the wrong hostname. Pick whichever matches your hosting — each rule
+only fires when the host is *not* the primary, so it is safe to deploy everywhere:
+
+*Apache — `.htaccess` in the document root*
+
+```apache
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^curecomp\.com\.my$ [NC]
+RewriteRule ^(.*)$ https://curecomp.com.my/$1 [R=301,L]
+```
+
+*nginx — a server block for the alternates*
+
+```nginx
+server {
+    listen 443 ssl;
+    server_name curecomp.my www.curecomp.my curecomp.pro www.curecomp.pro www.curecomp.com.my;
+    return 301 https://curecomp.com.my$request_uri;
+}
+```
+
+*Cloudflare — Rules → Redirect Rules, "single redirect"*
+
+- **If** `http.host ne "curecomp.com.my"`
+- **Then** dynamic redirect to `concat("https://curecomp.com.my", http.request.uri.path)`, status **301**, preserve query string.
+
+Add all three domains to Google Search Console. The alternates will report as redirected or
+canonicalised — that is the intended result, not an error.
+
 ## SEO and social embeds
 
-**Set the domain first.** `$siteUrl` at the top of `tools/build.ps1` is the single source
-for every absolute URL — canonical links, `og:url`, `og:image`, Twitter cards, JSON-LD and
-the sitemap. It currently reads `https://curecomp.com.my/`. **Change it to the real domain
-and rebuild before publishing**; social networks will not fetch a preview image from a
-relative path, so a wrong value means broken link previews everywhere.
+`$siteUrl` in `tools/build.ps1` is the single source for every absolute URL — canonical
+links, `og:url`, `og:image`, Twitter cards, JSON-LD and the sitemap. Social networks will
+not fetch a preview image from a relative path, so it must stay absolute and correct.
 
 Each page carries:
 
