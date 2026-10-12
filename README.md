@@ -40,6 +40,7 @@ tools/                       page assembly — not part of the published site
   _layout.html               shared head, top bar, navbar and footer
   body-*.html                per-page content
   build.ps1                  writes the root pages, sitemap.xml, robots.txt
+  versions.json              per-page content hash + last-updated date (written by the build — commit it)
   make-images.ps1            regenerates og-cover.png and apple-touch-icon.png
   to-tabs.ps1                re-indents the sources with tabs
   link-topics.ps1            points CTAs at their contact-form subject
@@ -70,23 +71,86 @@ build overwrites your changes — put edits in `tools/` instead.
 
 ## Cache busting
 
-`theme.css` and `main.js` are referenced with a version token so a Cloudflare edge
-cache — or a returning visitor's browser — fetches the new file after an upload instead
-of serving the old one. Cloudflare keys its cache on the full URL including the query
-string, so changing the token is enough; no purge needed.
+Every build stamps version tokens into URLs, so after an upload a Cloudflare edge cache —
+or a returning visitor's browser — fetches the new file instead of serving the old one.
+Cloudflare keys its cache on the full URL including the query string, so a new token is
+enough; no purge needed.
+
+| What | Stamped as | Changes when |
+| --- | --- | --- |
+| Every local asset — `theme.css`, `main.js`, logos, favicon, touch icon, `og:image` | `assets/img/favicon.svg?v=9666379a62` | That file's contents change. Each file is versioned on its own, so editing the CSS doesn't throw away the cached JS. |
+| Every link to another page — navbar, footer, body links, CTAs | `network.html?v=382e75bb49#fttr`, `contact.html?topic=wifi&v=382e75bb49#enquiry` | **Anything** on the site changes: any page, the layout or any asset. |
+
+**Why page links share one build-wide token.** Every page carries the full navigation,
+so changing any page changes the links inside all the others. With a token per page, an
+old cached copy of page A — whose own URL didn't change — would still link to the old
+copy of page B. A single token moves every page to a fresh URL whenever anything
+changed, and stays the same when a rebuild changed nothing, so caches stay warm. Canonical
+links, `og:url`, structured data and the sitemap are never stamped; they always point at
+the clean URL.
+
+**Per-page "last updated".** `tools/versions.json` records a hash of each page's own
+content (its body fragment plus title, descriptions and top-bar line — not the shared
+layout) and the date that hash last changed. The build uses it for the footer stamp, the
+sitemap's `<lastmod>` and `dateModified` in the structured data, and rewrites the file
+only when some page's content changed. **Commit it** with the pages, or every fresh
+checkout re-dates them. A page seen for the first time takes the date of the last commit
+that touched its body file, or today if that file has uncommitted edits.
+
+**Checking what's live.** Each page's footer reads *Page updated 12 Oct 2026 · build
+382e75bb49*, and the same token is in a meta tag, so you can confirm an upload is being
+served without opening a browser:
+
+```bash
+curl -s https://curecomp.com.my/wifi-8.html | grep -o '<meta name="build"[^>]*>'
+```
+
+If that shows the token the build just printed, visitors are getting the new version.
 
 The token is set by `$assetVersionMode` near the top of `tools/build.ps1`:
 
 | Mode | Output | Notes |
 | --- | --- | --- |
-| `hash` (default) | `?v=2a0d7b2bac` | Short SHA-256 of that file's own contents. Changes if and only if the file changed, and each asset is versioned separately — editing the CSS does not throw away the cached JS. Nothing to remember. |
-| `commit` | `?commit=36fe14c` | Short git SHA of HEAD **at build time**, so it names the commit *before* the one carrying the rebuilt pages. Same token on both files. |
+| `hash` (default) | `?v=2a0d7b2bac` | Short SHA-256 — of the file for assets, of the whole assembled site for page links. Changes if and only if something changed. Nothing to remember. |
+| `commit` | `?commit=36fe14c` | Short git SHA of HEAD **at build time**, so it names the commit *before* the one carrying the rebuilt pages. Same token everywhere. |
 | `manual` | `?version=1.1` | Fixed string from `$assetVersionValue`. You must remember to bump it, or visitors keep the stale file. |
 
-Every build prints the tokens it used. `hash` is the default because it is the only mode
-that cannot go stale by forgetting something.
+Every build prints the build token and the CSS/JS tokens it used. `hash` is the default
+because it is the only mode that cannot go stale by forgetting something.
 
 The Bootstrap CDN links need no token — their URLs already carry the version.
+
+### The clean entry URL
+
+Tokens cover every click *within* the site, but not the URL a visitor types or arrives on
+from Google — `https://curecomp.com.my/wifi-8.html` has no token. As of October 2026
+Cloudflare does not cache the HTML (`cf-cache-status: DYNAMIC`), but the origin sends no
+`Cache-Control` for it, so browsers fall back to guessing a freshness lifetime from
+`Last-Modified` and can show a returning visitor a stale page. Assets get Cloudflare's
+default `max-age=14400` (4 hours) at the edge and in browsers, which is fine now that their
+URLs are stamped.
+
+The fix is one response header on HTML: `Cache-Control: no-cache`, which makes browsers
+check back on every visit (a cheap `304 Not Modified` when nothing changed). The origin
+looks like Apache, so add this to the `.htaccess` in the document root, alongside the
+domain redirects described under [Domains](#domains):
+
+```apache
+<IfModule mod_headers.c>
+	<FilesMatch "\.html$">
+		Header set Cache-Control "no-cache"
+	</FilesMatch>
+</IfModule>
+```
+
+It isn't shipped as a file in this repo on purpose: uploading a repo `.htaccess` would
+overwrite whatever the server's copy already holds (redirects, host settings). After
+adding it, `curl -sI https://curecomp.com.my/ | grep -i cache-control` should show
+`no-cache`.
+
+If Cloudflare's **Cache Everything** is ever switched on for this zone, HTML starts being
+cached at the edge and the clean entry URLs go stale for the edge TTL. Either exclude
+`*.html` and `/` from that rule, or purge after each upload.
 
 ## Domains
 

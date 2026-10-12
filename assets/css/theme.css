@@ -580,6 +580,9 @@ a.card .link-arrow { margin-top: auto; padding-top: 1rem; }
 	display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
 	font-size: .81rem; color: var(--cc-muted);
 }
+/* Version stamp written by the build: when this page's content last changed,
+	and the build token its links carry. Handy for checking a deploy went live. */
+.build-stamp { font-family: var(--cc-ff-mono); font-size: .72rem; opacity: .8; }
 .socials { display: flex; gap: .5rem; margin-top: 1rem; }
 .socials a {
 	width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;

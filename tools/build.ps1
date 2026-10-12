@@ -55,45 +55,87 @@ $tools = Join-Path $root 'tools'
 $utf8  = New-Object System.Text.UTF8Encoding $false
 
 # ---------------------------------------------------------------------------
-# Cache busting for theme.css and main.js.
+# Version stamping, so an upload is never hidden behind a cache.
 #
 # Cloudflare (and every browser) keys its cache on the full URL including the
-# query string, so changing the token forces a fresh fetch after an upload.
+# query string, so a new token in the URL forces a fresh fetch. The build
+# stamps two kinds of URL:
 #
-#   'hash'   default. A short SHA-256 of that file's own contents, e.g.
-#            ?v=6f2a91c0d4. The URL changes if and only if the file actually
-#            changed, and each asset is versioned independently — editing the
-#            CSS does not throw away the cached JS. Nothing to remember.
-#   'commit' the short git commit of HEAD, e.g. ?commit=36fe14c. Note this is
+#   Assets  Every local reference to a file under assets/ — stylesheet,
+#           script, logos, icons, the social preview image — gets
+#           ?v=<token for that file>. Cloudflare holds these for 4 hours at
+#           the edge and in browsers, so an unstamped logo would stay stale.
+#
+#   Pages   Every link to another page gets ?v=<build token>. It is ONE token
+#           for the whole build, deliberately not one per page: every page
+#           carries the full navigation, so changing any page changes the
+#           links inside all the others. With per-page tokens an old cached
+#           copy of page A (unchanged URL) would still point at the old copy
+#           of page B. One build-wide token moves every page to a fresh URL at
+#           once whenever anything changed, and stays the same when a rebuild
+#           changed nothing, so caches stay warm. Canonical links, og:url,
+#           structured data and the sitemap always stay clean.
+#
+# Token modes:
+#   'hash'   default. A short SHA-256 of the content, e.g. v=6f2a91c0d4 —
+#            per file for assets, over the whole site for the build token.
+#            Changes if and only if something actually changed. Nothing to
+#            remember.
+#   'commit' the short git commit of HEAD, e.g. commit=36fe14c. Note this is
 #            HEAD at BUILD time, so it names the commit before the one that
 #            carries the rebuilt pages.
-#   'manual' the fixed string in $assetVersionValue, e.g. ?version=1.1. You
+#   'manual' the fixed string in $assetVersionValue, e.g. version=1.1. You
 #            must remember to bump it, or visitors keep the stale file.
+#
+# Each page also records when its own content last changed, in
+# tools/versions.json (commit it). That date is shown in the footer next to
+# the build token, and used as the sitemap's <lastmod> and as dateModified in
+# the structured data.
 # ---------------------------------------------------------------------------
 $assetVersionMode  = 'hash'
 $assetVersionValue = '1.1'
 
-function Get-AssetQuery($absolutePath) {
+function Get-Sha10([byte[]]$bytes) {
+	$sha = [System.Security.Cryptography.SHA256]::Create()
+	try   { $hash = $sha.ComputeHash($bytes) }
+	finally { $sha.Dispose() }
+	(($hash | ForEach-Object { $_.ToString('x2') }) -join '').Substring(0, 10)
+}
+function Get-TextSha10([string]$text) { Get-Sha10 ([System.Text.Encoding]::UTF8.GetBytes($text)) }
+
+# The version parameter ("v=6f2a91c0d4", "commit=36fe14c" or "version=1.1")
+# for one asset file, or — given $text instead — for the build as a whole.
+function Get-VersionParam([string]$absolutePath, [string]$text) {
 	switch ($assetVersionMode) {
-		'manual' { return '?version=' + $assetVersionValue }
+		'manual' { return 'version=' + $assetVersionValue }
 		'commit' {
 			$sha = $null
 			try { $sha = (& git -C $root rev-parse --short HEAD 2>$null | Select-Object -First 1) } catch {}
 			if (-not $sha) { throw "assetVersionMode is 'commit' but git could not resolve HEAD in $root" }
-			return '?commit=' + $sha.Trim()
+			return 'commit=' + $sha.Trim()
 		}
 		default {
+			if (-not $absolutePath) { return 'v=' + (Get-TextSha10 $text) }
 			if (-not (Test-Path $absolutePath)) { throw "cannot version a missing asset: $absolutePath" }
-			$sha = [System.Security.Cryptography.SHA256]::Create()
-			try   { $bytes = $sha.ComputeHash([System.IO.File]::ReadAllBytes($absolutePath)) }
-			finally { $sha.Dispose() }
-			return '?v=' + ((($bytes | ForEach-Object { $_.ToString('x2') }) -join '').Substring(0, 10))
+			return 'v=' + (Get-Sha10 ([System.IO.File]::ReadAllBytes($absolutePath)))
 		}
 	}
 }
 
-$cssQuery = Get-AssetQuery (Join-Path $root 'assets\css\theme.css')
-$jsQuery  = Get-AssetQuery (Join-Path $root 'assets\js\main.js')
+# Appends ?<version> to every href/src/content="[site URL]assets/..." in a page.
+# The JSON-LD block is untouched: it never uses those attributes.
+$assetParams  = @{}
+$assetPattern = '(?<attr>(?:href|src|content)=")(?<base>' + [regex]::Escape($siteUrl) + ')?(?<path>assets/[^"?#]+?\.(?:css|js|svg|png|jpe?g|webp|gif|ico|woff2?))"'
+function Add-AssetVersions([string]$html) {
+	[regex]::Replace($html, $assetPattern, [System.Text.RegularExpressions.MatchEvaluator]{
+		param($m)
+		$path = $m.Groups['path'].Value
+		if (-not $assetParams.ContainsKey($path)) {
+			$assetParams[$path] = Get-VersionParam (Join-Path $root ($path -replace '/', '\'))
+		}
+		$m.Groups['attr'].Value + $m.Groups['base'].Value + $path + '?' + $assetParams[$path] + '"'
+	})
+}
 
 # Extra sameAs entries for the alternate domains, appended inside the existing
 # array in the layout. Guard against the primary being listed twice.
@@ -194,8 +236,50 @@ $pages = @(
 		 topbar='Quotes for managed IT and cloud are tailored to your requirement.' }
 )
 
+$today = (Get-Date).ToString('yyyy-MM-dd')
+
+# ---------- per-page "last updated" record ----------
+# tools/versions.json maps each page to a hash of its own content (body
+# fragment plus title, descriptions and top-bar line — not the shared layout,
+# so a navbar tweak doesn't re-date every page) and the date that hash last
+# changed. A page seen for the first time takes the date of the last commit
+# that touched its body file, or today if that file has uncommitted edits.
+$versionsPath = Join-Path $tools 'versions.json'
+$versions = @{}
+if (Test-Path $versionsPath) {
+	$json = (Read-Utf8 $versionsPath) | ConvertFrom-Json
+	foreach ($prop in $json.PSObject.Properties) {
+		$versions[$prop.Name] = @{ hash = $prop.Value.hash; updated = $prop.Value.updated }
+	}
+}
+
+function Get-SeedDate($bodyPath) {
+	try {
+		$dirty = & git -C $root status --porcelain -- $bodyPath 2>$null
+		if (-not $dirty) {
+			$date = & git -C $root log -1 --format=%cs -- $bodyPath 2>$null | Select-Object -First 1
+			if ($date) { return $date.Trim() }
+		}
+	} catch {}
+	return $today
+}
+
+# ---------- pass 1: assemble every page ----------
+# Pages are assembled first and stamped second, because the build token is a
+# hash over all of them.
+$fingerprint = New-Object System.Text.StringBuilder
 foreach ($p in $pages) {
 	$canonical = if ($p.out -eq 'index.html') { $siteUrl } else { $siteUrl + $p.out }
+	$bodyPath  = Join-Path $tools $p.body
+	$body      = Read-Utf8 $bodyPath
+
+	$contentHash = Get-TextSha10 ($body + "`n" + $p.title + "`n" + $p.ogtitle + "`n" + $p.desc + "`n" + $p.topbar + "`n" + $p.crumb)
+	$known = $versions[$p.out]
+	if ($known -and $known.hash -eq $contentHash) { $updated = $known.updated }
+	elseif ($known) { $updated = $today }
+	else { $updated = Get-SeedDate $bodyPath }
+	$p.contentHash = $contentHash
+	$p.updated     = $updated
 
 	# Home is the root of the trail, so it gets no breadcrumb of its own.
 	# A page may declare a parent (parentCrumb/parentOut) to get a third level.
@@ -222,10 +306,10 @@ foreach ($p in $pages) {
 	$html = $html.Replace('{{BASE}}',         $siteUrl)
 	$html = $html.Replace('{{BREADCRUMB}}',   $breadcrumb)
 	$html = $html.Replace('{{TOPBAR}}',       $p.topbar)
-	$html = $html.Replace('{{CSS_Q}}',        $cssQuery)
-	$html = $html.Replace('{{JS_Q}}',         $jsQuery)
 	$html = $html.Replace('{{ALT_DOMAINS}}',  $altDomainsJson)
-	$html = $html.Replace('{{BODY}}',         (Read-Utf8 (Join-Path $tools $p.body)))
+	$html = $html.Replace('{{UPDATED}}',      $updated)
+	$html = $html.Replace('{{UPDATED_HUMAN}}', ([datetime]::ParseExact($updated, 'yyyy-MM-dd', $null)).ToString('d MMM yyyy', [Globalization.CultureInfo]::InvariantCulture))
+	$html = $html.Replace('{{BODY}}',         $body)
 
 	# Mark the current page in the navbar.
 	$needle = 'class="nav-link" data-nav="' + $p.nav + '"'
@@ -233,14 +317,51 @@ foreach ($p in $pages) {
 	if ($html -notmatch [regex]::Escape($needle)) { throw "nav key '$($p.nav)' not found in layout" }
 	$html = $html.Replace($needle, $marked)
 
+	# Asset tokens go in now, so the build token below covers asset changes too.
+	$html = Add-AssetVersions $html
+	$p.html = $html
+	[void]$fingerprint.Append($p.out).Append("`n").Append($html).Append("`n")
+}
+
+# ---------- pass 2: stamp page links and write ----------
+$buildParam = Get-VersionParam $null $fingerprint.ToString()
+$buildId    = $buildParam.Substring($buildParam.IndexOf('=') + 1)
+
+# Relative links to any page in the table, keeping an existing query string and
+# fragment: contact.html?topic=wifi#enquiry -> contact.html?topic=wifi&v=...#enquiry.
+# Absolute URLs (canonical, og:url) never match, so they stay clean.
+$pageNames   = ($pages | ForEach-Object { [regex]::Escape($_.out) }) -join '|'
+$linkPattern = 'href="(?<page>' + $pageNames + ')(?<query>\?[^"#]*)?(?<frag>#[^"]*)?"'
+$linkStamper = [System.Text.RegularExpressions.MatchEvaluator]{
+	param($m)
+	$q = if ($m.Groups['query'].Success) { $m.Groups['query'].Value + '&' } else { '?' }
+	'href="' + $m.Groups['page'].Value + $q + $buildParam + $m.Groups['frag'].Value + '"'
+}
+
+foreach ($p in $pages) {
+	$html = $p.html.Replace('{{BUILD}}', $buildId)
+	$html = [regex]::Replace($html, $linkPattern, $linkStamper)
+
 	if ($html -match '{{') { throw "unreplaced placeholder left in $($p.out)" }
 
 	[System.IO.File]::WriteAllText((Join-Path $root $p.out), $html, $utf8)
-	Write-Output ("built {0,-16} {1,6:N1} KB" -f $p.out, ((Get-Item (Join-Path $root $p.out)).Length / 1KB))
+	Write-Output ("built {0,-16} {1,6:N1} KB   updated {2}" -f $p.out, ((Get-Item (Join-Path $root $p.out)).Length / 1KB), $p.updated)
+}
+
+# ---------- tools/versions.json ----------
+# Rewritten only when a page's content actually changed, so a no-op rebuild
+# leaves the working tree clean.
+$entries = foreach ($p in $pages) {
+	"`t""$($p.out)"": { ""hash"": ""$($p.contentHash)"", ""updated"": ""$($p.updated)"" }"
+}
+$versionsJson = "{`r`n" + ($entries -join ",`r`n") + "`r`n}`r`n"
+$previous = if (Test-Path $versionsPath) { Read-Utf8 $versionsPath } else { '' }
+if ($versionsJson -ne $previous) {
+	[System.IO.File]::WriteAllText($versionsPath, $versionsJson, $utf8)
+	Write-Output 'updated tools/versions.json'
 }
 
 # ---------- sitemap.xml ----------
-$today = (Get-Date).ToString('yyyy-MM-dd')
 $sb = New-Object System.Text.StringBuilder
 [void]$sb.AppendLine('<?xml version="1.0" encoding="UTF-8"?>')
 [void]$sb.AppendLine('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
@@ -249,7 +370,7 @@ foreach ($p in $pages) {
 	$priority = if ($p.out -eq 'index.html') { '1.0' } else { '0.8' }
 	[void]$sb.AppendLine("`t<url>")
 	[void]$sb.AppendLine("`t`t<loc>$loc</loc>")
-	[void]$sb.AppendLine("`t`t<lastmod>$today</lastmod>")
+	[void]$sb.AppendLine("`t`t<lastmod>$($p.updated)</lastmod>")
 	[void]$sb.AppendLine("`t`t<changefreq>monthly</changefreq>")
 	[void]$sb.AppendLine("`t`t<priority>$priority</priority>")
 	[void]$sb.AppendLine("`t</url>")
@@ -274,5 +395,7 @@ Write-Output "Canonical domain : $siteUrl"
 foreach ($d in $altDomains) {
 	Write-Output "Alternate domain : $d  (canonicalised to the primary)"
 }
-Write-Output "theme.css        : $cssQuery"
-Write-Output "main.js          : $jsQuery"
+Write-Output "Build token      : $buildParam  (on every page link, and in each footer)"
+Write-Output "theme.css        : ?$($assetParams['assets/css/theme.css'])"
+Write-Output "main.js          : ?$($assetParams['assets/js/main.js'])"
+Write-Output "Assets stamped   : $($assetParams.Count) files"
