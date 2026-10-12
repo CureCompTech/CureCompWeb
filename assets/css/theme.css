@@ -212,6 +212,21 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 	color: #fff; background: var(--cc-surface-2);
 	box-shadow: inset 0 0 0 1px var(--cc-red-line);
 }
+/* Special entry for the Wi-Fi 8 lesson: a red-ringed link with a "New" tag, so
+	it reads as a feature rather than another service. The ring sits on the
+	<li> class so the build's exact-match nav marker on the <a> still works. */
+.navbar .nav-item-new .nav-link {
+	display: flex; align-items: center; gap: .45rem;
+	color: var(--cc-text); box-shadow: inset 0 0 0 1px var(--cc-red-line);
+}
+.nav-new {
+	font-family: var(--cc-ff-mono); font-size: .6rem; font-weight: 600;
+	letter-spacing: .1em; text-transform: uppercase; line-height: 1;
+	padding: .22rem .42rem; border-radius: 999px;
+	background: var(--cc-btn); color: #fff;
+}
+@media (min-width: 1200px) { .nav-item-new { margin-inline: .2rem; } }
+
 .navbar-toggler { border-color: var(--cc-line-2); padding: .4rem .6rem; }
 .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(237, 34, 36, .3); }
 
@@ -608,7 +623,8 @@ textarea.form-control { min-height: 130px; }
 }
 
 /* ---------- 24. Wi-Fi PHY lesson figures ----------
-	 Animated diagrams on wifi-6-7.html. Every figure is authored so its resting
+	 Animated diagrams on wifi-6-7.html and wifi-8.html (Wi-Fi 8 additions are
+	 in 24b). Every figure is authored so its resting
 	 state (no animation) still reads correctly, because the reduced-motion rule
 	 at the end of this block stops the animations outright. */
 .phy-fig {
@@ -697,6 +713,222 @@ textarea.form-control { min-height: 130px; }
 		 restores the point: theirs is mid-flight, yours is still waiting. */
 	.phy-fig .phy-rest-ahead { transform: translateX(150px); }
 }
+
+/* ---------- 24b. Wi-Fi 8 page ----------
+	 The chapter menu, timeline and paper list on wifi-8.html, plus the extra
+	 figure animations. Same rule as section 24: the authored SVG attributes are
+	 the still frame, so every figure still reads with motion reduced (the
+	 `.phy-fig * { animation: none }` rule above covers these too). */
+
+/* Sticky chapter menu under the navbar. --cc-nav-h is measured by main.js;
+	 62px is the navbar's height at the default font size. */
+html:has(.w8-menu) { scroll-padding-top: calc(var(--cc-nav-h, 62px) + 66px); }
+.w8-menu {
+	position: sticky; top: var(--cc-nav-h, 62px); z-index: 1010;
+	background: color-mix(in srgb, var(--cc-bg) 92%, transparent);
+	backdrop-filter: blur(14px) saturate(160%);
+	border-block: 1px solid var(--cc-line);
+}
+.w8-menu-in { display: flex; align-items: center; gap: .9rem; min-height: 50px; }
+.w8-menu-badge {
+	flex: none; display: inline-flex; align-items: center; gap: .5rem;
+	font-family: var(--cc-ff-display); font-weight: 700; font-size: .92rem;
+	color: #fff; text-decoration: none;
+	padding: .3rem .8rem .3rem .55rem; border-radius: 999px;
+	border: 1px solid var(--cc-red-line); background: rgba(237, 34, 36, .12);
+}
+.w8-menu-badge:hover { color: #fff; border-color: var(--cc-red); }
+.w8-menu-list {
+	display: flex; gap: .2rem; list-style: none; margin: 0; padding: .45rem .2rem;
+	overflow-x: auto; scrollbar-width: none; min-width: 0;
+	mask-image: linear-gradient(90deg, transparent, #000 12px, #000 calc(100% - 28px), transparent);
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 12px, #000 calc(100% - 28px), transparent);
+}
+.w8-menu-list::-webkit-scrollbar { display: none; }
+.w8-menu-list a {
+	display: inline-flex; align-items: baseline; gap: .4rem; white-space: nowrap;
+	padding: .34rem .72rem; border-radius: 999px;
+	font-size: .84rem; font-weight: 500; color: var(--cc-muted); text-decoration: none;
+	transition: color .18s ease, background-color .18s ease;
+}
+.w8-menu-list a span { font-family: var(--cc-ff-mono); font-size: .66rem; color: var(--cc-red-ink); opacity: .75; }
+.w8-menu-list a:hover { color: var(--cc-text); background: var(--cc-surface-2); }
+.w8-menu-list a.active { color: #fff; background: var(--cc-surface-2); box-shadow: inset 0 0 0 1px var(--cc-red-line); }
+.w8-menu-list a.active span { opacity: 1; }
+/* Reading progress: scaled by main.js, so it costs no layout. */
+.w8-progress {
+	position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+	transform-origin: 0 50%; transform: scaleX(0);
+	background: linear-gradient(90deg, var(--cc-red), #ff9a5c);
+}
+
+/* Timeline. Each item draws its own segment of the rail, so done, current and
+	 upcoming stretches can be styled independently. */
+.w8-timeline { --w8-tl-bg: var(--cc-bg); --w8-tl-date: 8.5rem; list-style: none; margin: 0; padding: 0; }
+.section-alt .w8-timeline { --w8-tl-bg: var(--cc-bg-2); }
+.w8-timeline li {
+	position: relative; display: grid; grid-template-columns: var(--w8-tl-date) 1fr;
+	gap: 0 2.4rem; padding-bottom: 1.5rem;
+}
+.w8-timeline li::before {
+	content: ""; position: absolute; top: .5rem; bottom: -.5rem;
+	left: calc(var(--w8-tl-date) + 1.2rem - 1px); width: 2px; background: var(--cc-red);
+}
+.w8-timeline li:last-child::before { display: none; }
+.w8-timeline li::after {
+	content: ""; position: absolute; top: .3rem; left: calc(var(--w8-tl-date) + 1.2rem - 7px);
+	width: 14px; height: 14px; border-radius: 50%;
+	background: var(--cc-red); box-shadow: 0 0 0 4px var(--w8-tl-bg);
+}
+.w8-timeline time {
+	font-family: var(--cc-ff-mono); font-size: .76rem; color: var(--cc-red-ink);
+	text-align: right; padding-top: .12rem; white-space: nowrap;
+}
+.w8-timeline h3 { font-size: 1.02rem; margin-bottom: .2rem; }
+.w8-timeline p { color: var(--cc-muted); font-size: .92rem; margin: 0; }
+/* Prefixed with .w8-timeline so they outrank the `.w8-timeline li` defaults. */
+.w8-timeline .w8-t-now::before { background: linear-gradient(var(--cc-red), var(--cc-line-2)); }
+.w8-timeline .w8-t-now::after { animation: w8Now 2.2s ease-in-out infinite; }
+@keyframes w8Now { 50% { box-shadow: 0 0 0 4px var(--w8-tl-bg), 0 0 0 10px rgba(237, 34, 36, .25); } }
+.w8-timeline .w8-t-next::before { background: repeating-linear-gradient(var(--cc-line-2) 0 6px, transparent 6px 11px); }
+.w8-timeline .w8-t-next::after { background: var(--w8-tl-bg); border: 2px solid var(--cc-line-2); }
+.w8-timeline .w8-t-next time { color: var(--cc-muted); }
+.w8-here {
+	display: inline-block; margin-bottom: .4rem;
+	font-family: var(--cc-ff-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
+	padding: .22rem .55rem; border-radius: 999px;
+	background: var(--cc-btn); color: #fff;
+}
+@media (max-width: 575.98px) {
+	.w8-timeline li { grid-template-columns: 1fr; padding-left: 2rem; gap: .15rem; }
+	.w8-timeline li::before { left: calc(.45rem - 1px); }
+	.w8-timeline li::after { left: calc(.45rem - 7px); }
+	.w8-timeline time { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { .w8-timeline .w8-t-now::after { animation: none; } }
+
+.w8-sticky { position: sticky; top: calc(var(--cc-nav-h, 62px) + 76px); }
+@media (max-width: 991.98px) { .w8-sticky { position: static; } }
+.w8-next-grid { display: grid; gap: .65rem; }
+.w8-next {
+	border: 1px solid var(--cc-line); border-radius: var(--cc-radius);
+	background: var(--cc-surface); padding: .9rem 1.05rem;
+}
+.w8-next b { display: block; color: #fff; font-family: var(--cc-ff-display); font-size: .95rem; }
+.w8-next span { display: block; font-size: .85rem; color: var(--cc-muted); margin-top: .2rem; }
+
+/* Two voices on the legacy question. */
+.w8-voice {
+	border: 1px solid var(--cc-line-2); border-radius: var(--cc-radius);
+	background: var(--cc-surface); padding: 1.1rem 1.25rem;
+	font-family: var(--cc-ff-display); font-size: 1.12rem; color: #fff; text-align: center;
+}
+.w8-voice span {
+	display: block; margin-bottom: .35rem; text-align: left;
+	font-family: var(--cc-ff-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cc-muted);
+}
+.w8-voice-hi { border-color: var(--cc-red-line); box-shadow: var(--cc-glow); }
+
+/* Papers */
+.w8-paper { display: flex; flex-direction: column; }
+.w8-venue {
+	font-family: var(--cc-ff-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+	color: var(--cc-red-ink); margin-bottom: .55rem;
+}
+.w8-paper .card-title { line-height: 1.3; }
+.w8-authors { font-size: .84rem; color: var(--cc-text); opacity: .8; margin-bottom: .6rem; }
+.w8-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: .5rem; }
+.w8-links a {
+	font-family: var(--cc-ff-mono); font-size: .74rem; text-decoration: none;
+	padding: .3rem .7rem; border-radius: 999px;
+	border: 1px solid var(--cc-red-line); color: var(--cc-red-ink); background: rgba(237, 34, 36, .08);
+}
+.w8-links a:hover { color: #fff; border-color: var(--cc-red); }
+
+/* --- Figures --- */
+/* Hero: three latency traces scroll left; one period of the pattern is 160 units. */
+@keyframes w8Scroll { to { transform: translateX(-160px); } }
+.w8-scroll { animation: w8Scroll 5s linear infinite; }
+.w8-trace { fill: none; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.w8-trace-w8 { stroke: var(--cc-red); }
+.w8-trace-w7 { stroke: #8a939d; }
+.w8-late { fill: var(--cc-red-ink); }
+
+/* Gentle pulse: the Wi-Fi 8 block, the OFDMA comb groups, "waiting" labels, beams. */
+@keyframes w8Glow { 50% { opacity: .3; } }
+.w8-glow, .w8-beam { animation: w8Glow 2.4s ease-in-out infinite; }
+
+/* Dots travelling across the eight-year gap. */
+@keyframes w8Cross { 0% { transform: translateX(0); opacity: 0; } 12%, 88% { opacity: 1; } 100% { transform: translateX(80px); opacity: 0; } }
+.w8-cross { animation: w8Cross 2.4s linear infinite; }
+
+/* The coarse comb: one device holds the whole channel, then lets go. */
+@keyframes w8Whole { 0%, 45% { stroke: var(--cc-red); } 55%, 95% { stroke: #3a414b; } 100% { stroke: var(--cc-red); } }
+.w8-whole { fill: none; animation: w8Whole 3s ease-in-out infinite; }
+
+/* Project-duration bars grow once, when the figure scrolls into view. */
+@keyframes w8Grow { from { transform: scaleX(0); } }
+.w8-grow { transform-box: fill-box; transform-origin: 0 50%; }
+.rv.in .w8-grow { animation: w8Grow 1.1s cubic-bezier(.2, .7, .3, 1) both; }
+
+/* Latency histogram: Wi-Fi 7's outline stays put; Wi-Fi 8's tail bars swell to
+	 Wi-Fi 7's height (--from) and shrink back, and the 95th-percentile marker
+	 slides in from Wi-Fi 7's position. */
+.w8-was { fill: none; stroke: #c3c9d0; stroke-opacity: .7; stroke-dasharray: 2 1.5; }
+@keyframes w8Tail { 0%, 18% { transform: scaleY(var(--from, 2)); } 48%, 90% { transform: none; } 100% { transform: scaleY(var(--from, 2)); } }
+.w8-tail { transform-box: fill-box; transform-origin: 50% 100%; animation: w8Tail 6s ease-in-out infinite; }
+@keyframes w8P95 { 0%, 18% { transform: translateX(68px); } 48%, 90% { transform: none; } 100% { transform: translateX(68px); } }
+.w8-p95 { animation: w8P95 6s ease-in-out infinite; }
+
+/* ELR: the plain frame fades out mid-band; the repeated one arrives. */
+@keyframes w8Lost { 0% { transform: translateX(124px); opacity: 1; } 55% { transform: none; opacity: .3; } 65%, 100% { transform: translateX(-24px); opacity: 0; } }
+@keyframes w8Arrive { 0% { transform: translateX(228px); opacity: 1; } 78%, 100% { transform: none; opacity: .8; } }
+@keyframes w8MarkLost { 0%, 52% { opacity: 0; } 58%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes w8MarkOk { 0%, 76% { opacity: 0; } 82%, 96% { opacity: 1; } 100% { opacity: 0; } }
+.w8-ul-lost   { animation: w8Lost 4.5s linear infinite; }
+.w8-ul-elr    { animation: w8Arrive 4.5s linear infinite; }
+.w8-mark-lost { animation: w8MarkLost 4.5s linear infinite; }
+.w8-mark-ok   { animation: w8MarkOk 4.5s linear infinite; }
+
+/* DRU: each tone starts in the bunched cluster (offset --dx, short) and moves
+	 out to its own MHz, rising to the cap. */
+@keyframes w8Spread { 0%, 18% { transform: translateX(var(--dx, 0)) scaleY(.3); } 48%, 88% { transform: none; } 100% { transform: translateX(var(--dx, 0)) scaleY(.3); } }
+.w8-spread { transform-box: fill-box; transform-origin: 50% 100%; animation: w8Spread 6s ease-in-out infinite; }
+
+/* DSO: clients A, B, C take turns on the one primary block. */
+@keyframes w8Cycle { 0%, 33.2% { opacity: 1; } 33.3%, 100% { opacity: 0; } }
+.w8-cycle   { animation: w8Cycle 3s linear infinite; }
+.w8-cycle-2 { animation-delay: 1s; }
+.w8-cycle-3 { animation-delay: 2s; }
+.w8-flow-w {
+	fill: none; stroke: #fff; stroke-opacity: .7; stroke-width: 1.6; stroke-linecap: round;
+	stroke-dasharray: 4 6; animation: phyFlow .9s linear infinite;
+}
+
+/* SMD: phone and playhead walk together; the Wi-Fi 7 gap lights as they cross it. */
+@keyframes w8Walk { 0%, 8% { transform: translateX(-142px); } 92%, 100% { transform: translateX(142px); } }
+@keyframes w8Gap { 0%, 40% { opacity: .15; } 43%, 58% { opacity: 1; } 62%, 100% { opacity: .15; } }
+.w8-walk { animation: w8Walk 7s linear infinite; }
+.w8-gap  { animation: w8Gap 7s linear infinite; }
+
+/* Co-TDMA: the two halves of one TXOP light in turn. */
+@keyframes w8Turn { 0%, 44% { opacity: 1; } 50%, 94% { opacity: .15; } 100% { opacity: 1; } }
+.w8-turn   { animation: w8Turn 4s ease-in-out infinite; }
+.w8-turn-b { animation-delay: -2s; }
+
+/* Co-SR: uncoordinated rings overlap and clash, then shrink apart. */
+@keyframes w8Shrink { 0%, 22% { transform: scale(3.2); } 45%, 90% { transform: none; } 100% { transform: scale(3.2); } }
+@keyframes w8Clash { 0%, 22% { opacity: 1; } 34%, 92% { opacity: 0; } 100% { opacity: 1; } }
+.w8-shrink { transform-box: fill-box; transform-origin: center; animation: w8Shrink 5s ease-in-out infinite; }
+.w8-clash  { animation: w8Clash 5s ease-in-out infinite; }
+
+/* Ripples: ISP routers and the phone-farm AP. */
+@keyframes w8Ripple { 0% { transform: scale(.3); opacity: .95; } 80%, 100% { transform: none; opacity: 0; } }
+.w8-ripple { transform-box: fill-box; transform-origin: center; animation: w8Ripple 2s ease-out infinite; }
+.w8-ripple-slow { animation-duration: 3s; }
+.w8-ripple-b { animation-delay: -1.5s; }
+@keyframes w8Spark { 0%, 45% { opacity: 0; } 52%, 70% { opacity: 1; } 80%, 100% { opacity: 0; } }
+.w8-spark { animation: w8Spark 2s ease-out infinite; }
 
 /* ---------- 25. Print ---------- */
 @media print {

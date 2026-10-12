@@ -14,6 +14,7 @@ The published site is plain static HTML — no framework, no bundler, nothing to
 | `managed-it.html` | Managed IT | MSP services, service tiers, onboarding |
 | `network.html` | Networking | Gear from home to ISP-grade, fq_codel QoS, Wi-Fi 6/7, FTTR, fibre to the desk, NAS, NOC |
 | `wifi-6-7.html` | *(footer only)* | Deep-dive lesson on the Wi-Fi 6/7 PHY, with animated SVG diagrams |
+| `wifi-8.html` | Wi-Fi 8 *(highlighted "New")* | Special report on IEEE 802.11bn Ultra High Reliability: why Wi-Fi 6 took eight years, every UHR feature animated, ISP equipment, timeline to 2028+, IEEE papers |
 | `cloud.html` | Cloud | Dedicated servers, colocation, VM/LXC, IPv6 allocation |
 | `pon-stick.html` | PON Stick | Anime4000 GPON Stick, NIJIKA SDK, Open PON Foundation, Prometheus/Grafana, MikroTik |
 | `about.html` | About Us | Company profile, registration details, full client list (`#clients`) |
@@ -38,7 +39,7 @@ assets/
 tools/                       page assembly — not part of the published site
   _layout.html               shared head, top bar, navbar and footer
   body-*.html                per-page content
-  build.ps1                  writes the eight root pages, sitemap.xml, robots.txt
+  build.ps1                  writes the root pages, sitemap.xml, robots.txt
   make-images.ps1            regenerates og-cover.png and apple-touch-icon.png
   to-tabs.ps1                re-indents the sources with tabs
   link-topics.ps1            points CTAs at their contact-form subject
@@ -230,6 +231,28 @@ no JavaScript and no external library. Two rules matter when editing them:
 - Labels sitting on top of a coloured block use `.t-on` (white), because the block may be
   red or grey depending on where the animation is.
 
+## The Wi-Fi 8 page
+
+`wifi-8.html` is a special report on IEEE 802.11bn (Ultra High Reliability). Unlike the
+Wi-Fi 6/7 lesson it **is** in the top navigation, as a highlighted item with a "New" tag
+(`.nav-item-new` in `theme.css`). Its nav key is `wifi8`, so that item lights up while
+the page is open; its breadcrumb is still Home › Networking › Wi-Fi 8 explained. To drop
+it from the main menu later, delete its `<li>` in `tools/_layout.html` and change its
+`nav` to `network` in `tools/build.ps1`.
+
+The page has its own **sticky chapter menu** directly under the navbar (`.w8-menu`). It
+is generic: any element with `data-spy` gets scrollspy (the link for the section under
+the menu is highlighted and scrolled into view on phones) and a reading-progress line
+(`[data-spy-progress]`). Both are in `main.js`, which also publishes the navbar's height
+as `--cc-nav-h` so sticky elements can sit beneath it.
+
+Its 15 figures follow the same rules as the Wi-Fi 6/7 ones (section 24b of `theme.css`):
+authored attributes are the still frame, and the reduced-motion rule stops everything.
+Facts and dates follow the IEEE 802.11bn draft and the working group's published
+timeline as of **October 2026** — revisit the timeline section, the "Draft 2.1" note in
+the hero and the "You are here" marker as the standard progresses (ratification is
+projected for May 2028).
+
 ## CTA deep-linking
 
 Every call-to-action points at `contact.html?topic=<slug>#enquiry`. On load, `main.js`
@@ -262,4 +285,10 @@ Written as sensible placeholders — check these against how the business actual
   no endorsement by those three organisations is implied. Replace with the Foundation's
   own wording if it has any.
 - Wi-Fi and networking claims on `network.html` (survey process, ISP relationships)
+- The phone-farm test rig on `wifi-8.html#cable` (2U racks of 20 phones, 16 racks, 320
+  clients per AP, and the observations listed) is written as CureComp's own method, taken
+  from the "When Wi-Fi Starts Behaving Like a Cellular Network" slides. Confirm it is, or
+  reword it as an industry method
+- The ISP-equipment section on `wifi-8.html#isp` names no ISP, deliberately; keep it that
+  way unless you want to make claims about a specific operator's hardware
 - Business/opening hours are deliberately not stated anywhere; add them if you want them

@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en-MY" data-bs-theme="dark">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- ============ SEO ============ -->
+	<title>Wi-Fi 8 (802.11bn) Explained | CureComp Technology</title>
+	<meta name="description" content="How Wi-Fi 8 (IEEE 802.11bn) trades peak speed for reliability: ELR, DRU, NPCA, seamless roaming and multi-AP coordination, animated, plus the road to 2028.">
+	<link rel="canonical" href="https://curecomp.com.my/wifi-8.html">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="author" content="CureComp Technology">
+	<meta name="publisher" content="CureComp Technology">
+	<meta name="geo.region" content="MY-05">
+	<meta name="geo.placename" content="Seremban, Negeri Sembilan">
+	<meta name="geo.position" content="2.7186364;101.9547445">
+	<meta name="ICBM" content="2.7186364, 101.9547445">
+
+	<!-- ============ Open Graph (Facebook, LinkedIn, WhatsApp, Discord) ============ -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="CureComp Technology">
+	<meta property="og:locale" content="en_MY">
+	<meta property="og:url" content="https://curecomp.com.my/wifi-8.html">
+	<meta property="og:title" content="Wi-Fi 8 Explained — Ultra High Reliability, Wi-Fi That Behaves Like a Cable">
+	<meta property="og:description" content="How Wi-Fi 8 (IEEE 802.11bn) trades peak speed for reliability: ELR, DRU, NPCA, seamless roaming and multi-AP coordination, animated, plus the road to 2028.">
+	<meta property="og:image" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta property="og:image:secure_url" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="CureComp Technology — computers, managed IT, networking, cloud and PON Stick, Seremban">
+
+	<!-- ============ Twitter / X ============ -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Wi-Fi 8 Explained — Ultra High Reliability, Wi-Fi That Behaves Like a Cable">
+	<meta name="twitter:description" content="How Wi-Fi 8 (IEEE 802.11bn) trades peak speed for reliability: ELR, DRU, NPCA, seamless roaming and multi-AP coordination, animated, plus the road to 2028.">
+	<meta name="twitter:image" content="https://curecomp.com.my/assets/img/og-cover.png">
+	<meta name="twitter:image:alt" content="CureComp Technology — computers, managed IT, networking, cloud and PON Stick, Seremban">
+
+	<!-- Discord reads the Open Graph tags above and tints the embed with theme-color. -->
+	<meta name="theme-color" content="#ed2224">
+
+	<!-- ============ Icons ============ -->
+	<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+	<!-- ============ Styles ============ -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/theme.css?v=87218b7b09">
+	<script>document.documentElement.className += " js";</script>
+
+	<!-- ============ Structured data (Google) ============ -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": ["LocalBusiness", "Organization"],
+				"@id": "https://curecomp.com.my/#organization",
+				"name": "CureComp Technology",
+				"legalName": "CureComp Technology",
+				"description": "Computer supply and repair, managed IT services, networking and Wi-Fi, cloud and colocation hosting, and Malaysia's first third-party GPON ONT.",
+				"url": "https://curecomp.com.my/",
+				"logo": "https://curecomp.com.my/assets/img/cc_logo-full-wide.svg",
+				"image": "https://curecomp.com.my/assets/img/og-cover.png",
+				"email": "curecomp@outlook.com",
+				"telephone": "+60178774376",
+				"currenciesAccepted": "MYR",
+				"identifier": "201603089199 (NS0161352-H)",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "No 2-02, Bangunan Seremban Plaza, Jalan Dato Muda Linggi",
+					"addressLocality": "Seremban",
+					"addressRegion": "Negeri Sembilan",
+					"postalCode": "70100",
+					"addressCountry": "MY"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 2.7186364,
+					"longitude": 101.9547445
+				},
+				"hasMap": "https://www.google.com/maps/search/CureComp/@2.7186364,101.9547445,17z",
+				"areaServed": {
+					"@type": "Country",
+					"name": "Malaysia"
+				},
+				"sameAs": [
+					"https://www.facebook.com/CureComp",
+					"https://wa.me/60178774376",
+						"https://curecomp.my/",
+						"https://curecomp.pro/"
+				],
+				"makesOffer": [
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer supply, parts and repair" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed IT services (MSP)" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Networking, switching and Wi-Fi installation" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud hosting, colocation and dedicated servers" } },
+					{ "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Anime4000 GPON Stick (PON Stick)" } }
+				]
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://curecomp.com.my/#website",
+				"url": "https://curecomp.com.my/",
+				"name": "CureComp Technology",
+				"inLanguage": "en-MY",
+				"publisher": { "@id": "https://curecomp.com.my/#organization" }
+			},
+			{
+				"@type": "WebPage",
+				"@id": "https://curecomp.com.my/wifi-8.html",
+				"url": "https://curecomp.com.my/wifi-8.html",
+				"name": "Wi-Fi 8 Explained — Ultra High Reliability, Wi-Fi That Behaves Like a Cable",
+				"description": "How Wi-Fi 8 (IEEE 802.11bn) trades peak speed for reliability: ELR, DRU, NPCA, seamless roaming and multi-AP coordination, animated, plus the road to 2028.",
+				"inLanguage": "en-MY",
+				"isPartOf": { "@id": "https://curecomp.com.my/#website" },
+				"about": { "@id": "https://curecomp.com.my/#organization" },
+				"primaryImageOfPage": "https://curecomp.com.my/assets/img/og-cover.png"
+			},
+			{
+				"@type": "BreadcrumbList",
+				"@id": "https://curecomp.com.my/wifi-8.html#breadcrumb",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://curecomp.com.my/" },
+					{ "@type": "ListItem", "position": 2, "name": "Networking", "item": "https://curecomp.com.my/network.html" },
+					{ "@type": "ListItem", "position": 3, "name": "Wi-Fi 8 explained", "item": "https://curecomp.com.my/wifi-8.html" }
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<!-- ============ TOP BAR ============ -->
+	<div class="topbar">
+		<div class="container topbar-in">
+			<p class="mb-0 d-none d-md-block">Special report: Wi-Fi 8 (IEEE 802.11bn) — wireless that behaves like a cable.</p>
+			<div class="d-flex gap-3 mx-auto mx-md-0">
+				<a href="tel:+60178774376">+6017-877 4376</a>
+				<a href="mailto:curecomp@outlook.com">curecomp@outlook.com</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- ============ NAVBAR ============ -->
+	<nav class="navbar navbar-expand-xl sticky-top" aria-label="Primary">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="assets/img/cc_logo-full-wide-dark.svg" alt="CureComp Technology" width="180" height="34">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNav"
+							aria-controls="ccNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="ccNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-xl-center">
+					<li class="nav-item"><a class="nav-link" data-nav="home" href="index.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="shop" href="shop.html">Shop</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="msp" href="managed-it.html">Managed IT</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="network" href="network.html">Networking</a></li>
+					<li class="nav-item nav-item-new"><a class="nav-link active" aria-current="page" data-nav="wifi8" href="wifi-8.html">Wi-Fi 8 <span class="nav-new">New</span></a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="cloud" href="cloud.html">Cloud</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="pon" href="pon-stick.html">PON Stick</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="about" href="about.html">About</a></li>
+					<li class="nav-item"><a class="nav-link" data-nav="contact" href="contact.html">Contact</a></li>
+					<li class="nav-item ms-xl-3 mt-2 mt-xl-0">
+						<a class="btn btn-primary btn-sm w-100" href="contact.html">Get a quote</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main id="main">
+<!-- SPECIAL TOP MENU — sticky chapter bar under the navbar. Scrollspy and the
+	reading-progress line are driven by main.js ([data-spy]). -->
+<nav class="w8-menu" aria-label="Wi-Fi 8 chapters" data-spy>
+	<div class="container w8-menu-in">
+		<a class="w8-menu-badge" href="#top"><span class="pill-dot"></span>Wi-Fi&nbsp;8</a>
+		<ol class="w8-menu-list">
+			<li><a href="#gap"><span>01</span>The 8-year gap</a></li>
+			<li><a href="#goals"><span>02</span>Goals</a></li>
+			<li><a href="#reach"><span>03</span>Range</a></li>
+			<li><a href="#latency"><span>04</span>Latency</a></li>
+			<li><a href="#roaming"><span>05</span>Roaming</a></li>
+			<li><a href="#mapc"><span>06</span>Multi-AP</a></li>
+			<li><a href="#cable"><span>07</span>Like a cable</a></li>
+			<li><a href="#isp"><span>08</span>ISP gear</a></li>
+			<li><a href="#timeline"><span>09</span>Timeline</a></li>
+			<li><a href="#papers"><span>10</span>IEEE papers</a></li>
+		</ol>
+	</div>
+	<span class="w8-progress" data-spy-progress></span>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+	<div class="hero-bg"></div>
+	<div class="hero-grid"></div>
+	<div class="container">
+		<div class="row g-4 g-lg-5 align-items-center">
+			<div class="col-lg-7">
+				<span class="pill"><span class="pill-dot"></span><span>Special report &middot; <b>IEEE 802.11bn Ultra High Reliability</b></span></span>
+				<h1 class="mb-3">Wi-Fi 8: wireless that behaves like a <span class="grad">cable</span>.</h1>
+				<p class="lead text-justify mb-4">For twenty-five years every Wi-Fi generation sold the same promise: a bigger number on the box. Wi-Fi 8 is the first that doesn't &mdash; its peak speed is the same as Wi-Fi 7's. Instead, IEEE 802.11bn, code-named <em>Ultra High Reliability</em>, spends an entire generation on the moments you actually notice: the weak signal in the back room, the one late packet that stutters your game, the call that glitches as you walk between access points. The goal is wireless you stop thinking about, the way you never think about a network cable.</p>
+				<div class="d-flex flex-wrap gap-2">
+					<a class="btn btn-primary btn-lg" href="#gap">Start the lesson</a>
+					<a class="btn btn-outline-light btn-lg" href="#timeline">Where it's heading</a>
+				</div>
+				<p class="small-note mt-4 mb-0">Wi-Fi 8 is still a draft standard &mdash; Draft 2.1 as of October 2026, with IEEE approval projected for May 2028. Features below follow the current 802.11bn draft and may still change. The diagrams animate; if your system is set to reduce motion, they hold a still frame.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="120">
+				<svg class="phy-fig" viewBox="0 0 420 250" role="img" aria-label="Three latency traces scrolling past. Ethernet is flat. Wi-Fi 7 is mostly low but has tall spikes where packets arrive late. Wi-Fi 8 stays close to flat, with the spikes trimmed.">
+					<defs><clipPath id="w8HeroClip"><rect x="104" y="40" width="300" height="190"/></clipPath></defs>
+					<text class="t-hi" x="20" y="22">Latency, packet by packet</text>
+					<text class="t-sm" x="404" y="22" text-anchor="end">higher = later</text>
+
+					<text x="20" y="74" fill="#fff">Ethernet</text>
+					<text class="t-sm" x="20" y="87">always flat</text>
+					<text x="20" y="139" fill="#ff8082">Wi-Fi 8</text>
+					<text class="t-sm" x="20" y="152">tail trimmed</text>
+					<text x="20" y="204">Wi-Fi 7</text>
+					<text class="t-sm" x="20" y="217">the stutter</text>
+
+					<path class="phy-edge" d="M104 80h300M104 145h300M104 210h300"/>
+					<g clip-path="url(#w8HeroClip)">
+						<g class="w8-scroll">
+							<path d="M104 78H584" stroke="#e7eaee" stroke-opacity=".55" stroke-width="1.2"/>
+							<g fill="#e7eaee"><circle cx="114" cy="78" r="1.8"/><circle cx="134" cy="78" r="1.8"/><circle cx="154" cy="78" r="1.8"/><circle cx="174" cy="78" r="1.8"/><circle cx="194" cy="78" r="1.8"/><circle cx="214" cy="78" r="1.8"/><circle cx="234" cy="78" r="1.8"/><circle cx="254" cy="78" r="1.8"/><circle cx="274" cy="78" r="1.8"/><circle cx="294" cy="78" r="1.8"/><circle cx="314" cy="78" r="1.8"/><circle cx="334" cy="78" r="1.8"/><circle cx="354" cy="78" r="1.8"/><circle cx="374" cy="78" r="1.8"/><circle cx="394" cy="78" r="1.8"/><circle cx="414" cy="78" r="1.8"/><circle cx="434" cy="78" r="1.8"/><circle cx="454" cy="78" r="1.8"/><circle cx="474" cy="78" r="1.8"/><circle cx="494" cy="78" r="1.8"/><circle cx="514" cy="78" r="1.8"/><circle cx="534" cy="78" r="1.8"/><circle cx="554" cy="78" r="1.8"/><circle cx="574" cy="78" r="1.8"/></g>
+							<polyline class="w8-trace w8-trace-w8" points="104,142 114,140 124,141 134,139 144,142 154,140 164,141 174,133 184,140 194,141 204,142 214,139 224,141 234,140 244,142 254,141 264,142 274,140 284,141 294,139 304,142 314,140 324,141 334,133 344,140 354,141 364,142 374,139 384,141 394,140 404,142 414,141 424,142 434,140 444,141 454,139 464,142 474,140 484,141 494,133 504,140 514,141 524,142 534,139 544,141 554,140 564,142 574,141 584,142"/>
+							<polyline class="w8-trace w8-trace-w7" points="104,206 114,203 124,205 134,201 144,204 154,170 164,202 174,205 184,203 194,200 204,205 214,204 224,162 234,203 244,205 254,202 264,206 274,203 284,205 294,201 304,204 314,170 324,202 334,205 344,203 354,200 364,205 374,204 384,162 394,203 404,205 414,202 424,206 434,203 444,205 454,201 464,204 474,170 484,202 494,205 504,203 514,200 524,205 534,204 544,162 554,203 564,205 574,202 584,206"/>
+							<g class="w8-late"><circle cx="154" cy="170" r="2.8"/><circle cx="224" cy="162" r="2.8"/><circle cx="314" cy="170" r="2.8"/><circle cx="384" cy="162" r="2.8"/><circle cx="474" cy="170" r="2.8"/><circle cx="544" cy="162" r="2.8"/></g>
+						</g>
+					</g>
+
+					<circle class="w8-late" cx="108" cy="240" r="2.8"/>
+					<text class="t-sm" x="116" y="243">packet that arrived late</text>
+					<text class="t-sm" x="404" y="243" text-anchor="end">time &rarr;</text>
+				</svg>
+				<p class="phy-caption">Same average, very different worst case. Wi-Fi 8 is aimed at the spikes.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- THE 8-YEAR GAP -->
+<section class="section section-alt" id="gap">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">First, some history</span>
+			<h2>Why Wi-Fi 6 took eight years</h2>
+			<p class="lead">Wi-Fi 4 to Wi-Fi 5 took four years. Wi-Fi 5 to Wi-Fi 6 took eight &mdash; from the 802.11ac standard in December 2013 to 802.11ax in 2021. Since then a new generation has landed every three to four years. The long pause wasn't the industry going quiet. It was Wi-Fi rebuilding its foundations, and Wi-Fi 8 stands entirely on that rebuild.</p>
+		</div>
+
+		<!-- TWO ERAS -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 460 236" role="img" aria-label="Timeline of Wi-Fi generations. Wi-Fi 4 in 2009 and Wi-Fi 5 in 2013 belong to the Ethernet-thinking era of a shared medium. Then an eight-year gap for a PHY reset. Wi-Fi 6 in 2021, Wi-Fi 7 in 2024 and Wi-Fi 8, projected for 2028, belong to the cellular-thinking era of scheduled access borrowed from LTE and 5G.">
+					<text class="t-hi" x="16" y="22">Two eras of Wi-Fi</text>
+
+					<text x="83" y="50" text-anchor="middle" fill="#c3c9d0">Ethernet thinking</text>
+					<text class="t-sm" x="83" y="63" text-anchor="middle">shared medium, take turns</text>
+					<text x="196" y="50" text-anchor="middle" fill="#ff8082">8-year gap</text>
+					<text class="t-sm" x="196" y="63" text-anchor="middle">PHY reset</text>
+					<text x="343" y="50" text-anchor="middle" fill="#fff">Cellular thinking</text>
+					<text class="t-sm" x="343" y="63" text-anchor="middle">scheduled, like LTE &amp; 5G</text>
+
+					<path d="M16 90Q16 82 24 82H77Q83 82 83 74Q83 82 89 82H142Q150 82 150 90" fill="none" stroke="#8a939d" stroke-width="1.4"/>
+					<path d="M154 90Q154 82 162 82H190Q196 82 196 74Q196 82 202 82H230Q238 82 238 90" fill="none" stroke="#ff5a5c" stroke-width="1.4"/>
+					<path d="M242 90Q242 82 250 82H337Q343 82 343 74Q343 82 349 82H436Q444 82 444 90" fill="none" stroke="#ed2224" stroke-width="1.4"/>
+
+					<text x="49" y="112" text-anchor="middle" fill="#fff">Wi-Fi 4</text>
+					<text class="t-sm" x="49" y="126" text-anchor="middle">2009</text>
+					<text x="117" y="112" text-anchor="middle" fill="#fff">Wi-Fi 5</text>
+					<text class="t-sm" x="117" y="126" text-anchor="middle">2013</text>
+					<text x="196" y="112" text-anchor="middle" fill="#ff8082">8 years</text>
+					<text class="t-sm" x="196" y="126" text-anchor="middle">2013 &rarr; 2021</text>
+					<text x="275" y="112" text-anchor="middle" fill="#fff">Wi-Fi 6</text>
+					<text class="t-sm" x="275" y="126" text-anchor="middle">2021</text>
+					<text x="343" y="112" text-anchor="middle" fill="#fff">Wi-Fi 7</text>
+					<text class="t-sm" x="343" y="126" text-anchor="middle">2024</text>
+					<text x="411" y="112" text-anchor="middle" fill="#fff">Wi-Fi 8</text>
+					<text class="t-sm" x="411" y="126" text-anchor="middle">2028*</text>
+
+					<rect x="16" y="136" width="66" height="30" rx="4" fill="#3a414b"/>
+					<rect x="84" y="136" width="66" height="30" rx="4" fill="#3a414b"/>
+					<path d="M156 151H236" stroke="#ff5a5c" stroke-opacity=".5" stroke-width="1.4" stroke-dasharray="3 4"/>
+					<circle class="w8-cross" cx="156" cy="151" r="2.6" fill="#ff5a5c"/>
+					<circle class="w8-cross" style="animation-delay:-.8s" cx="156" cy="151" r="2.6" fill="#ff5a5c"/>
+					<circle class="w8-cross" style="animation-delay:-1.6s" cx="156" cy="151" r="2.6" fill="#ff5a5c"/>
+					<rect class="phy-mine" x="242" y="136" width="66" height="30" rx="4"/>
+					<rect class="phy-mine" x="310" y="136" width="66" height="30" rx="4"/>
+					<rect class="w8-glow" x="374" y="132" width="74" height="38" rx="7" fill="none" stroke="#ff5a5c" stroke-width="1.6"/>
+					<rect class="phy-mine" x="378" y="136" width="66" height="30" rx="4"/>
+					<text class="t-on" x="49" y="155" text-anchor="middle">802.11n</text>
+					<text class="t-on" x="117" y="155" text-anchor="middle">802.11ac</text>
+					<text class="t-on" x="275" y="155" text-anchor="middle">802.11ax</text>
+					<text class="t-on" x="343" y="155" text-anchor="middle">802.11be</text>
+					<text class="t-on" x="411" y="155" text-anchor="middle">802.11bn</text>
+
+					<text class="t-sm" x="49" y="186" text-anchor="middle">MIMO</text>
+					<text class="t-sm" x="117" y="186" text-anchor="middle">wider, faster</text>
+					<text class="t-sm" x="275" y="186" text-anchor="middle" fill="#ff8082">PHY restart</text>
+					<text class="t-sm" x="343" y="186" text-anchor="middle">scale it up</text>
+					<text class="t-sm" x="411" y="186" text-anchor="middle" fill="#ff8082">reliability</text>
+
+					<text class="t-sm" x="16" y="222">Years are IEEE standard approval. *Wi-Fi 8 projected.</text>
+				</svg>
+				<p class="phy-caption">The gap is where Wi-Fi stopped thinking like a shared Ethernet hub and started thinking like a cell network.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 10 2-5h7"/><circle cx="21" cy="12" r=".6" fill="currentColor"/></svg></div>
+				<h3>Ethernet thinking, then cellular thinking</h3>
+				<p>Up to Wi-Fi 5, Wi-Fi worked like an old shared Ethernet hub: one medium, everyone listens, whoever finds it quiet gets to talk, and collisions get retried. Each generation made that one talker faster &mdash; wider channels, more antennas, denser modulation &mdash; but never changed the rules of who talks when.</p>
+				<p class="mb-0">Wi-Fi 6 changed the rules. The access point became a <strong>scheduler</strong> that hands out slices of time and frequency, the way an LTE or 5G base station does. That isn't an upgrade to the old design. It is a different design, and it had to be built from the radio up.</p>
+			</div>
+		</div>
+
+		<!-- NUMEROLOGY -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V9M9 20V9M13 20V9M17 20V9"/><path d="M3 5.5h18" opacity=".5"/></svg></div>
+				<h3>The same radio symbol from 1999 to 2013</h3>
+				<p>802.11a defined Wi-Fi's OFDM symbol in 1999: 64 subcarriers per 20&nbsp;MHz, 312.5&nbsp;kHz apart, 3.2&nbsp;&micro;s long. Wi-Fi 4 and Wi-Fi 5 kept it exactly. They used more channels, more antennas and more bits per subcarrier &mdash; but the symbol itself never changed, so each new chip was an extension of the last.</p>
+				<p class="mb-0">802.11ax cut the same 20&nbsp;MHz four times finer: <strong>256 subcarriers, 78.125&nbsp;kHz apart, a 12.8&nbsp;&micro;s symbol</strong>. That finer grid is what lets an access point carve a channel into resource units for several devices at once. It also meant a new preamble, new guard intervals, new pilots and new silicon &mdash; a genuine PHY reset.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 200" role="img" aria-label="Two combs of subcarriers across one 20 MHz channel. Wi-Fi 4 and 5 use 64 widely spaced subcarriers with a 3.2 microsecond symbol, all given to one device at a time. Wi-Fi 6 onward uses 256 subcarriers four times closer together with a 12.8 microsecond symbol, divided into groups for four devices at once.">
+					<text class="t-hi" x="20" y="20">One 20 MHz channel, re-cut for the first time</text>
+
+					<text x="20" y="44">Wi-Fi 4 / 5 &mdash; 64 subcarriers, 312.5 kHz apart</text>
+					<path class="w8-whole" d="M24 86V58M44 86V58M64 86V58M84 86V58M104 86V58M124 86V58M144 86V58M164 86V58M184 86V58M204 86V58M224 86V58M244 86V58M264 86V58M284 86V58M304 86V58M324 86V58M344 86V58" stroke="#ed2224" stroke-width="3"/>
+					<text class="t-sm" x="362" y="70" fill="#fff">3.2 &micro;s</text>
+					<text class="t-sm" x="362" y="84">symbol</text>
+					<text class="t-sm phy-cap" x="24" y="100">one device takes the whole channel</text>
+
+					<text x="20" y="122">Wi-Fi 6 onward &mdash; 256 subcarriers, 78.125 kHz apart</text>
+					<path class="w8-glow" d="M24 160V132M29 160V132M34 160V132M39 160V132M44 160V132M49 160V132M54 160V132M59 160V132M64 160V132M69 160V132M74 160V132M79 160V132M84 160V132M89 160V132M94 160V132M99 160V132" stroke="#ed2224" stroke-width="1.6"/>
+					<path class="w8-glow" style="animation-delay:-.6s" d="M104 160V132M109 160V132M114 160V132M119 160V132M124 160V132M129 160V132M134 160V132M139 160V132M144 160V132M149 160V132M154 160V132M159 160V132M164 160V132M169 160V132M174 160V132M179 160V132" stroke="#ff7a7c" stroke-width="1.6"/>
+					<path class="w8-glow" style="animation-delay:-1.2s" d="M184 160V132M189 160V132M194 160V132M199 160V132M204 160V132M209 160V132M214 160V132M219 160V132M224 160V132M229 160V132M234 160V132M239 160V132M244 160V132M249 160V132M254 160V132M259 160V132" stroke="#c0181a" stroke-width="1.6"/>
+					<path class="w8-glow" style="animation-delay:-1.8s" d="M264 160V132M269 160V132M274 160V132M279 160V132M284 160V132M289 160V132M294 160V132M299 160V132M304 160V132M309 160V132M314 160V132M319 160V132M324 160V132M329 160V132M334 160V132M339 160V132" stroke="#ff9a5c" stroke-width="1.6"/>
+					<text class="t-sm" x="362" y="144" fill="#fff">12.8 &micro;s</text>
+					<text class="t-sm" x="362" y="158">symbol</text>
+					<text class="t-sm" x="62" y="174" text-anchor="middle" fill="#fff">A</text>
+					<text class="t-sm" x="142" y="174" text-anchor="middle" fill="#fff">B</text>
+					<text class="t-sm" x="222" y="174" text-anchor="middle" fill="#fff">C</text>
+					<text class="t-sm" x="302" y="174" text-anchor="middle" fill="#fff">D</text>
+
+					<text class="t-sm phy-cap" x="20" y="192">Finer grid &rarr; resource units for several devices at once.</text>
+				</svg>
+				<p class="phy-caption">Every comb line is a subcarrier. Four times as many, four times closer: room to share.</p>
+			</div>
+		</div>
+
+		<!-- WHAT MADE IT SLOW -->
+		<div class="row g-3 mb-5">
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V8"/><path d="m7 12 5-5 5 5"/><path d="M4 3h16"/></svg></div>
+					<h3 class="card-title">Uplink had to become a cellular uplink</h3>
+					<p class="card-text">Scheduling many devices to transmit to the access point in the same instant only works if each one lines up in time, frequency and power, on the AP's trigger. LTE handsets were built for that from day one. Wi-Fi clients never had been.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 17 3l4 4L7 21z"/><path d="m7.5 12.5 2 2M10.5 9.5l2 2M13.5 6.5l2 2"/></svg></div>
+					<h3 class="card-title">The yardstick changed</h3>
+					<p class="card-text">802.11ac was judged on peak speed: at least 1&nbsp;Gbps. 802.11ax was asked for <em>four times the average throughput per device in dense deployments</em>. Before judging a single proposal, the group had to agree what "dense" looks like and calibrate simulators to measure it.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m9 9 6 6M15 9l-6 6"/></svg></div>
+					<h3 class="card-title">It failed ballot. Twice.</h3>
+					<p class="card-text">Draft 1.0 fell short of the 75% working-group approval it needed in early 2017. Draft 2.0 failed again that November, drawing 3,374 comments. Four more ballots and three sponsor-ballot rounds later, 802.11ax was approved in February 2021.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="210">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5 11h-15z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></div>
+					<h3 class="card-title">Shops filled the gap</h3>
+					<p class="card-text">Vendors kept selling 802.11ac, from 2016 as "Wave 2" with MU-MIMO and 160&nbsp;MHz. The Wi-Fi Alliance renamed the generations in 2018 and certified Wi-Fi 6 against a draft in September 2019, so devices shipped well before the standard was final.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- PROJECT DURATIONS -->
+		<div class="row g-4 g-lg-5 align-items-center">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 200" role="img" aria-label="Years from IEEE project approval to approved standard: 802.11ac 5.2 years, 802.11ax 6.9 years, 802.11be 5.5 years, and 802.11bn about 4.7 years, projected.">
+					<defs>
+						<pattern id="w8Hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#7a1214"/><rect width="3" height="6" fill="#ed2224"/></pattern>
+					</defs>
+					<text class="t-hi" x="20" y="20">Project start to approved standard</text>
+
+					<text x="20" y="63">802.11ac</text>
+					<text class="t-sm" x="80" y="63">Wi-Fi 5</text>
+					<rect class="w8-grow" x="150" y="50" width="156" height="18" rx="3" fill="#3a414b"/>
+					<text class="t-on" x="156" y="63">2008&ndash;2013</text>
+					<text class="t-sm" x="312" y="63" fill="#fff">5.2 yrs</text>
+
+					<text x="20" y="97">802.11ax</text>
+					<text class="t-sm" x="80" y="97">Wi-Fi 6</text>
+					<rect class="phy-mine w8-grow" style="animation-delay:.12s" x="150" y="84" width="206" height="18" rx="3"/>
+					<text class="t-on" x="156" y="97">2014&ndash;2021 &middot; PHY reset</text>
+					<text class="t-sm" x="362" y="97" fill="#fff">6.9 yrs</text>
+
+					<text x="20" y="131">802.11be</text>
+					<text class="t-sm" x="80" y="131">Wi-Fi 7</text>
+					<rect class="w8-grow" style="animation-delay:.24s" x="150" y="118" width="165" height="18" rx="3" fill="#3a414b"/>
+					<text class="t-on" x="156" y="131">2019&ndash;2024</text>
+					<text class="t-sm" x="321" y="131" fill="#fff">5.5 yrs</text>
+
+					<text x="20" y="165" fill="#ff8082">802.11bn</text>
+					<text class="t-sm" x="80" y="165">Wi-Fi 8</text>
+					<rect class="w8-grow" style="animation-delay:.36s" x="150" y="152" width="141" height="18" rx="3" fill="url(#w8Hatch)"/>
+					<text class="t-on" x="156" y="165">2023&ndash;2028</text>
+					<text class="t-sm" x="297" y="165" fill="#ff8082">&asymp;4.7 yrs, projected</text>
+
+					<text class="t-sm phy-cap" x="20" y="192">IEEE PAR approval to final IEEE-SA approval.</text>
+				</svg>
+				<p class="phy-caption">The reset was slow once. Everything built on top of it has been faster.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+				<h3>Wi-Fi 8 inherits the foundation, so it moves faster</h3>
+				<p>Once the scheduled, OFDMA-based PHY existed, the next generations could build on it instead of replacing it. Wi-Fi 7 widened and bonded it. Wi-Fi 8 makes it dependable. That is why 802.11bn is projected to go from project approval to finished standard in under five years &mdash; the quickest of the four.</p>
+				<p class="mb-0">That is the shape of the whole story: Wi-Fi 6 was the <strong>PHY restart</strong>, Wi-Fi 7 <strong>scaled</strong> it, and Wi-Fi 8 is where the cellular ideas &mdash; scheduling, coordination, make-before-break mobility &mdash; are pointed squarely at reliability.</p>
+				<p class="small-note mt-3 mb-0">Durations from the IEEE 802.11 working group's official timelines. 802.11bn is a projection.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GOALS -->
+<section class="section" id="goals">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">The brief</span>
+			<h2>Three numbers, all about the worst case</h2>
+			<p class="lead">When the IEEE approved the 802.11bn project it set three targets, each measured against Wi-Fi 7. None of them is a peak speed. All of them are about the bad moments.</p>
+		</div>
+
+		<div class="stats mb-5 rv">
+			<div class="stat"><div class="stat-n" data-count="25" data-suffix="%">25%</div><div class="stat-l">more throughput at the same signal quality &mdash; the weak, noisy link</div></div>
+			<div class="stat"><div class="stat-n" data-count="25" data-suffix="%">25%</div><div class="stat-l">lower latency at the 95th percentile &mdash; the slowest 1 in 20 packets</div></div>
+			<div class="stat"><div class="stat-n" data-count="25" data-suffix="%">25%</div><div class="stat-l">fewer lost frames &mdash; especially while roaming between access points</div></div>
+			<div class="stat"><div class="stat-n">&plusmn;0</div><div class="stat-l">added to peak speed &mdash; the first generation that isn't faster</div></div>
+		</div>
+
+		<div class="row g-4 g-lg-5 align-items-center">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 210" role="img" aria-label="A latency histogram. Most packets arrive quickly in both Wi-Fi 7 and Wi-Fi 8. Wi-Fi 7 has a long tail of late packets; Wi-Fi 8 shrinks that tail, moving the 95th-percentile marker 25 percent lower.">
+					<text class="t-hi" x="20" y="20">Latency distribution &mdash; where the pain is</text>
+					<rect x="20" y="31" width="10" height="10" rx="2" fill="#ed2224"/>
+					<text class="t-sm" x="36" y="40">Wi-Fi 8 target</text>
+					<rect x="130.5" y="31.5" width="9" height="9" rx="2" fill="none" stroke="#c3c9d0" stroke-dasharray="2 1.5"/>
+					<text class="t-sm" x="146" y="40">Wi-Fi 7 today</text>
+
+					<rect class="phy-mine" x="40" y="148" width="20" height="28" rx="2"/>
+					<rect class="phy-mine" x="62" y="88" width="20" height="88" rx="2"/>
+					<rect class="phy-mine" x="84" y="78" width="20" height="98" rx="2"/>
+					<rect class="phy-mine" x="106" y="102" width="20" height="74" rx="2"/>
+					<rect class="phy-mine" x="128" y="128" width="20" height="48" rx="2"/>
+					<rect class="phy-mine w8-tail" style="--from:1.20" x="150" y="146" width="20" height="30" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:1.37" x="172" y="157" width="20" height="19" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:1.67" x="194" y="164" width="20" height="12" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:2.00" x="216" y="168" width="20" height="8" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:2.60" x="238" y="171" width="20" height="5" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:2.75" x="260" y="172" width="20" height="4" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:3.00" x="282" y="173" width="20" height="3" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:4.00" x="304" y="174" width="20" height="2" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:3.50" x="326" y="174" width="20" height="2" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:6.00" x="348" y="175" width="20" height="1" rx="1"/>
+					<rect class="phy-mine w8-tail" style="--from:5.00" x="370" y="175" width="20" height="1" rx="1"/>
+					<g class="w8-was">
+						<rect x="40.5" y="152.5" width="19" height="23" rx="2"/><rect x="62.5" y="96.5" width="19" height="79" rx="2"/><rect x="84.5" y="84.5" width="19" height="91" rx="2"/><rect x="106.5" y="104.5" width="19" height="71" rx="2"/><rect x="128.5" y="124.5" width="19" height="51" rx="2"/><rect x="150.5" y="140.5" width="19" height="35" rx="2"/><rect x="172.5" y="150.5" width="19" height="25" rx="2"/><rect x="194.5" y="156.5" width="19" height="19" rx="2"/><rect x="216.5" y="160.5" width="19" height="15" rx="2"/><rect x="238.5" y="163.5" width="19" height="12" rx="2"/><rect x="260.5" y="165.5" width="19" height="10" rx="2"/><rect x="282.5" y="167.5" width="19" height="8" rx="2"/><rect x="304.5" y="168.5" width="19" height="7" rx="2"/><rect x="326.5" y="169.5" width="19" height="6" rx="2"/><rect x="348.5" y="170.5" width="19" height="5" rx="2"/><rect x="370.5" y="171.5" width="19" height="4" rx="2"/>
+					</g>
+					<path class="phy-edge" d="M36 176h360"/>
+
+					<path d="M310 84V176" stroke="#c3c9d0" stroke-width="1.2" stroke-dasharray="3 3"/>
+					<text class="t-sm" x="314" y="94">95th pct, Wi-Fi 7</text>
+					<g class="w8-p95">
+						<path d="M242 62V176" stroke="#ff5a5c" stroke-width="1.6" stroke-dasharray="4 3"/>
+						<text class="t-sm" x="246" y="70" fill="#ff8082">95th pct, 25% lower</text>
+					</g>
+
+					<text class="t-sm" x="110" y="66">most packets: fine</text>
+					<text class="t-sm" x="396" y="196" text-anchor="end">latency &rarr;</text>
+					<text class="t-sm" x="36" y="196">fast</text>
+				</svg>
+				<p class="phy-caption">The peak barely moves. What Wi-Fi 8 is graded on is the tail on the right.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-4M8 20V8M11 20V5M14 20v-8M17 20v-4M20 20v-2"/></svg></div>
+				<h3>Why the 95th percentile, not the average</h3>
+				<p>Your drive to work averages twenty minutes. The average isn't the problem &mdash; the morning you sat behind a stalled lorry for forty-five minutes is. Latency works the same way. If 95 of 100 packets arrive on time, the average looks superb, and the other five are the stutter in your match, the frozen frame in the meeting, the robot arm that pauses.</p>
+				<p>So 802.11bn is graded on the tail. A 25% cut to 95th-percentile latency is something people feel immediately, even when the average barely moves.</p>
+				<div class="card card-feature p-4 mt-4">
+					<h3 class="card-title">Same peak as Wi-Fi 7 &mdash; deliberately</h3>
+					<p class="card-text mb-0">Wi-Fi 8 keeps Wi-Fi 7's ceiling: 2.4, 5 and 6&nbsp;GHz, 320&nbsp;MHz channels, 4096-QAM, up to eight spatial streams &mdash; about 23&nbsp;Gbps on paper. (The 46&nbsp;Gbps you may see quoted for both assumes sixteen streams, a configuration no consumer device uses.) Nobody has ever seen either figure in a home. The effort went where it pays.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GOAL 1: REACH -->
+<section class="section section-alt" id="reach">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Goal 1 &mdash; throughput where the signal is weak</span>
+			<h2>Hearing the doorbell camera at the gate</h2>
+			<p class="lead">A router has mains power, big antennas and room for heat sinks. The phone in the garden or the camera at the gate has a battery and a tiny antenna. So the link usually fails in the <em>uplink</em> first: the access point can shout, but it can't hear the reply. Wi-Fi 8's first two PHY features fix the reply.</p>
+		</div>
+
+		<!-- ELR -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 200" role="img" aria-label="A camera at the edge of coverage sends to the access point through a band of noise. A normal uplink frame fades out and is lost. An Enhanced Long Range frame, sent four times over at a slow robust rate, arrives and is heard.">
+					<defs><pattern id="w8Noise" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" fill="#59636f"/><circle cx="6.5" cy="7" r=".7" fill="#59636f"/><circle cx="7" cy="1.5" r=".5" fill="#8a939d"/></pattern></defs>
+					<text class="t-hi" x="20" y="20">Uplink from the edge of coverage</text>
+
+					<rect x="160" y="50" width="110" height="112" rx="6" fill="url(#w8Noise)" opacity=".7"/>
+					<text class="t-sm" x="215" y="44" text-anchor="middle">noise &amp; walls</text>
+
+					<rect x="20" y="60" width="54" height="86" rx="8" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+					<text class="t-sm" x="47" y="106" text-anchor="middle" fill="#fff">AP</text>
+					<rect x="346" y="60" width="54" height="86" rx="8" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<text class="t-sm" x="373" y="100" text-anchor="middle" fill="#fff">Camera</text>
+					<text class="t-sm" x="373" y="113" text-anchor="middle">at gate</text>
+
+					<text class="t-sm" x="86" y="66">Normal uplink frame</text>
+					<path class="phy-edge" d="M80 78H340" stroke-dasharray="2 4"/>
+					<rect class="phy-mine w8-ul-lost" x="200" y="72" width="26" height="12" rx="3" opacity=".35"/>
+					<g class="w8-mark-lost">
+						<path d="M144 72l12 12M156 72l-12 12" stroke="#ff5a5c" stroke-width="2.4" stroke-linecap="round"/>
+						<text class="t-sm" x="86" y="98" fill="#ff8082">lost in the noise</text>
+					</g>
+
+					<text class="t-sm" x="86" y="124">ELR &mdash; 20 MHz, BPSK, sent &times;4</text>
+					<path class="phy-edge" d="M80 142H340" stroke-dasharray="2 4"/>
+					<g class="w8-ul-elr" opacity=".8">
+						<rect class="phy-mine" x="86" y="130" width="26" height="5" rx="1.5"/>
+						<rect class="phy-mine" x="86" y="136" width="26" height="5" rx="1.5"/>
+						<rect class="phy-mine" x="86" y="142" width="26" height="5" rx="1.5"/>
+						<rect class="phy-mine" x="86" y="148" width="26" height="5" rx="1.5"/>
+					</g>
+					<g class="w8-mark-ok">
+						<path d="M119 141l4 4 8-9" fill="none" stroke="#ff5a5c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+						<text class="t-sm" x="136" y="146" fill="#ff8082">heard</text>
+					</g>
+
+					<text class="t-sm phy-cap" x="20" y="178">Slow on purpose: 1.67 or 3.33 Mbps, one spatial stream.</text>
+					<text class="t-sm phy-cap" x="20" y="191">A +3 dB preamble and ~6 dB of repetition buy the margin.</text>
+				</svg>
+				<p class="phy-caption">A normal frame from the edge fades into the noise. The ELR frame, repeated, makes it.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M8.5 8.8a4.5 4.5 0 0 1 0 6.4"/><path d="M11.8 5.6a9 9 0 0 1 0 12.8"/><path d="M15.2 2.6a13.4 13.4 0 0 1 0 18.8"/></svg></div>
+				<h3>Enhanced Long Range &mdash; slower, louder, repeated</h3>
+				<p>When conditions get rough, the access point and the device agree to talk slowly and carefully &mdash; like ordering a drink in a noisy bar. An <strong>ELR</strong> frame uses a fixed 20&nbsp;MHz channel, a single spatial stream and the two most robust modulations, BPSK or QPSK, for 1.67 or 3.33&nbsp;Mbps. Its dedicated preamble has its training fields boosted by 3&nbsp;dB so the receiver can find the frame at all.</p>
+				<p class="mb-0">The data itself is repeated across resource units: four copies of a 52-tone unit buy about 6&nbsp;dB of extra margin. In the 5 and 6&nbsp;GHz bands ELR is uplink-only &mdash; exactly where the link budget runs short. In 2.4&nbsp;GHz it works in both directions.</p>
+			</div>
+		</div>
+
+		<!-- DRU -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-9M10 20v-9M15 20v-9M20 20v-9"/><path d="M3 7h18" stroke-dasharray="2 2.2"/></svg></div>
+				<h3>Distributed resource units &mdash; every key at full volume</h3>
+				<p>Think of a Wi-Fi channel as a piano keyboard, and the regulator as a rule about how loudly you may play any one octave. Normally a phone is handed a small cluster of neighbouring keys, so it has to play all of them softly to stay under the limit for that octave.</p>
+				<p>A <strong>DRU</strong> takes the same number of keys and spreads them across a 20, 40 or 80&nbsp;MHz span. Each octave now holds only one or two of them, so each can be played at full volume. In the 6&nbsp;GHz band, where indoor clients are capped at &minus;1&nbsp;dBm per MHz, that is up to about <strong>11&nbsp;dB</strong> more uplink power for the smallest units &mdash; without breaking a single rule.</p>
+				<p class="mb-0">Several devices can each use their own DRU at the same time, so the uplink OFDMA that Wi-Fi 6 introduced keeps working, just louder.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 220" role="img" aria-label="Two views of the same eight tones under a per-megahertz power cap. Bunched together in about 2 MHz they must each stay quiet. Spread across the whole channel as a distributed resource unit, each tone sits alone in its megahertz and can rise to the cap, for up to about 11 dB more total power.">
+					<text class="t-hi" x="20" y="20">Same tones, same rule, more power</text>
+
+					<text x="20" y="42">Regular RU &mdash; tones bunched together</text>
+					<path d="M24 56H396" stroke="#ff5a5c" stroke-width="1.2" stroke-dasharray="4 3"/>
+					<text class="t-sm" x="396" y="68" text-anchor="end" fill="#ff8082">power cap per MHz</text>
+					<g fill="#8a939d"><rect x="60" y="84" width="3" height="12" rx="1"/><rect x="66" y="84" width="3" height="12" rx="1"/><rect x="72" y="84" width="3" height="12" rx="1"/><rect x="78" y="84" width="3" height="12" rx="1"/><rect x="84" y="84" width="3" height="12" rx="1"/><rect x="90" y="84" width="3" height="12" rx="1"/><rect x="96" y="84" width="3" height="12" rx="1"/><rect x="102" y="84" width="3" height="12" rx="1"/></g>
+					<text class="t-sm" x="114" y="93">each one quiet, sharing one slice</text>
+					<path class="phy-edge" d="M24 96H396"/>
+					<text class="t-sm" x="58" y="110">~2 MHz</text>
+					<text class="t-sm" x="396" y="110" text-anchor="end">40 MHz channel</text>
+
+					<text x="20" y="136">DRU &mdash; same tones spread across the channel</text>
+					<path d="M24 152H396" stroke="#ff5a5c" stroke-width="1.2" stroke-dasharray="4 3"/>
+					<rect class="phy-mine w8-spread" style="--dx:20px" x="40" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-22px" x="88" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-64px" x="136" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-106px" x="184" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-148px" x="232" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-190px" x="280" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-232px" x="328" y="154" width="3" height="38" rx="1"/>
+					<rect class="phy-mine w8-spread" style="--dx:-274px" x="376" y="154" width="3" height="38" rx="1"/>
+					<path class="phy-edge" d="M24 192H396"/>
+
+					<text class="t-sm" x="20" y="210" fill="#ff8082">Each tone alone in its MHz &rarr; up to ~11 dB more total power.</text>
+				</svg>
+				<p class="phy-caption">Same tones, same per-MHz limit. Spread out, every one of them can rise to the cap.</p>
+			</div>
+		</div>
+
+		<!-- SMALLER PHY REFINEMENTS -->
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h4v-4h4v-4h4V8h4V4"/></svg></div>
+					<h3 class="card-title">Finer rate steps</h3>
+					<p class="card-text">New intermediate modulation-and-coding steps fill the gaps between existing rates. When the signal dips, link adaptation drops half a rung instead of a whole one, so less throughput is thrown away.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="4" height="9" rx="1"/><rect x="10" y="4" width="4" height="16" rx="1"/><rect x="16.5" y="8" width="4" height="12" rx="1"/></svg></div>
+					<h3 class="card-title">Unequal modulation</h3>
+					<p class="card-text">With UEQM each spatial stream can use its own modulation. A strong stream carries more bits while a weak one stays robust, instead of every stream dropping to the level of the weakest.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H6.5A2.5 2.5 0 0 0 4 6.5V10l-2 2 2 2v3.5A2.5 2.5 0 0 0 6.5 20H8M16 4h1.5A2.5 2.5 0 0 1 20 6.5V10l2 2-2 2v3.5a2.5 2.5 0 0 1-2.5 2.5H16"/><path d="M9 12h6"/></svg></div>
+					<h3 class="card-title">Longer LDPC codewords</h3>
+					<p class="card-text">"2&times;LDPC" doubles the error-correcting codeword to 3,888 bits. A longer code has more redundancy to work with, which buys extra margin at the same data rate.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GOAL 2: LATENCY -->
+<section class="section" id="latency">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Goal 2 &mdash; the slowest 5% of packets</span>
+			<h2>No more waiting at an empty junction</h2>
+			<p class="lead">Most late packets aren't late because the air is full. They're late because the one slice of the channel everyone must check first is busy &mdash; often with a neighbour's traffic &mdash; while the rest of it sits idle.</p>
+		</div>
+
+		<!-- NPCA -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 210" role="img" aria-label="An 80 MHz channel drawn as four 20 MHz lanes, with a neighbour's frame on the primary lane. On Wi-Fi 7 your frame waits at the start for the primary lane. With Wi-Fi 8 non-primary channel access your frame switches to a free lane and goes at the same time.">
+					<text class="t-hi" x="20" y="20">80 MHz channel, primary 20 MHz busy</text>
+
+					<text x="20" y="42">Wi-Fi 7 &mdash; primary busy, everything waits</text>
+					<rect class="phy-lane" x="86" y="50" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="63" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="76" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="89" width="314" height="11" rx="3"/>
+					<text class="t-sm" x="20" y="59" fill="#fff">primary</text>
+					<text class="t-sm" x="20" y="85">free lanes</text>
+					<g class="phy-tx phy-rest-ahead"><rect class="phy-other" x="92" y="51.5" width="60" height="8" rx="2"/></g>
+					<rect class="phy-mine" x="92" y="64" width="34" height="35" rx="3"/>
+					<text class="t-sm w8-glow" x="134" y="85" fill="#ff8082">waiting for the primary lane</text>
+
+					<text x="20" y="124">Wi-Fi 8 NPCA &mdash; switch to a free 20 MHz and go</text>
+					<rect class="phy-lane" x="86" y="132" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="145" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="158" width="314" height="11" rx="3"/>
+					<rect class="phy-lane" x="86" y="171" width="314" height="11" rx="3"/>
+					<text class="t-sm" x="20" y="141" fill="#fff">primary</text>
+					<text class="t-sm" x="20" y="167" fill="#ff8082">NPCA lane</text>
+					<g class="phy-tx phy-rest-ahead"><rect class="phy-other" x="92" y="133.5" width="60" height="8" rx="2"/></g>
+					<g class="phy-tx phy-rest-ahead" style="animation-delay:-.7s"><rect class="phy-mine" x="92" y="159" width="60" height="22" rx="3"/></g>
+
+					<circle cx="24" cy="198" r="4" fill="#59636f"/>
+					<text class="t-sm" x="34" y="201">neighbour's network</text>
+					<circle cx="160" cy="198" r="4" fill="#ed2224"/>
+					<text class="t-sm" x="170" y="201">your frame</text>
+					<text class="t-sm" x="400" y="201" text-anchor="end">time &rarr;</text>
+				</svg>
+				<p class="phy-caption">Same busy primary. Wi-Fi 7 waits at the red light; Wi-Fi 8 drives round it.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18M20 3v18"/><path d="M9.5 21v-6l5-4V4"/><path d="m12 6.5 2.5-2.5L17 6.5"/></svg></div>
+				<h3>Non-primary channel access &mdash; take the free lane</h3>
+				<p>A wide Wi-Fi channel is a multi-lane road with one lane marked <em>primary</em>. Before sending anything, every device checks that lane. If it's busy, the whole connection sits at a red light &mdash; even with three empty lanes beside it. If your neighbour's network shares your primary lane, that happens all evening.</p>
+				<p class="mb-0">With <strong>NPCA</strong>, the access point announces a backup primary inside its own channel. When an overlapping network holds the main primary, devices switch to the backup and carry on, then switch back when the main lane clears.</p>
+			</div>
+		</div>
+
+		<!-- DSO -->
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="4.5" height="10" rx="1"/><rect x="8.5" y="7" width="4.5" height="10" rx="1"/><rect x="14.5" y="7" width="7" height="10" rx="1"/></svg></div>
+				<h3>Dynamic sub-band operation &mdash; one wide AP, several lanes at once</h3>
+				<p>A Wi-Fi 8 access point may run a 320&nbsp;MHz channel, but most phones and laptops top out at 80 or 160&nbsp;MHz. Today they all crowd onto the same primary 80&nbsp;MHz and take turns, while the rest of that expensive channel goes unused.</p>
+				<p class="mb-0"><strong>DSO</strong> lets the access point move each device onto a different slice of its wide channel &mdash; a short control exchange makes the switch &mdash; and then serve them in parallel. The wide channel finally earns its keep with everyday devices, not just the one flagship that supports it.</p>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 200" role="img" aria-label="A 320 MHz channel drawn as four 80 MHz blocks. On Wi-Fi 7, three narrower clients take turns on the first block while the other three sit idle. With Wi-Fi 8 dynamic sub-band operation, client A uses the first block, B the second and C the last two, all at the same time.">
+					<text class="t-hi" x="20" y="20">320 MHz access point, three narrower clients</text>
+
+					<text x="20" y="46">Wi-Fi 7 &mdash; everyone queues on the primary 80 MHz</text>
+					<rect class="phy-mine" x="20" y="56" width="96" height="34" rx="4"/>
+					<rect class="phy-idle" x="120" y="56" width="96" height="34" rx="4"/>
+					<rect class="phy-idle" x="220" y="56" width="96" height="34" rx="4"/>
+					<rect class="phy-idle" x="320" y="56" width="96" height="34" rx="4"/>
+					<text class="t-on w8-cycle" x="68" y="74" text-anchor="middle">A</text>
+					<text class="t-on w8-cycle w8-cycle-2" x="68" y="74" text-anchor="middle" opacity="0">B</text>
+					<text class="t-on w8-cycle w8-cycle-3" x="68" y="74" text-anchor="middle" opacity="0">C</text>
+					<path class="w8-flow-w" d="M30 83h76"/>
+					<text class="t-sm" x="168" y="77" text-anchor="middle">idle</text>
+					<text class="t-sm" x="268" y="77" text-anchor="middle">idle</text>
+					<text class="t-sm" x="368" y="77" text-anchor="middle">idle</text>
+
+					<text x="20" y="118">Wi-Fi 8 DSO &mdash; each client on its own sub-band</text>
+					<rect class="phy-mine" x="20" y="128" width="96" height="34" rx="4"/>
+					<rect class="phy-mine" x="120" y="128" width="96" height="34" rx="4"/>
+					<rect class="phy-mine" x="220" y="128" width="196" height="34" rx="4"/>
+					<text class="t-on" x="68" y="146" text-anchor="middle">A &middot; 80 MHz</text>
+					<text class="t-on" x="168" y="146" text-anchor="middle">B &middot; 80 MHz</text>
+					<text class="t-on" x="318" y="146" text-anchor="middle">C &middot; 160 MHz</text>
+					<path class="w8-flow-w" d="M30 155h76M130 155h76M230 155h176"/>
+
+					<text class="t-sm phy-cap" x="20" y="186">A short control exchange moves each client before it is served.</text>
+				</svg>
+				<p class="phy-caption">Three clients that can't use 320&nbsp;MHz alone, using it together.</p>
+			</div>
+		</div>
+
+		<!-- SMALLER LATENCY TOOLS -->
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg></div>
+					<h3 class="card-title">Prioritised channel access</h3>
+					<p class="card-text">Time-critical traffic gets a faster route to the air. A P-EDCA device can reserve the medium with a short defer-signal CTS instead of waiting out the full contention period &mdash; trimming the tail while the access point keeps the parameters tame enough that everyone else still gets a turn.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></div>
+					<h3 class="card-title">Low-latency indication</h3>
+					<p class="card-text">A device with something urgent queued can flag it inside a frame it is already sending. The access point schedules it straight away instead of discovering it a cycle later.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 1.5"/><path d="M9 2.5h6"/></svg></div>
+					<h3 class="card-title">Coordinated wake windows</h3>
+					<p class="card-text">Wi-Fi 7's restricted TWT reserves protected service periods for latency-sensitive traffic. Wi-Fi 8's Co-RTWT lets neighbouring access points line those windows up so they don't land on top of each other.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- GOAL 3: ROAMING -->
+<section class="section section-alt" id="roaming">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Goal 3 &mdash; no lost packets on the move</span>
+			<h2>Walk between access points without a hiccup</h2>
+			<p class="lead">Every Wi-Fi generation so far, Wi-Fi 7 included, roams by tearing down one association and building another. Sometimes you don't notice. Sometimes the call drops a word.</p>
+		</div>
+
+		<div class="row g-4 g-lg-5 align-items-center">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 236" role="img" aria-label="A phone walks from access point 1 to access point 2, both part of one mobility domain. Two packet streams run underneath. The Wi-Fi 7 stream has a gap of lost packets at the hand-off. The Wi-Fi 8 stream with a Seamless Mobility Domain has no gap.">
+					<text class="t-hi" x="20" y="20">Walking from one access point to the next</text>
+
+					<rect x="36" y="36" width="64" height="28" rx="6" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+					<text class="t-sm" x="68" y="54" text-anchor="middle" fill="#fff">AP 1</text>
+					<rect x="320" y="36" width="64" height="28" rx="6" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+					<text class="t-sm" x="352" y="54" text-anchor="middle" fill="#fff">AP 2</text>
+					<rect x="150" y="40" width="120" height="20" rx="5" fill="none" stroke="#ffffff" stroke-opacity=".22"/>
+					<text class="t-sm" x="210" y="54" text-anchor="middle">mobility domain</text>
+					<path class="phy-edge" d="M100 50h50M270 50h50"/>
+
+					<path class="phy-edge" d="M68 105H352" stroke-dasharray="2 5"/>
+					<text class="t-sm" x="210" y="90" text-anchor="middle">hand-off</text>
+					<g class="w8-walk">
+						<rect x="200" y="94" width="20" height="30" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".45"/>
+						<text class="t-sm" x="210" y="113" text-anchor="middle" fill="#fff">you</text>
+					</g>
+
+					<text class="t-sm" x="20" y="152">Wi-Fi 7 &mdash; break, then make</text>
+					<g fill="#8a939d"><rect x="40" y="160" width="6" height="10" rx="1.5"/><rect x="50" y="160" width="6" height="10" rx="1.5"/><rect x="60" y="160" width="6" height="10" rx="1.5"/><rect x="70" y="160" width="6" height="10" rx="1.5"/><rect x="80" y="160" width="6" height="10" rx="1.5"/><rect x="90" y="160" width="6" height="10" rx="1.5"/><rect x="100" y="160" width="6" height="10" rx="1.5"/><rect x="110" y="160" width="6" height="10" rx="1.5"/><rect x="120" y="160" width="6" height="10" rx="1.5"/><rect x="130" y="160" width="6" height="10" rx="1.5"/><rect x="140" y="160" width="6" height="10" rx="1.5"/><rect x="150" y="160" width="6" height="10" rx="1.5"/><rect x="160" y="160" width="6" height="10" rx="1.5"/><rect x="170" y="160" width="6" height="10" rx="1.5"/><rect x="250" y="160" width="6" height="10" rx="1.5"/><rect x="260" y="160" width="6" height="10" rx="1.5"/><rect x="270" y="160" width="6" height="10" rx="1.5"/><rect x="280" y="160" width="6" height="10" rx="1.5"/><rect x="290" y="160" width="6" height="10" rx="1.5"/><rect x="300" y="160" width="6" height="10" rx="1.5"/><rect x="310" y="160" width="6" height="10" rx="1.5"/><rect x="320" y="160" width="6" height="10" rx="1.5"/><rect x="330" y="160" width="6" height="10" rx="1.5"/><rect x="340" y="160" width="6" height="10" rx="1.5"/><rect x="350" y="160" width="6" height="10" rx="1.5"/><rect x="360" y="160" width="6" height="10" rx="1.5"/><rect x="370" y="160" width="6" height="10" rx="1.5"/><rect x="380" y="160" width="6" height="10" rx="1.5"/></g>
+					<g class="w8-gap">
+						<rect x="180" y="157" width="64" height="16" rx="3" fill="#ed2224" fill-opacity=".16" stroke="#ff5a5c" stroke-dasharray="3 2"/>
+						<text class="t-sm" x="229" y="168" text-anchor="middle" fill="#ff8082">lost</text>
+					</g>
+
+					<text class="t-sm" x="20" y="194" fill="#ff8082">Wi-Fi 8 SMD &mdash; make, then break</text>
+					<g fill="#ed2224"><rect x="40" y="202" width="6" height="10" rx="1.5"/><rect x="50" y="202" width="6" height="10" rx="1.5"/><rect x="60" y="202" width="6" height="10" rx="1.5"/><rect x="70" y="202" width="6" height="10" rx="1.5"/><rect x="80" y="202" width="6" height="10" rx="1.5"/><rect x="90" y="202" width="6" height="10" rx="1.5"/><rect x="100" y="202" width="6" height="10" rx="1.5"/><rect x="110" y="202" width="6" height="10" rx="1.5"/><rect x="120" y="202" width="6" height="10" rx="1.5"/><rect x="130" y="202" width="6" height="10" rx="1.5"/><rect x="140" y="202" width="6" height="10" rx="1.5"/><rect x="150" y="202" width="6" height="10" rx="1.5"/><rect x="160" y="202" width="6" height="10" rx="1.5"/><rect x="170" y="202" width="6" height="10" rx="1.5"/><rect x="180" y="202" width="6" height="10" rx="1.5"/><rect x="190" y="202" width="6" height="10" rx="1.5"/><rect x="200" y="202" width="6" height="10" rx="1.5"/><rect x="210" y="202" width="6" height="10" rx="1.5"/><rect x="220" y="202" width="6" height="10" rx="1.5"/><rect x="230" y="202" width="6" height="10" rx="1.5"/><rect x="240" y="202" width="6" height="10" rx="1.5"/><rect x="250" y="202" width="6" height="10" rx="1.5"/><rect x="260" y="202" width="6" height="10" rx="1.5"/><rect x="270" y="202" width="6" height="10" rx="1.5"/><rect x="280" y="202" width="6" height="10" rx="1.5"/><rect x="290" y="202" width="6" height="10" rx="1.5"/><rect x="300" y="202" width="6" height="10" rx="1.5"/><rect x="310" y="202" width="6" height="10" rx="1.5"/><rect x="320" y="202" width="6" height="10" rx="1.5"/><rect x="330" y="202" width="6" height="10" rx="1.5"/><rect x="340" y="202" width="6" height="10" rx="1.5"/><rect x="350" y="202" width="6" height="10" rx="1.5"/><rect x="360" y="202" width="6" height="10" rx="1.5"/><rect x="370" y="202" width="6" height="10" rx="1.5"/><rect x="380" y="202" width="6" height="10" rx="1.5"/></g>
+
+					<line class="w8-walk" x1="210" y1="146" x2="210" y2="218" stroke="#ff5a5c" stroke-width="1.5" opacity=".85"/>
+					<text class="t-sm phy-cap" x="20" y="232">Keys, sequence numbers and Block Ack state move before the switch.</text>
+				</svg>
+				<p class="phy-caption">Follow the playhead through the hand-off. Wi-Fi 7 drops packets in the gap; Wi-Fi 8 never opens one.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="7" r="2.2"/><circle cx="19" cy="7" r="2.2"/><path d="M5 13.5c2.2 4.5 11.8 4.5 14 0"/><path d="m16.2 13.6 2.8-.1.3 2.8"/></svg></div>
+				<h3>Seamless Mobility Domain &mdash; make before break</h3>
+				<p>A <strong>Seamless Mobility Domain</strong> groups a set of access points under one management entity. To your device the whole group looks like a single network with several radios: it associates and authenticates once, with the domain, not with each access point.</p>
+				<dl class="row deflist g-0 mt-3">
+					<dt class="col-sm-4">Prepare</dt>
+					<dd class="col-sm-8">The target access point receives your context in advance &mdash; security keys, sequence numbers, Block Ack state, QoS settings &mdash; and sets up a dormant link.</dd>
+					<dt class="col-sm-4">Execute</dt>
+					<dd class="col-sm-8">The new link is switched on with no fresh association and no re-authentication. Multi-link operation lets it carry traffic before the old link stops.</dd>
+					<dt class="col-sm-4">Complete</dt>
+					<dd class="col-sm-8">Only then does the old access point release its state.</dd>
+				</dl>
+				<p class="mt-3 mb-0">No teardown means no gap. It is the headline tool for the target of 25% fewer lost frames, and it needs Wi-Fi 8 at both ends &mdash; the access points <em>and</em> the device.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- MULTI-AP COORDINATION -->
+<section class="section" id="mapc">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Access points that cooperate</span>
+			<h2>From shouting match to traffic officer</h2>
+			<p class="lead">Mesh systems already cooperate a little, but when it comes to actually sending data, every access point is on its own. In a mesh home or a block of flats that means radios on the same channel shouting over each other. 802.11bn adds <strong>Multi-AP Coordination</strong>: a standard way for access points to discover each other, agree a scheme, and then share the air on purpose. The one that wins the channel shares its transmit opportunity with a neighbour.</p>
+		</div>
+
+		<div class="row g-3 mb-4">
+			<!-- CO-TDMA -->
+			<div class="col-lg-4">
+				<div class="card p-4 rv">
+					<svg class="phy-fig" viewBox="0 0 260 160" role="img" aria-label="Coordinated TDMA: access point 1 wins the channel and hands the second half of its transmit opportunity to access point 2. Each serves its own client in turn, without contending.">
+						<rect x="20" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="42" y="40" text-anchor="middle" fill="#fff">AP 1</text>
+						<rect x="196" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="218" y="40" text-anchor="middle" fill="#fff">AP 2</text>
+						<path d="M68 36H192" stroke="#ff5a5c" stroke-opacity=".6" stroke-width="1.2" stroke-dasharray="3 3"/>
+						<text class="t-sm" x="130" y="30" text-anchor="middle">shares its time</text>
+						<rect x="26" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="42" y="113" text-anchor="middle" fill="#fff">C1</text>
+						<rect x="202" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="218" y="113" text-anchor="middle" fill="#fff">C2</text>
+						<path class="phy-stream w8-turn" d="M42 50V96"/>
+						<path class="phy-stream w8-turn w8-turn-b" d="M218 50V96" opacity=".15"/>
+						<text class="t-sm" x="20" y="136">one shared TXOP</text>
+						<rect class="phy-lane" x="20" y="142" width="220" height="14" rx="3"/>
+						<rect class="phy-mine w8-turn" x="22" y="144" width="106" height="10" rx="2"/>
+						<rect class="phy-mine w8-turn w8-turn-b" x="132" y="144" width="106" height="10" rx="2" opacity=".15"/>
+						<text class="t-on" x="75" y="152" text-anchor="middle">AP 1</text>
+						<text class="t-on" x="185" y="152" text-anchor="middle">AP 2</text>
+					</svg>
+					<h3 class="card-title mt-1">Co-TDMA &mdash; take turns, cleanly</h3>
+					<p class="card-text mb-0">The access point that wins the channel hands part of its transmit opportunity to its neighbour. No contention, no collision, no backoff &mdash; one schedule instead of two competing ones.</p>
+				</div>
+			</div>
+			<!-- CO-SR -->
+			<div class="col-lg-4">
+				<div class="card p-4 rv" data-delay="70">
+					<svg class="phy-fig" viewBox="0 0 260 160" role="img" aria-label="Coordinated spatial reuse: both access points transmit at the same instant at reduced power. Uncoordinated, their large coverage overlaps and collides; coordinated, each keeps its signal small enough not to disturb the other's client.">
+						<circle class="w8-shrink" cx="42" cy="36" r="30" fill="#ed2224" fill-opacity=".08" stroke="#ff5a5c" stroke-opacity=".55"/>
+						<circle class="w8-shrink" cx="218" cy="36" r="30" fill="#ed2224" fill-opacity=".08" stroke="#ff5a5c" stroke-opacity=".55"/>
+						<g class="w8-clash" opacity="0">
+							<path d="M122 34l16 16M138 34l-16 16" stroke="#ff5a5c" stroke-width="2.4" stroke-linecap="round"/>
+							<text class="t-sm" x="130" y="66" text-anchor="middle" fill="#ff8082">collision</text>
+						</g>
+						<rect x="20" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="42" y="40" text-anchor="middle" fill="#fff">AP 1</text>
+						<rect x="196" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="218" y="40" text-anchor="middle" fill="#fff">AP 2</text>
+						<text class="t-sm" x="130" y="88" text-anchor="middle">same instant, lower power</text>
+						<rect x="26" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="42" y="113" text-anchor="middle" fill="#fff">C1</text>
+						<rect x="202" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="218" y="113" text-anchor="middle" fill="#fff">C2</text>
+						<path class="phy-stream" d="M42 50V96"/>
+						<path class="phy-stream phy-stream-2" d="M218 50V96"/>
+						<text class="t-sm" x="20" y="136">both transmit</text>
+						<rect class="phy-lane" x="20" y="140" width="220" height="18" rx="3"/>
+						<rect class="phy-mine" x="22" y="142" width="216" height="6" rx="2"/>
+						<rect class="phy-mine" x="22" y="150" width="216" height="6" rx="2" opacity=".7"/>
+					</svg>
+					<h3 class="card-title mt-1">Co-SR &mdash; talk together, more quietly</h3>
+					<p class="card-text mb-0">Both access points transmit at the same instant, each turning its power down just enough that it doesn't drown the other's clients. Spatial reuse, negotiated instead of guessed.</p>
+				</div>
+			</div>
+			<!-- CO-BF -->
+			<div class="col-lg-4">
+				<div class="card p-4 rv" data-delay="140">
+					<svg class="phy-fig" viewBox="0 0 260 160" role="img" aria-label="Coordinated beamforming: both access points transmit at once, each steering a beam to its own client and placing a null towards the other access point's client.">
+						<path class="w8-beam" d="M42 50 26 98h32z" fill="#ed2224" fill-opacity=".3"/>
+						<path class="w8-beam" style="animation-delay:-1s" d="M218 50 202 98h32z" fill="#ed2224" fill-opacity=".3"/>
+						<path d="M62 48 198 100M198 48 62 100" stroke="#8a939d" stroke-width="1.1" stroke-dasharray="2 3"/>
+						<circle cx="130" cy="74" r="9" fill="#0d0e10" stroke="#8a939d"/>
+						<path d="M124 80l12-12" stroke="#8a939d"/>
+						<text class="t-sm" x="130" y="94" text-anchor="middle">nulls cross</text>
+						<rect x="20" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="42" y="40" text-anchor="middle" fill="#fff">AP 1</text>
+						<rect x="196" y="24" width="44" height="24" rx="5" fill="#17191d" stroke="#ed2224" stroke-opacity=".5"/>
+						<text class="t-sm" x="218" y="40" text-anchor="middle" fill="#fff">AP 2</text>
+						<rect x="26" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="42" y="113" text-anchor="middle" fill="#fff">C1</text>
+						<rect x="202" y="98" width="32" height="22" rx="4" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+						<text class="t-sm" x="218" y="113" text-anchor="middle" fill="#fff">C2</text>
+						<text class="t-sm" x="20" y="136">both transmit, aimed</text>
+						<rect class="phy-lane" x="20" y="140" width="220" height="18" rx="3"/>
+						<rect class="phy-mine" x="22" y="142" width="216" height="6" rx="2"/>
+						<rect class="phy-mine" x="22" y="150" width="216" height="6" rx="2" opacity=".7"/>
+					</svg>
+					<h3 class="card-title mt-1">Co-BF &mdash; aim away from each other</h3>
+					<p class="card-text mb-0">Both transmit at once, each steering a beam at its own client and a null towards the other's. It needs the two radios to share channel measurements and stay frequency-locked, which the draft defines.</p>
+				</div>
+			</div>
+		</div>
+		<p class="small-note mb-5">In the current draft a coordinated transmission involves two access points at a time, set up with standard frames exchanged between them. A fifth scheme, Co-CR, lets neighbours agree channels for direct device-to-device links.</p>
+
+		<div class="card card-feature p-4 p-md-5 rv mb-5">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-2 text-center">
+					<div class="ico mx-auto" style="width:64px;height:64px;border-radius:18px;">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:30px;height:30px;"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<h3 class="card-title">Your older devices benefit too</h3>
+					<p class="mb-0">When a feature changes how a phone transmits or roams &mdash; ELR, DRU, seamless roaming &mdash; the phone has to support Wi-Fi 8. But coordination happens between the access points. A Wi-Fi 6 laptop on a coordinated Wi-Fi 8 network still lives on a calmer channel with fewer collisions. A Wi-Fi 8 router won't upgrade your old phone; it gives it a better-run network to live in.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="17" height="10" rx="2"/><path d="M22 10.5v3"/><path d="M6 10v4M9.5 10v4"/></svg></div>
+					<h3 class="card-title">Access points that can rest</h3>
+					<p class="card-text">Dynamic power save lets an access point &mdash; including a phone acting as a hotspot &mdash; idle in a low-capability mode and jump to full bandwidth and streams the moment a peer signals it has traffic.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="70">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></svg></div>
+					<h3 class="card-title">Living with Bluetooth</h3>
+					<p class="card-text">Phones juggle Wi-Fi, Bluetooth and UWB on shared antennas. Wi-Fi 8 lets a device tell the access point when it will be unavailable, so frames aren't fired at a radio that's busy with your earbuds.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card card-hover p-4 rv" data-delay="140">
+					<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="7" height="12" rx="1.5"/><rect x="14.5" y="7" width="7" height="12" rx="1.5"/><path d="M10.5 10h3M10.5 14h3"/></svg></div>
+					<h3 class="card-title">Better device-to-device links</h3>
+					<p class="card-text">Screen casting and PC-to-headset VR run direct between devices. The 802.11bn brief includes better peer-to-peer operation, so those links stop fighting the access point's own traffic.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- LIKE A CABLE -->
+<section class="section section-alt" id="cable">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Putting it together</span>
+			<h2>What &ldquo;feels like a cable&rdquo; actually means</h2>
+			<p class="lead">A cable doesn't feel solid because of its peak rate. It feels solid because it is predictable: the same latency every time, effectively no loss, nothing to re-negotiate when you move your chair. Each of those properties now has a matching Wi-Fi 8 feature.</p>
+		</div>
+
+		<div class="table-wrap rv mb-4">
+			<table class="table table-hover table-compare align-top">
+				<thead>
+					<tr><th scope="col">What a cable gives you</th><th scope="col">What breaks it on Wi-Fi today</th><th scope="col">What Wi-Fi 8 adds</th></tr>
+				</thead>
+				<tbody>
+					<tr><th scope="row">The same link at any distance</th><td>Edge devices fall to the slowest rates, and the uplink fails first.</td><td>ELR, distributed resource units, finer rate steps, unequal modulation</td></tr>
+					<tr><th scope="row">Latency you can predict</th><td>One busy primary channel stalls everything; the 95th percentile spikes.</td><td>NPCA, dynamic sub-band operation, prioritised access, low-latency indication, Co-RTWT</td></tr>
+					<tr><th scope="row">No loss when you move</th><td>Roaming tears down one association before building the next.</td><td>Seamless Mobility Domain, make-before-break</td></tr>
+					<tr><th scope="row">Your neighbour's cable never touches yours</th><td>Overlapping networks contend, collide and back off.</td><td>Co-TDMA, Co-SR, Co-BF</td></tr>
+					<tr><th scope="row">No battery tax</th><td>Radios stay at full capability, waiting for traffic.</td><td>Dynamic power save, multi-link power management</td></tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="card card-feature p-4 p-md-5 rv mb-5">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-2 text-center">
+					<div class="ico mx-auto" style="width:64px;height:64px;border-radius:18px;">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:30px;height:30px;"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<h3 class="card-title">Deterministic, honestly</h3>
+					<p class="mb-0">No radio can promise what copper does: a concrete wall still attenuates and a microwave still radiates. "Deterministic" Wi-Fi means the bad moments get rarer and shorter, and the network's behaviour becomes something you can plan around &mdash; latency and loss bounded with high probability, the way LTE and 5G engineer their service. That is the direction 802.11 has been travelling since Wi-Fi 6, and Wi-Fi 8 is the first generation to put it on the label.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- PHONE FARM -->
+		<div class="row g-4 g-lg-5 align-items-center">
+			<div class="col-lg-5 order-lg-2 rv">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="8" rx="1"/><rect x="10" y="3" width="5" height="8" rx="1"/><rect x="17" y="3" width="4" height="8" rx="1"/><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="13" width="5" height="8" rx="1"/><rect x="17" y="13" width="4" height="8" rx="1"/></svg></div>
+				<h3>How we measure it: real phones, real density</h3>
+				<p>Tail latency and frame loss only show up under load, so a single laptop running a speed test can't reveal them. We test the way a mobile operator would: a <strong>phone farm</strong> of real iPhones and Android handsets, each one an independent client with real operating-system behaviour &mdash; idle chatter, bursts, background sync and roaming.</p>
+				<dl class="row deflist g-0 mt-3">
+					<dt class="col-sm-4">The rig</dt>
+					<dd class="col-sm-8">2U racks holding 20 phones each. Sixteen of them around one access point puts 320 clients on a single AP.</dd>
+					<dt class="col-sm-4">What it reveals</dt>
+					<dd class="col-sm-8">Scheduling, airtime fairness and latency behaviour that single-client tests hide.</dd>
+					<dt class="col-sm-4">What we see</dt>
+					<dd class="col-sm-8">Wi-Fi 6/7 access points behave like small cells. BSS Coloring and OFDMA stabilise dense deployments. Performance scales with access-point density, not transmit power.</dd>
+				</dl>
+			</div>
+			<div class="col-lg-7 order-lg-1 rv" data-delay="80">
+				<svg class="phy-fig" viewBox="0 0 420 250" role="img" aria-label="Sixteen phone-farm racks of 20 phones each arranged in a four by four grid around a single access point, for 320 clients on one AP. Phones blink as they transmit.">
+					<defs><pattern id="w8Phones" patternUnits="objectBoundingBox" width=".1" height=".5"><rect x="1" y="1" width="4" height="7" rx="1" fill="#3a414b"/></pattern></defs>
+					<rect x="28" y="30" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="35" y="43">20 phones</text>
+					<rect x="34" y="48" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.00s" x="42" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.93s" x="70" y="58" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.86s" x="91" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="122" y="30" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="129" y="43">20 phones</text>
+					<rect x="128" y="48" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.70s" x="136" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.63s" x="164" y="58" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.56s" x="185" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="216" y="30" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="223" y="43">20 phones</text>
+					<rect x="222" y="48" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.40s" x="230" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.33s" x="258" y="58" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.46s" x="279" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="310" y="30" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="317" y="43">20 phones</text>
+					<rect x="316" y="48" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.10s" x="324" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.23s" x="352" y="58" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.16s" x="373" y="49" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="28" y="82" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="35" y="95">20 phones</text>
+					<rect x="34" y="100" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.35s" x="42" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.28s" x="70" y="110" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.21s" x="91" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="122" y="82" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="129" y="95">20 phones</text>
+					<rect x="128" y="100" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.05s" x="136" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.98s" x="164" y="110" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.11s" x="185" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="216" y="82" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="223" y="95">20 phones</text>
+					<rect x="222" y="100" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.75s" x="230" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.68s" x="258" y="110" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.81s" x="279" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="310" y="82" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="317" y="95">20 phones</text>
+					<rect x="316" y="100" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.45s" x="324" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.58s" x="352" y="110" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.51s" x="373" y="101" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="28" y="134" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="35" y="147">20 phones</text>
+					<rect x="34" y="152" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.20s" x="42" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.13s" x="70" y="162" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.06s" x="91" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="122" y="134" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="129" y="147">20 phones</text>
+					<rect x="128" y="152" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.90s" x="136" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.83s" x="164" y="162" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.76s" x="185" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="216" y="134" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="223" y="147">20 phones</text>
+					<rect x="222" y="152" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.60s" x="230" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.53s" x="258" y="162" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.66s" x="279" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="310" y="134" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="317" y="147">20 phones</text>
+					<rect x="316" y="152" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.30s" x="324" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.43s" x="352" y="162" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.36s" x="373" y="153" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="28" y="186" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="35" y="199">20 phones</text>
+					<rect x="34" y="204" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.55s" x="42" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.48s" x="70" y="214" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.41s" x="91" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="122" y="186" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="129" y="199">20 phones</text>
+					<rect x="128" y="204" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.25s" x="136" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.18s" x="164" y="214" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.31s" x="185" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="216" y="186" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="223" y="199">20 phones</text>
+					<rect x="222" y="204" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.95s" x="230" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.08s" x="258" y="214" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.01s" x="279" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect x="310" y="186" width="82" height="40" rx="6" fill="#17191d" stroke="#ffffff" stroke-opacity=".14"/>
+					<text class="t-sm" x="317" y="199">20 phones</text>
+					<rect x="316" y="204" width="70" height="18" fill="url(#w8Phones)"/>
+					<rect class="phy-blink-slow" style="animation-delay:-2.65s" x="324" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-0.78s" x="352" y="214" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+					<rect class="phy-blink-slow" style="animation-delay:-1.71s" x="373" y="205" width="4" height="7" rx="1" fill="#ed2224" opacity="1"/>
+
+					<circle class="w8-ripple" cx="210" cy="128" r="44" fill="none" stroke="#ff5a5c" stroke-width="1.4" opacity=".4"/>
+					<circle cx="210" cy="128" r="26" fill="#0d0e10" stroke="#ed2224" stroke-width="1.6"/>
+					<text class="t-sm" x="210" y="131" text-anchor="middle" fill="#fff">one AP</text>
+
+					<text class="t-hi" x="20" y="18">A phone farm around one access point</text>
+					<text class="t-sm" x="210" y="244" text-anchor="middle">16 racks &times; 20 phones = 320 clients on a single AP</text>
+				</svg>
+				<p class="phy-caption">Density like a cell site, behaviour like real users. That is where the 95th percentile lives.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ISP EQUIPMENT -->
+<section class="section" id="isp">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">The router your ISP gave you</span>
+			<h2>ISP equipment stops being the weak link</h2>
+			<p class="lead">Most homes and shops never choose their Wi-Fi. It arrives with the fibre: one box, built to a price, mounted wherever the fibre comes in. Wi-Fi 8 doesn't make that box expensive. It moves the things that box gets wrong into the standard itself, so even an entry-level certified gateway gets the tools.</p>
+		</div>
+
+		<div class="row g-4 g-lg-5 align-items-center mb-5">
+			<div class="col-lg-7 rv">
+				<svg class="phy-fig" viewBox="0 0 420 242" role="img" aria-label="Two views of four flats, each with the same ISP router on the same channel. Today all four transmit at once at full power and collide at the shared walls. With Wi-Fi 8 coordination, diagonal pairs take turns at lower power and do not collide.">
+					<text class="t-hi" x="20" y="20">Four flats, four ISP routers, one channel</text>
+
+					<text x="20" y="44">Today</text>
+					<rect x="20" y="52" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="108" y="52" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="20" y="120" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="108" y="120" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<circle class="w8-ripple" cx="80" cy="96" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".45"/>
+					<circle class="w8-ripple" cx="134" cy="96" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".45"/>
+					<circle class="w8-ripple" cx="80" cy="142" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".45"/>
+					<circle class="w8-ripple" cx="134" cy="142" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".45"/>
+					<g>
+						<circle class="w8-ripple" style="animation-delay:-1s" cx="80" cy="96" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".2"/>
+						<circle class="w8-ripple" style="animation-delay:-1s" cx="134" cy="96" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".2"/>
+						<circle class="w8-ripple" style="animation-delay:-1s" cx="80" cy="142" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".2"/>
+						<circle class="w8-ripple" style="animation-delay:-1s" cx="134" cy="142" r="50" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".2"/>
+					</g>
+					<g class="w8-spark" stroke="#ff5a5c" stroke-width="2" stroke-linecap="round">
+						<path d="M102 115l10 10M112 115l-10 10"/>
+						<path d="M102 66l8 8M110 66l-8 8"/>
+						<path d="M104 160l8 8M112 160l-8 8"/>
+						<path d="M38 115l8 8M46 115l-8 8"/>
+						<path d="M168 115l8 8M176 115l-8 8"/>
+					</g>
+					<g fill="#ed2224"><rect x="74" y="92" width="12" height="8" rx="2"/><rect x="128" y="92" width="12" height="8" rx="2"/><rect x="74" y="138" width="12" height="8" rx="2"/><rect x="128" y="138" width="12" height="8" rx="2"/></g>
+					<text class="t-sm" x="20" y="202" fill="#ff8082">all at once, full power:</text>
+					<text class="t-sm" x="20" y="215" fill="#ff8082">collide, back off, retry</text>
+
+					<text x="226" y="44">With Wi-Fi 8 coordination</text>
+					<rect x="226" y="52" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="314" y="52" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="226" y="120" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<rect x="314" y="120" width="86" height="66" rx="3" fill="#17191d" stroke="#ffffff" stroke-opacity=".18"/>
+					<circle class="w8-ripple w8-ripple-slow" cx="286" cy="96" r="26" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".55"/>
+					<circle class="w8-ripple w8-ripple-slow" cx="340" cy="142" r="26" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".55"/>
+					<circle class="w8-ripple w8-ripple-slow w8-ripple-b" cx="340" cy="96" r="26" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".12"/>
+					<circle class="w8-ripple w8-ripple-slow w8-ripple-b" cx="286" cy="142" r="26" fill="none" stroke="#ff5a5c" stroke-width="1.3" opacity=".12"/>
+					<g fill="#ed2224"><rect x="280" y="92" width="12" height="8" rx="2"/><rect x="334" y="92" width="12" height="8" rx="2"/><rect x="280" y="138" width="12" height="8" rx="2"/><rect x="334" y="138" width="12" height="8" rx="2"/></g>
+					<text class="t-sm" x="226" y="202">pairs take turns,</text>
+					<text class="t-sm" x="226" y="215">at lower power</text>
+
+					<text class="t-sm phy-cap" x="20" y="234">In the draft, each coordinated transmission pairs two APs.</text>
+				</svg>
+				<p class="phy-caption">Same four boxes, same channel. The difference is whether they talk to each other.</p>
+			</div>
+			<div class="col-lg-5 rv" data-delay="80">
+				<div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 13V7M17 13V7"/><circle cx="7.5" cy="16.5" r=".9" fill="currentColor" stroke="none"/><circle cx="11" cy="16.5" r=".9" fill="currentColor" stroke="none"/></svg></div>
+				<h3>Why ISP Wi-Fi disappoints today</h3>
+				<ul class="checks mt-3">
+					<li><strong>It lives in the wrong place.</strong> The box sits where the fibre terminates &mdash; a corner, behind the TV, inside a cabinet &mdash; and the far rooms get whatever leaks out.</li>
+					<li><strong>Every flat has the same one.</strong> A block where every unit got the same model on the same default channel is a block of radios contending with each other all evening.</li>
+					<li><strong>&ldquo;Mesh&rdquo; that doesn't coordinate.</strong> Satellites relay over the air on the same channel, and moving between them is a drop and a reconnect.</li>
+					<li><strong>Tuned for the speed test.</strong> One device next to the router looks superb. It says nothing about the 95th percentile with twenty devices in use.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row g-3 mb-4">
+			<div class="col-lg-6">
+				<div class="card p-4 p-md-5 rv">
+					<h3 class="card-title mb-3">What Wi-Fi 8 changes for an ISP box</h3>
+					<dl class="row deflist g-0">
+						<dt class="col-sm-5">Bad placement</dt>
+						<dd class="col-sm-7">ELR and DRU let distant phones and cameras still be heard on the uplink &mdash; the half of the link a corner-mounted router loses first.</dd>
+						<dt class="col-sm-5">Identical neighbours</dt>
+						<dd class="col-sm-7">NPCA routes round a neighbour sitting on your primary channel. Multi-AP coordination lets nearby access points take turns or share the air at lower power instead of colliding.</dd>
+						<dt class="col-sm-5">Satellites &amp; FTTR units</dt>
+						<dd class="col-sm-7">A gateway and its own satellites are the easiest case for coordination: one operator, one management system. Add a Seamless Mobility Domain and walking room to room stops being a reconnect.</dd>
+						<dt class="col-sm-5">Standard, not secret sauce</dt>
+						<dd class="col-sm-7">Coordination is defined as standard frames between access points, so gear from different makers can cooperate rather than each mesh brand speaking only to itself.</dd>
+						<dt class="col-sm-5">Graded on the tail</dt>
+						<dd class="col-sm-7">The standard itself is judged on tail latency and loss, so the chipsets that end up in ISP gateways are built to that brief, not to a peak-speed screenshot.</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="card card-feature p-4 p-md-5 rv" data-delay="80">
+					<h3 class="card-title mb-3">What Wi-Fi 8 won't fix</h3>
+					<ul class="checks">
+						<li><strong>The bill of materials.</strong> The ISP still picks the chipset tier, the antenna count and the firmware. A Wi-Fi 8 logo on a two-antenna box is still a two-antenna box.</li>
+						<li><strong>Optional features.</strong> Much of 802.11bn is optional. Check what a gateway actually enables &mdash; coordination and seamless roaming especially &mdash; not just the generation on the label.</li>
+						<li><strong>Timing.</strong> Operators usually adopt a generation after certification, once chipsets reach their price point. Expect Wi-Fi 8 gateways in volume from 2028 onward.</li>
+						<li><strong>Physics.</strong> A wire still beats the best radio. Put access points on Ethernet, or on <a href="network.html#fttr">FTTR</a> where cable can't go, and let the ISP box be the router it is good at being.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<p class="mb-0"><a class="link-arrow" href="contact.html?topic=wifi#enquiry">Stuck with an ISP router today? We'll tell you whether to tune it, wire around it or replace it</a></p>
+	</div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section section-alt" id="timeline">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Where Wi-Fi 8 is heading</span>
+			<h2>From draft to your ceiling &mdash; and on toward 2030</h2>
+			<p class="lead">Dates come from the IEEE 802.11 working group's published schedule. Anything after October 2026 is a projection, and projections slip: Draft 1.0 and Draft 2.0 each landed two months late.</p>
+		</div>
+
+		<div class="row g-4 g-lg-5">
+			<div class="col-lg-7">
+				<ol class="w8-timeline">
+					<li class="w8-t-done rv">
+						<time>Jul &ndash; Sep 2023</time>
+						<div><h3>The project is approved</h3><p>The 802.11 working group approves the Ultra High Reliability project request in July; the IEEE-SA Standards Board approves P802.11bn in September. The scope: 25% better throughput, 95th-percentile latency and frame loss than Wi-Fi 7.</p></div>
+					</li>
+					<li class="w8-t-done rv">
+						<time>Nov 2023</time>
+						<div><h3>Task Group bn meets</h3><p>TGbn holds its first meeting and starts sorting hundreds of technical proposals into a feature set.</p></div>
+					</li>
+					<li class="w8-t-done rv">
+						<time>Jan 2025</time>
+						<div><h3>Draft 0.1</h3><p>The first consolidated draft text of the amendment.</p></div>
+					</li>
+					<li class="w8-t-done rv">
+						<time>Jul 2025</time>
+						<div><h3>Draft 1.0 goes to ballot</h3><p>The first working-group letter ballot, two months behind plan. Thousands of comments follow, as with every Wi-Fi generation.</p></div>
+					</li>
+					<li class="w8-t-done rv">
+						<time>Jan &ndash; Mar 2026</time>
+						<div><h3>First silicon</h3><p>MediaTek (Filogic 8000) and Broadcom show Wi-Fi 8 chips at CES 2026; Qualcomm announces FastConnect 8800 at MWC in March. All of it built to a draft, ahead of certification.</p></div>
+					</li>
+					<li class="w8-t-now rv">
+						<time>Jul &ndash; Sep 2026</time>
+						<div><span class="w8-here">You are here &middot; October 2026</span><h3>Draft 2.0, then 2.1</h3><p>Draft 2.0 goes to letter ballot in July. At the September interim the group resolves about 1,850 comments and produces Draft 2.1.</p></div>
+					</li>
+					<li class="w8-t-next rv">
+						<time>Jan 2027</time>
+						<div><h3>Draft 3.0 ballot</h3><p>The next working-group letter ballot. Projected.</p></div>
+					</li>
+					<li class="w8-t-next rv">
+						<time>May 2027</time>
+						<div><h3>Draft 4.0 to IEEE-SA ballot</h3><p>The wider standards-association ballot begins. Projected.</p></div>
+					</li>
+					<li class="w8-t-next rv">
+						<time>Around Jan 2028</time>
+						<div><h3>Wi-Fi CERTIFIED 8</h3><p>The Wi-Fi Alliance is expected to launch certification around CES 2028 &mdash; the point where interoperable products ship in volume.</p></div>
+					</li>
+					<li class="w8-t-next rv">
+						<time>Mar &ndash; May 2028</time>
+						<div><h3>802.11bn becomes a standard</h3><p>Final working-group and 802 Executive Committee approval in March, IEEE-SA approval in May. Projected.</p></div>
+					</li>
+					<li class="w8-t-next rv">
+						<time>2028 &ndash; 2030</time>
+						<div><h3>Into offices, homes and ISP gateways</h3><p>Enterprise access points and flagship phones first, then mainstream laptops and operator gateways. By 2030, Wi-Fi is designed and measured on reliability, not on the number on the box.</p></div>
+					</li>
+				</ol>
+			</div>
+
+			<div class="col-lg-5">
+				<div class="w8-sticky">
+					<h3 class="mb-3">Beyond Wi-Fi 8</h3>
+					<p class="text-muted mb-3" style="font-size:.95rem;">802.11bn isn't the only thing in the pipeline. These run alongside it in IEEE 802.11 today.</p>
+					<div class="w8-next-grid">
+						<div class="w8-next rv"><b>802.11bq &middot; Integrated mmWave</b><span>60&nbsp;GHz links alongside 2.4, 5 and 6&nbsp;GHz, so a device can step up to multi-gigabit short-range capacity and fall back seamlessly. Projected mid-2029.</span></div>
+						<div class="w8-next rv"><b>802.11bp &middot; Ambient power</b><span>Battery-free sensors and tags that harvest energy from radio waves and talk to Wi-Fi. Projected 2028.</span></div>
+						<div class="w8-next rv"><b>802.11bt &middot; Post-quantum crypto</b><span>Wi-Fi security designed to survive quantum computers. Projected 2028.</span></div>
+						<div class="w8-next rv"><b>802.11bi &middot; Enhanced privacy</b><span>Hides more identifying information from passive observers. In final approval in 2026.</span></div>
+						<div class="w8-next rv"><b>AI Offload study group</b><span>Phones and glasses offloading AI inference to an edge-compute access point. Project request heads to 802 review in November 2026.</span></div>
+						<div class="w8-next rv"><b>&ldquo;Wi-Fi 9&rdquo;</b><span>Early discussion of the generation after 802.11bn has begun, with responsiveness, reliability and predictability named as important as speed.</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- PROTECT THE NEW -->
+		<div class="opf-panel mt-5 rv">
+			<div class="row g-4 align-items-center">
+				<div class="col-lg-6">
+					<span class="eyebrow">The direction of travel</span>
+					<h3 class="card-title">Protect the new. Out-reuse the old.</h3>
+					<p>Since Wi-Fi 6 the industry's stance has quietly changed: <em>all generations must coexist politely forever</em> has given way to <strong>modern Wi-Fi must work, even if legacy devices suffer</strong>. Wi-Fi 6 and later access points can raise their OBSS-PD threshold from &minus;82&nbsp;dBm up to &minus;62&nbsp;dBm &mdash; ignoring weak overlapping transmissions and carrying on at slightly lower power.</p>
+					<p class="mb-0">Devices from 802.11a/b/g/n/ac can't take part in the scheduling, so more and more they are treated as background energy rather than peers to be waited for. The practical upshot: retire Wi-Fi 5-and-older clients where they matter, and keep the stragglers on a band of their own.</p>
+				</div>
+				<div class="col-lg-6">
+					<div class="w8-voice mb-3"><span>From Wi-Fi 5's perspective</span>&ldquo;Why is my throughput suddenly terrible?&rdquo;</div>
+					<div class="w8-voice w8-voice-hi"><span>From the standard's perspective</span>&ldquo;You're just unmanaged background energy now.&rdquo;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- PAPERS -->
+<section class="section" id="papers">
+	<div class="container">
+		<div class="sect-head">
+			<span class="eyebrow">Read the research</span>
+			<h2>IEEE papers and primary sources</h2>
+			<p class="lead">Everything on this page traces back to these. The IEEE magazine articles are the best place to start, the tutorials go deeper, and the working-group pages are where the schedule actually lives.</p>
+		</div>
+
+		<div class="row g-3 mb-4">
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv">
+					<span class="w8-venue">IEEE Communications Magazine &middot; 2024</span>
+					<h3 class="card-title">What Will Wi-Fi 8 Be? A Primer on IEEE 802.11bn Ultra High Reliability</h3>
+					<p class="w8-authors">L. Galati-Giordano, G. Geraci, M. Carrascosa, B. Bellalta &middot; vol. 62, no. 8, pp. 126&ndash;132</p>
+					<p class="card-text">The clearest short introduction: why reliability became the goal, and how multi-AP coordination builds on Wi-Fi 7's multi-link operation to get there.</p>
+					<div class="w8-links"><a href="https://doi.org/10.1109/MCOM.001.2300728" target="_blank" rel="noopener">DOI</a><a href="https://arxiv.org/abs/2303.10442" target="_blank" rel="noopener">Free preprint (arXiv)</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv" data-delay="70">
+					<span class="w8-venue">IEEE Communications Magazine &middot; 2022</span>
+					<h3 class="card-title">Future Directions for Wi-Fi 8 and Beyond</h3>
+					<p class="w8-authors">E. Reshef, C. Cordeiro &middot; vol. 60, no. 10, pp. 50&ndash;55</p>
+					<p class="card-text">Written before 802.11bn existed: the market drivers and candidate directions &mdash; reliability, latency, new bands &mdash; that became the UHR brief, with Wi-Fi 8 forecast for 2027&ndash;2028.</p>
+					<div class="w8-links"><a href="https://ieeexplore.ieee.org/document/9864321" target="_blank" rel="noopener">IEEE Xplore</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv">
+					<span class="w8-venue">Tutorial &middot; arXiv 2026</span>
+					<h3 class="card-title">A Tutorial on IEEE 802.11bn Multi-AP Coordination for Wi-Fi 8: From Standardization to Performance Evaluation</h3>
+					<p class="w8-authors">F. Wilhelmi, B. Bellalta, G. Geraci, L. Galati-Giordano, F. Meneghello, A. Kijanka, I. Val, D. L&oacute;pez-P&eacute;rez</p>
+					<p class="card-text">The deep dive on Co-TDMA, Co-SR, Co-BF and Co-RTWT, with an open-source Wi-Fi 8 simulator used to test whether coordination can hit the 25% targets.</p>
+					<div class="w8-links"><a href="https://arxiv.org/abs/2606.13759" target="_blank" rel="noopener">arXiv:2606.13759</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv" data-delay="70">
+					<span class="w8-venue">Problems of Information Transmission &middot; 2025</span>
+					<h3 class="card-title">A Tutorial on Wi-Fi 8: The Journey to Ultra High Reliability</h3>
+					<p class="w8-authors">A. Karamyshev, I. Levitsky, D. Bankov, E. Khorov &middot; vol. 61, no. 2, pp. 164&ndash;210</p>
+					<p class="card-text">Feature-by-feature: distributed-tone resource units, unequal modulation, prioritised and non-primary channel access, roaming and multi-AP coordination.</p>
+					<div class="w8-links"><a href="https://doi.org/10.1134/S003294602502005X" target="_blank" rel="noopener">DOI</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv">
+					<span class="w8-venue">Survey &middot; arXiv 2026</span>
+					<h3 class="card-title">Towards Ultra-High Reliability in Wi-Fi 8: IEEE 802.11bn Core Mechanisms, mmWave Integration, and Performance Verification</h3>
+					<p class="w8-authors">X. Liu, M. Gan, W. Dai, Y. Dong, C. C.-K. Chan, J. Song</p>
+					<p class="card-text">System-level simulations of whether the 802.11bn mechanisms meet their targets, plus how integrated mmWave could extend Wi-Fi's spectrum.</p>
+					<div class="w8-links"><a href="https://arxiv.org/abs/2607.19931" target="_blank" rel="noopener">arXiv:2607.19931</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv" data-delay="70">
+					<span class="w8-venue">Tutorial &middot; arXiv 2025</span>
+					<h3 class="card-title">Wi-Fi: Twenty-Five Years and Counting</h3>
+					<p class="w8-authors">G. Geraci, F. Meneghello, F. Wilhelmi, D. L&oacute;pez-P&eacute;rez, I. Val, L. Galati Giordano, C. Cordeiro, M. Ghosh, E. Knightly, B. Bellalta</p>
+					<p class="card-text">From 802.11b to 802.11bn, organised by mechanism rather than generation &mdash; the best long read on why each generation looks the way it does.</p>
+					<div class="w8-links"><a href="https://arxiv.org/abs/2507.09613" target="_blank" rel="noopener">arXiv:2507.09613</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv">
+					<span class="w8-venue">IEEE Communications Surveys &amp; Tutorials &middot; 2019</span>
+					<h3 class="card-title">A Tutorial on IEEE 802.11ax High Efficiency WLANs</h3>
+					<p class="w8-authors">E. Khorov, A. Kiryanov, A. Lyakhov, G. Bianchi &middot; vol. 21, no. 1, pp. 197&ndash;216</p>
+					<p class="card-text">The Wi-Fi 6 PHY reset in detail: OFDMA, the new numerology, trigger-based uplink &mdash; the foundation everything on this page sits on.</p>
+					<div class="w8-links"><a href="https://doi.org/10.1109/COMST.2018.2871099" target="_blank" rel="noopener">DOI</a></div>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="card p-4 w8-paper rv" data-delay="70">
+					<span class="w8-venue">IEEE Wireless Communications &middot; 2016</span>
+					<h3 class="card-title">IEEE 802.11ax: High-Efficiency WLANs</h3>
+					<p class="w8-authors">B. Bellalta &middot; vol. 23, no. 1, pp. 38&ndash;46</p>
+					<p class="card-text">Written while 802.11ax was still being designed: why dense deployments forced a different approach, and part of the answer to why it took so long.</p>
+					<div class="w8-links"><a href="https://doi.org/10.1109/MWC.2016.7422404" target="_blank" rel="noopener">DOI</a><a href="https://arxiv.org/abs/1501.01496" target="_blank" rel="noopener">Free preprint (arXiv)</a></div>
+				</article>
+			</div>
+		</div>
+
+		<div class="card p-4 p-md-5 rv">
+			<h3 class="card-title mb-3">Standards and schedules</h3>
+			<dl class="row deflist g-0">
+				<dt class="col-sm-5"><a href="https://www.ieee802.org/11/Reports/tgbn_update.htm" target="_blank" rel="noopener">IEEE P802.11 TGbn status</a></dt>
+				<dd class="col-sm-7">The task group's own page: scope, objectives, draft milestones and the projected approval date.</dd>
+				<dt class="col-sm-5"><a href="https://www.ieee802.org/11/Reports/802.11_Timelines.htm" target="_blank" rel="noopener">IEEE 802.11 official timelines</a></dt>
+				<dd class="col-sm-7">Ballot and approval dates for every amendment &mdash; the source for the project-duration chart above.</dd>
+				<dt class="col-sm-5"><a href="https://www.ieee802.org/11/" target="_blank" rel="noopener">IEEE 802.11 working group</a></dt>
+				<dd class="col-sm-7">Current task and study groups, including 802.11bq, bp, bt, bi and AI Offload.</dd>
+				<dt class="col-sm-5"><a href="https://research.samsung.com/blog/IEEE-802-11bn-Ultra-High-Reliability-UHR-Wi-Fi-8" target="_blank" rel="noopener">Samsung Research &mdash; IEEE 802.11bn UHR</a></dt>
+				<dd class="col-sm-7">A clear engineering walkthrough from a TGbn contributor; the source for the ELR and DRU figures.</dd>
+			</dl>
+		</div>
+		<p class="small-note mt-3 mb-0">Wi-Fi 8 is a draft. Feature names, parameters and dates on this page follow the IEEE 802.11bn draft and working-group reports as of October 2026, and may change before the standard is approved. Some everyday analogies here &mdash; the noisy bar, the piano keyboard, the highway &mdash; follow Techquickie's "What is Wi-Fi 8?" explainer.</p>
+	</div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+	<div class="container" style="max-width:880px;">
+		<div class="sect-head mx-auto text-center"><span class="eyebrow">Questions</span><h2>Wi-Fi 8, answered</h2></div>
+		<div class="accordion" id="faqWifi8">
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e1">Should I wait for Wi-Fi 8 before upgrading?</button></h3>
+				<div id="e1" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Only if you're buying in 2028 anyway. Certified Wi-Fi 8 products are expected around the start of 2028, and the features that matter most need Wi-Fi 8 phones and laptops too. If your network struggles now, a properly wired <a href="wifi-6-7.html">Wi-Fi 7 or 6E</a> deployment fixes most of it today &mdash; and Wi-Fi 8 is fully backward compatible when you do move.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e2">Is Wi-Fi 8 faster than Wi-Fi 7?</button></h3>
+				<div id="e2" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Not at the peak; the ceiling is identical. It is meant to be faster where it counts &mdash; at the edge of coverage, in a crowded channel and in the slowest moments &mdash; which are the speeds you actually experience.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e3">Will my Wi-Fi 6 and Wi-Fi 7 devices work on a Wi-Fi 8 router?</button></h3>
+				<div id="e3" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Yes. They connect normally and benefit indirectly from coordination between access points. Client-side features such as ELR, distributed resource units and seamless roaming need Wi-Fi 8 in the device as well.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e4">Can I buy Wi-Fi 8 now?</button></h3>
+				<div id="e4" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Chips and a few early routers are appearing, built to a draft. Like early Wi-Fi 6 and 7 gear, they may need firmware updates as the standard settles, and some features may arrive later or not at all. For a business network we would wait for certification.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e5">Will Wi-Fi 8 really be as reliable as a cable?</button></h3>
+				<div id="e5" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Closer than any Wi-Fi before it, and measured on the right things. But a radio is still a radio. For anything that truly can't drop &mdash; a POS terminal, a NAS, a workstation that never moves &mdash; use the cable. Use Wi-Fi 8 for everything that moves.</div></div>
+			</div>
+			<div class="accordion-item">
+				<h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e6">Will my ISP give me a Wi-Fi 8 router?</button></h3>
+				<div id="e6" class="accordion-collapse collapse" data-bs-parent="#faqWifi8"><div class="accordion-body">Eventually. Operators typically adopt a generation once it's certified and the chipsets reach their price point, so expect Wi-Fi 8 gateways to roll out from 2028. Until then, the biggest win is usually adding wired access points behind the ISP box &mdash; see <a href="network.html#fttr">FTTR</a> for buildings that can't take new cable.</div></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight pb-5">
+	<div class="container">
+		<div class="cta rv">
+			<h2>Planning a network that should still be right in 2030?</h2>
+			<p class="lead mx-auto mb-4" style="max-width:62ch;">We design for the generation you can buy today and the one coming next: wired backhaul, sensible access-point density and hardware with a clear upgrade path. No guesswork, no upselling to the newest number.</p>
+			<div class="d-flex flex-wrap gap-2 justify-content-center">
+				<a class="btn btn-primary btn-lg" href="contact.html?topic=wifi#enquiry">Talk to us about Wi-Fi</a>
+				<a class="btn btn-outline-light btn-lg" href="wifi-6-7.html">Wi-Fi 6 &amp; 7 lesson</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+	</main>
+
+	<!-- ============ FOOTER ============ -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6">
+					<a href="index.html"><img class="footer-logo" src="assets/img/cc_logo-full-wide-dark.svg" alt="CureComp Technology" width="200" height="38"></a>
+					<p>Computers, managed IT services, networking and Wi-Fi, cloud infrastructure and Malaysia's first third-party GPON ONT &mdash; from Seremban, Negeri Sembilan.</p>
+					<div class="socials">
+						<a href="https://www.facebook.com/CureComp" target="_blank" rel="noopener" aria-label="CureComp on Facebook">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+						</a>
+						<a href="https://wa.me/60178774376" target="_blank" rel="noopener" aria-label="CureComp on WhatsApp">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2m0 2a8 8 0 1 1-4.1 14.9l-.4-.2-2.5.7.7-2.4-.2-.4A8 8 0 0 1 12 4m-3 4c-.3 0-.7.1-1 .5s-1 1-1 2.4 1 2.8 1.2 3 2 3.2 5 4.4c2.5 1 3 .8 3.5.7s1.7-.7 1.9-1.4.2-1.2.2-1.4-.3-.2-.6-.4l-2.2-1c-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.3-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.5-.6.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5z"/></svg>
+						</a>
+						<a href="mailto:curecomp@outlook.com" aria-label="Email CureComp">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-6">
+					<h4>Services</h4>
+					<ul>
+						<li><a href="shop.html">Shop &amp; Repair</a></li>
+						<li><a href="managed-it.html">Managed IT (MSP)</a></li>
+						<li><a href="network.html">Networking &amp; Wi-Fi</a></li>
+						<li><a href="cloud.html">Cloud &amp; Colocation</a></li>
+						<li><a href="pon-stick.html">PON Stick</a></li>
+					</ul>
+
+					<h4 class="mt-4">Learn</h4>
+					<ul>
+						<li><a href="wifi-6-7.html">Wi-Fi 6 &amp; 7 explained</a></li>
+						<li><a href="wifi-8.html">Wi-Fi 8 explained</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-6">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="about.html#clients">Our Clients</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="https://www.facebook.com/CureComp" target="_blank" rel="noopener">Facebook</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<h4>Get in touch</h4>
+					<ul>
+						<li><a href="tel:+60178774376">+6017-877 4376</a></li>
+						<li><a href="mailto:curecomp@outlook.com">curecomp@outlook.com</a></li>
+						<li class="pt-2"><a href="https://www.google.com/maps/search/CureComp/@2.7186364,101.9547445,17z" target="_blank" rel="noopener">No 2-02, Bangunan Seremban Plaza,<br>Jalan Dato Muda Linggi,<br>70100 Seremban, Negeri Sembilan<br><span class="link-arrow mt-1">Open in Google Maps</span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<span>&copy; <span data-year>2026</span> CureComp Technology. All rights reserved.</span>
+				<span>Reg. 201603089199 (NS0161352-H)</span>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="assets/js/main.js?v=3330890f41"></script>
+</body>
+</html>

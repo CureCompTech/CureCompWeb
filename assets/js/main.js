@@ -20,6 +20,66 @@
 		});
 	}
 
+	/* ---- Navbar height, for anything that sticks underneath it ----
+		Skipped while the mobile menu is open, so the expanded panel isn't
+		mistaken for the bar itself. */
+	var setNavHeight = function () {
+		if (!nav || (collapseEl && collapseEl.classList.contains("show"))) return;
+		document.documentElement.style.setProperty("--cc-nav-h", nav.offsetHeight + "px");
+	};
+	setNavHeight();
+	window.addEventListener("resize", setNavHeight);
+
+	/* ---- Chapter menu: scrollspy + reading progress ----
+		Any [data-spy] menu highlights the link for the section currently under
+		it and scales its [data-spy-progress] line with how far down the page the
+		reader is. The active link is scrolled into view inside the menu so it
+		stays visible on phones, where the menu scrolls sideways. */
+	var spy = document.querySelector("[data-spy]");
+	if (spy) {
+		var spyList = spy.querySelector("ol, ul");
+		var spyBar = spy.querySelector("[data-spy-progress]");
+		var spyItems = [];
+		spy.querySelectorAll('a[href^="#"]').forEach(function (a) {
+			var target = document.getElementById(a.getAttribute("href").slice(1));
+			if (target && spyList && spyList.contains(a)) spyItems.push({ link: a, target: target });
+		});
+		var smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+		var current = null, queued = false;
+
+		var updateSpy = function () {
+			queued = false;
+			var line = spy.getBoundingClientRect().bottom + 24;
+			var next = null;
+			spyItems.forEach(function (item) {
+				if (item.target.getBoundingClientRect().top <= line) next = item;
+			});
+			if (next !== current) {
+				if (current) { current.link.classList.remove("active"); current.link.removeAttribute("aria-current"); }
+				if (next) {
+					next.link.classList.add("active");
+					next.link.setAttribute("aria-current", "true");
+					/* Measured from the rects, not offsetLeft: the link's offsetParent is
+						the sticky <nav>, not the list that actually scrolls. */
+					var linkBox = next.link.getBoundingClientRect(), listBox = spyList.getBoundingClientRect();
+					var left = spyList.scrollLeft + (linkBox.left - listBox.left) - (listBox.width - linkBox.width) / 2;
+					spyList.scrollTo({ left: Math.max(left, 0), behavior: smooth ? "smooth" : "auto" });
+				}
+				current = next;
+			}
+			if (spyBar) {
+				var max = document.documentElement.scrollHeight - window.innerHeight;
+				spyBar.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+			}
+		};
+		var queueSpy = function () {
+			if (!queued) { queued = true; requestAnimationFrame(updateSpy); }
+		};
+		window.addEventListener("scroll", queueSpy, { passive: true });
+		window.addEventListener("resize", queueSpy);
+		updateSpy();
+	}
+
 	/* ---- Reveal on scroll ---- */
 	var revealables = document.querySelectorAll(".rv");
 	var revealAll = function () {

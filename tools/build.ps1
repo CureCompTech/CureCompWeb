@@ -159,6 +159,16 @@ $pages = @(
 		 desc='How OFDMA, BSS Coloring, MU-MIMO, TWT and Wi-Fi 7 MLO actually work, with animated diagrams — and why Wi-Fi 5 and older hold a busy network back.'
 		 topbar='A short lesson on 802.11ax and 802.11be — and why Wi-Fi 5 holds you back.' }
 
+	# Special report on 802.11bn. Unlike the Wi-Fi 6/7 lesson it IS in the top
+	# navigation, as a highlighted "New" item with its own nav key, and the page
+	# carries a sticky chapter menu of its own (see body-wifi-8.html).
+	@{ out='wifi-8.html';     nav='wifi8';   body='body-wifi-8.html'; crumb='Wi-Fi 8 explained'
+		 parentCrumb='Networking'; parentOut='network.html'
+		 title='Wi-Fi 8 (802.11bn) Explained | CureComp Technology'
+		 ogtitle='Wi-Fi 8 Explained — Ultra High Reliability, Wi-Fi That Behaves Like a Cable'
+		 desc='How Wi-Fi 8 (IEEE 802.11bn) trades peak speed for reliability: ELR, DRU, NPCA, seamless roaming and multi-AP coordination, animated, plus the road to 2028.'
+		 topbar='Special report: Wi-Fi 8 (IEEE 802.11bn) — wireless that behaves like a cable.' }
+
 	@{ out='cloud.html';      nav='cloud';   body='body-cloud.html'; crumb='Cloud'
 		 title='Dedicated Servers, Colocation & Cloud | CureComp'
 		 ogtitle='Cloud, Colocation & Dedicated Servers on AS154516'
